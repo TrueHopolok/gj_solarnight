@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="BuildList" format=3 uid="uid://d32aym1ox3gnq"]
 
-[ext_resource type="Script" uid="uid://ddlsqsg032paw" path="res://scenes/builder/buildable.gd" id="1_7ewgr"]
+[ext_resource type="Script" path="res://scenes/builder/buildable.gd" id="1_7ewgr"]
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="2_0d06k"]
 [ext_resource type="PackedScene" uid="uid://dym5qbfu5h0e4" path="res://scenes/building/mirror/mirror_dl.tscn" id="3_fioon"]
 [ext_resource type="PackedScene" uid="uid://c00c3vtmev4dv" path="res://scenes/building/mirror/mirror_dr.tscn" id="4_gvddr"]
-[ext_resource type="Script" uid="uid://d1bjkejhlbrs1" path="res://scenes/builder/build_list.gd" id="5_5e1dn"]
+[ext_resource type="Script" path="res://scenes/builder/build_list.gd" id="5_5e1dn"]
 [ext_resource type="PackedScene" uid="uid://bhx3tkm8c6n24" path="res://scenes/building/mirror/splitter_l.tscn" id="5_6p4cn"]
 [ext_resource type="PackedScene" uid="uid://un6w6s3k87c8" path="res://scenes/building/mirror/splitter_r.tscn" id="6_1m00g"]
 [ext_resource type="PackedScene" uid="uid://dmgorvreasa72" path="res://scenes/building/mirror/splitter_b.tscn" id="7_o41uc"]

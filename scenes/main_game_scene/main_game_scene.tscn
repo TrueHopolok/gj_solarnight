@@ -4,16 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://cpvo88ktvlqb4" path="res://scenes/game_manager/game_manager.tscn" id="2_k1t50"]
 [ext_resource type="PackedScene" uid="uid://dco3bp4wnx0tl" path="res://scenes/building/sun/sun.tscn" id="3_k1t50"]
 [ext_resource type="Script" uid="uid://ca785icsltr3n" path="res://scenes/builder/builder.gd" id="4_0w8pv"]
-[ext_resource type="PackedScene" uid="uid://c00c3vtmev4dv" path="res://scenes/building/mirror/mirror_dr.tscn" id="4_k87rj"]
 [ext_resource type="PackedScene" uid="uid://dym5qbfu5h0e4" path="res://scenes/building/mirror/mirror_dl.tscn" id="5_dw0dr"]
 [ext_resource type="PackedScene" uid="uid://un6w6s3k87c8" path="res://scenes/building/mirror/splitter_r.tscn" id="6_8hmrp"]
-[ext_resource type="PackedScene" uid="uid://bhx3tkm8c6n24" path="res://scenes/building/mirror/splitter_l.tscn" id="7_hnlf3"]
-[ext_resource type="PackedScene" uid="uid://dmgorvreasa72" path="res://scenes/building/mirror/splitter_b.tscn" id="8_pp6md"]
 [ext_resource type="PackedScene" uid="uid://bt740y4ks0po" path="res://scenes/building/mirror/splitter_t.tscn" id="9_ev87i"]
 [ext_resource type="PackedScene" uid="uid://ddv7ul50cfopu" path="res://scenes/building/tower/canon.tscn" id="10_gq030"]
 [ext_resource type="PackedScene" uid="uid://b5q0rxrnelrcs" path="res://scenes/building/tower/laser.tscn" id="11_ty5rg"]
 [ext_resource type="PackedScene" uid="uid://qfyraiudtjlh" path="res://scenes/building/tower/mortar.tscn" id="12_gkc0x"]
-[ext_resource type="PackedScene" uid="uid://cf52t3s72va4v" path="res://scenes/enemy/enemy_type/enemy_shield.tscn" id="14_dw0dr"]
 
 [node name="MainGameScene" type="Node2D" unique_id=521506140 groups=["main_game_scene"]]
 script = ExtResource("1_7csvj")
@@ -33,7 +29,6 @@ mouse_filter = 2
 
 [node name="Builder" type="Node2D" parent="." unique_id=645637280]
 script = ExtResource("4_0w8pv")
-placeables = Array[PackedScene]([ExtResource("4_k87rj"), ExtResource("5_dw0dr"), ExtResource("6_8hmrp"), ExtResource("7_hnlf3"), ExtResource("8_pp6md"), ExtResource("9_ev87i"), ExtResource("10_gq030"), ExtResource("11_ty5rg"), ExtResource("12_gkc0x")])
 metadata/_custom_type_script = "uid://ca785icsltr3n"
 
 [node name="Sun" parent="." unique_id=1057295584 instance=ExtResource("3_k1t50")]
@@ -53,9 +48,6 @@ position = Vector2(56, -6)
 [node name="Mortar" parent="." unique_id=1157239026 instance=ExtResource("12_gkc0x")]
 position = Vector2(-24, 8)
 reload_time = 0.1
-
-[node name="Enemy" parent="." unique_id=840357590 instance=ExtResource("14_dw0dr")]
-position = Vector2(-272, -3)
 
 [node name="SplitterR" parent="." unique_id=604295282 instance=ExtResource("6_8hmrp")]
 position = Vector2(-58, -6)
