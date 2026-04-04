@@ -90,6 +90,7 @@ debug_killall={
 2d_physics/layer_1="Building"
 2d_physics/layer_2="LightCollider"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_4="EnemyShield"
 
 [rendering]
 

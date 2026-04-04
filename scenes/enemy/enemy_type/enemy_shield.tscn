@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cf52t3s72va4v"]
+
+[ext_resource type="PackedScene" uid="uid://qnbnsmdfgk34" path="res://scenes/enemy/enemy.tscn" id="1_1y5xm"]
+[ext_resource type="PackedScene" uid="uid://82xcd2i4rd2o" path="res://scenes/enemy/enemy_shield/enemy_shield.tscn" id="2_3ruxo"]
+
+[node name="Enemy" unique_id=840357590 instance=ExtResource("1_1y5xm")]
+HEALTH = 8
+MOVEMENT_SPEED = 35.0
+MATERIALS_DROPPED = 8
+
+[node name="EnemyShield" parent="Sprite2D" parent_id_path=PackedInt32Array(505247766) index="0" unique_id=448864929 instance=ExtResource("2_3ruxo")]
+position = Vector2(-16, 0)

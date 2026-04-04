@@ -4,16 +4,16 @@ extends CharacterBody2D
 
 signal died(materials_dropped: int)
 
-## 2 hp = 1 cannon
-@export var HEALTH: int = 4
+## 3 hp = 1 cannon
+@export var HEALTH: int = 5
 ## dmg/attack -> 10 / dmg = time for mirror
 @export var ATTACK_DAMAGE: int = 1
 ## sec/attack
 @export var ATTACK_COOLDOWN: float = 1.0
 ## px/sec -> 320 / speed = time
-@export var MOVEMENT_SPEED: float = 100.0
+@export var MOVEMENT_SPEED: float = 30.0
 ## materials/death
-@export var MATERIALS_DROPPED: int = 1
+@export var MATERIALS_DROPPED: int = 2
 ## go straight for the sun
 @export var IGNORE_BULIDINGS: bool = false
 
@@ -22,6 +22,8 @@ signal died(materials_dropped: int)
 @onready var _main_game_scene: Node2D = get_tree().get_first_node_in_group('main_game_scene')
 
 var _attack_cooldown: float = 0.0
+
+var _dead: bool = false
 
 
 func _input(event: InputEvent) -> void:
@@ -79,6 +81,12 @@ func _attack() -> bool:
 func damage(dmg: int) -> void:
 	HEALTH -= dmg
 	if HEALTH <= 0:
+		_dead = true
+		$CollisionShape2D.set_deferred(&'disabled', true)
 		# TODO: show death
 		died.emit(MATERIALS_DROPPED)
 		queue_free()
+
+
+func is_dead() -> bool:
+	return _dead

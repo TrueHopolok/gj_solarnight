@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://684psgs780jy"]
+
+[ext_resource type="PackedScene" uid="uid://qnbnsmdfgk34" path="res://scenes/enemy/enemy.tscn" id="1_7ar82"]
+
+[node name="Enemy" unique_id=840357590 instance=ExtResource("1_7ar82")]
+HEALTH = 4
+ATTACK_DAMAGE = 2
+ATTACK_COOLDOWN = 0.75
+MOVEMENT_SPEED = 25.0
+MATERIALS_DROPPED = 4
