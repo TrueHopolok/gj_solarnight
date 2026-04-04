@@ -8,6 +8,7 @@ extends Node2D
 @onready var button_split_b: Button = $CanvasLayer/ScrollContainer/HBoxContainer/ButtonSplitB
 @onready var button_split_u: Button = $CanvasLayer/ScrollContainer/HBoxContainer/ButtonSplitU
 @onready var button_lightbulb: Button = $CanvasLayer/ScrollContainer/HBoxContainer/ButtonLightbulb
+@onready var button_deselect: Button = $CanvasLayer/ScrollContainer/HBoxContainer/ButtonDeselect
 
 @onready var builder: Builder = $Builder
 
@@ -20,3 +21,4 @@ func _ready() -> void:
 	button_split_b.pressed.connect(builder.select_building.bind(4))
 	button_split_u.pressed.connect(builder.select_building.bind(5))
 	button_lightbulb.pressed.connect(builder.select_building.bind(6))
+	button_deselect.pressed.connect(builder.deselect_building)
