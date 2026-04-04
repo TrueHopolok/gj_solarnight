@@ -7,15 +7,17 @@ const SUN_MULTIPLIER: float = 1.5
 @export var reload_time: float = 3.0
 @export var projectile: PackedScene
 @export var fire_manually: bool = false
-
+@export var initial_health: int = 50
 
 var _reload_left: float
 var _energry: bool = false
 var _under_sun: bool = false
+var _health: int
 
 
 func _ready() -> void:
 	_reload_left = randf_range(reload_time, reload_time * 2)
+	_health = initial_health
 
 
 func _physics_process(delta: float) -> void:
@@ -73,3 +75,14 @@ func set_sun_state(v: bool) -> void:
 
 func set_light_state(v: bool) -> void:
 	_energry = v
+
+
+
+func damage(val: int) -> void:
+	_health -= val
+	if _health < 0:
+		die()
+
+
+func die() -> void:
+	queue_free()

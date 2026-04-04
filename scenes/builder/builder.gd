@@ -51,7 +51,11 @@ func _try_place(at: Vector2) -> void:
 
 	var inst := placeables[_selected_index].instantiate()
 	inst.position = _round_to_cell_center(at)
+
 	add_child(inst)
+
+	if inst.is_in_group(&"light_sensitive") or inst.has_method(&"redirect_light"):
+		inst.tree_exited.connect(_calculate_light, CONNECT_ONE_SHOT)
 
 	_calculate_light()
 
@@ -67,7 +71,6 @@ func _try_delete(at: Vector2) -> void:
 
 	inst.get_parent().remove_child(inst)
 	inst.queue_free()
-	_calculate_light()
 
 
 func _get_scene_at(coord: Vector2i) -> Node:
