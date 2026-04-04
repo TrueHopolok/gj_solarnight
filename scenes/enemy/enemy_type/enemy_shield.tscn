@@ -11,9 +11,10 @@ HEALTH = 8
 MOVEMENT_SPEED = 35.0
 MATERIALS_DROPPED = 8
 
-[node name="EnemyShield" parent="Sprite2D" parent_id_path=PackedInt32Array(505247766) index="0" unique_id=448864929 instance=ExtResource("2_3ruxo")]
+[node name="EnemyShield" parent="." index="0" unique_id=448864929 instance=ExtResource("2_3ruxo")]
+sync_to_physics = false
 
-[node name="CollisionShape2D" parent="." index="1" unique_id=1749457072]
+[node name="CollisionShape2D" parent="." index="2" unique_id=1749457072]
 debug_color = Color(0, 0.937906, 0.9821667, 0.27450982)
 
 [node name="CollisionShape2D" parent="AgroArea" parent_id_path=PackedInt32Array(341088951) index="0" unique_id=1329865744]

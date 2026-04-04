@@ -1,7 +1,7 @@
 extends Node2D
 
 
-const DAMAGE: int = 6
+const DAMAGE: int = 4
 
 @export_flags_2d_physics var raycast_mask: int = 1
 @export_flags_2d_physics var shapecast_mask: int = 1
