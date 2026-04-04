@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dco3bp4wnx0tl"]
 
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="1_g3ldi"]
+[ext_resource type="Script" uid="uid://dufetp8uqm06p" path="res://scenes/building/sun/sun.gd" id="1_vlfx2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ejyq"]
 atlas = ExtResource("1_g3ldi")
@@ -12,6 +13,7 @@ size = Vector2(24, 24)
 [node name="Sun" type="StaticBody2D" unique_id=1057295584 groups=["sun"]]
 collision_layer = 3
 collision_mask = 0
+script = ExtResource("1_vlfx2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1954649595]
 texture = SubResource("AtlasTexture_4ejyq")
