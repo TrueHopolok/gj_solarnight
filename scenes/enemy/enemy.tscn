@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://qnbnsmdfgk34"]
+
+[ext_resource type="Script" uid="uid://c1wf2pi08g270" path="res://scenes/enemy/enemy.gd" id="1_4a83h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4a83h"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3pup"]
+size = Vector2(145, 16)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=840357590 groups=["enemy"]]
+collision_layer = 4
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_4a83h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1749457072]
+shape = SubResource("CircleShape2D_4a83h")
+debug_color = Color(0, 1, 0, 0.27450982)
+
+[node name="AgroArea" type="Area2D" parent="." unique_id=341088951]
+collision_layer = 0
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AgroArea" unique_id=1329865744]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_a3pup")
+debug_color = Color(1, 0, 0, 0.27450982)

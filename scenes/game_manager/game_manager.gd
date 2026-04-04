@@ -35,10 +35,8 @@ var _enemy_spawn_queue: Array[SpawnItem]
 
 var _enemy_shop: Dictionary[String, Array] = {
 	'solo': [
-		## SOLO
-
 		# Fodder (cost of 1)
-		EnemyItem.new(1, [preload('res://scenes/game_manager/game_manager.tscn')]),
+		EnemyItem.new(1, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn')]),
 
 		# Shooter (cost of 2-3)
 
@@ -48,8 +46,6 @@ var _enemy_shop: Dictionary[String, Array] = {
 
 	],
 	'duo': [
-		## DUO (cost scales but not as sum, so more expensive are more preferable)
-
 		# Fodder + Shooter
 
 		# Shield + Shooter
@@ -68,15 +64,14 @@ var _enemy_shop: Dictionary[String, Array] = {
 
 func _enemy_spawn_pos() -> Vector2i:
 	var vec: Vector2i
-	match randi_range(0, 3):
+	match randi_range(0, 2):
 		0:
 			vec = Vector2i(-30, randi_range(-30, 390))
 		1:
 			vec = Vector2i(670, randi_range(-30, 390))
 		2:
-			vec = Vector2i(randi_range(-30, 670), -30)
-		3:
-			vec = Vector2i(randi_range(-30, 670), 390)
+			vec = Vector2i(randi_range(-30, 50), [-30, 390].pick_random())
+	vec -= Vector2i(320, 180)
 	return vec
 
 
@@ -91,7 +86,8 @@ func _enemy_solo_spawn(spawn_item: SpawnItem) -> void:
 	var enemy: Node2D = spawn_item.scene.instantiate() # TODO add enemy class_name
 	enemy.global_position = spawn_item.pos
 	enemy.died.connect(
-		func() -> void:
+		func(materials_dropped: int) -> void:
+			materials_add(materials_dropped)
 			_wave_enemy_counter -= 1
 			if _wave_enemy_counter == 0:
 				wave_ended.emit(_wave_number)
@@ -129,6 +125,7 @@ var _wave_enemy_counter: int
 func wave_start() -> void:
 	_wave_number += 1
 	_wave_enemy_counter = 0
+	print("STARTING WAVE: %d" % _wave_number)
 
 	var shopping_materials: int = _wave_number * WAVE_MATERIALS
 
