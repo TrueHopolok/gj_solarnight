@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dco3bp4wnx0tl"]
 
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="1_g3ldi"]
-[ext_resource type="Script" uid="uid://dufetp8uqm06p" path="res://scenes/building/sun/sun.gd" id="1_vlfx2"]
+[ext_resource type="Script" path="res://scenes/building/sun/sun.gd" id="1_vlfx2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ejyq"]
 atlas = ExtResource("1_g3ldi")

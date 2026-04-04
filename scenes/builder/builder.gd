@@ -54,7 +54,7 @@ func _try_place(at: Vector2) -> void:
 
 	var inst := build_list.items[_selected_index].scene.instantiate()
 	inst.position = _round_to_cell_center(at)
-
+	inst.set_meta(&"builder_price", build_list.items[_selected_index].price)
 	add_child(inst)
 
 	if inst.is_in_group(&"light_sensitive") or inst.has_method(&"redirect_light"):
@@ -72,6 +72,7 @@ func _try_delete(at: Vector2) -> void:
 	if not inst.is_in_group(&"player_built"):
 		return
 
+	GameManager.get_instance().materials_add(inst.get_meta(&"builder_price", 0) as int / 2)
 	inst.get_parent().remove_child(inst)
 	inst.queue_free()
 
