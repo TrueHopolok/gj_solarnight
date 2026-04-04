@@ -141,7 +141,7 @@ signal wave_ended(wave_completed: int)
 const WAVE_MATERIALS: int = 5
 const WAVE_MINIMAL_MATERIALS: int = 10
 
-var _wave_number: int = 0 # important to set as 0, so first wave would be 1
+var _wave_number: int = 20 # important to set as 0, so first wave would be 1
 var _wave_enemy_counter: int
 
 

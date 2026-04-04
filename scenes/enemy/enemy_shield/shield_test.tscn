@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bbsysvr1e8cgm"]
+
+[ext_resource type="PackedScene" uid="uid://82xcd2i4rd2o" path="res://scenes/enemy/enemy_shield/enemy_shield.tscn" id="1_1u7mq"]
+[ext_resource type="PackedScene" uid="uid://c4l6t3fwm1jr7" path="res://scenes/building/tower/canonball.tscn" id="2_5vvp5"]
+[ext_resource type="PackedScene" uid="uid://cf52t3s72va4v" path="res://scenes/enemy/enemy_type/enemy_shield.tscn" id="3_qiaep"]
+[ext_resource type="PackedScene" uid="uid://dco3bp4wnx0tl" path="res://scenes/building/sun/sun.tscn" id="4_3m2xl"]
+
+[node name="ShieldTest" type="Node2D" unique_id=343111113]
+
+[node name="EnemyShield" parent="." unique_id=448864929 instance=ExtResource("1_1u7mq")]
+position = Vector2(400, 72)
+
+[node name="EnemyShield2" parent="." unique_id=744433033 groups=["enemy"] instance=ExtResource("1_1u7mq")]
+position = Vector2(480, 72)
+
+[node name="Canonball" parent="." unique_id=843264937 instance=ExtResource("2_5vvp5")]
+position = Vector2(72, 195)
+
+[node name="Canonball2" parent="." unique_id=1391010202 instance=ExtResource("2_5vvp5")]
+position = Vector2(67, 172)
+
+[node name="Canonball3" parent="." unique_id=1704255031 instance=ExtResource("2_5vvp5")]
+position = Vector2(64, 208)
+
+[node name="Enemy" parent="." unique_id=840357590 instance=ExtResource("3_qiaep")]
+position = Vector2(392, 256)
+MOVEMENT_SPEED = 30.1
+
+[node name="Sun" parent="." unique_id=1057295584 instance=ExtResource("4_3m2xl")]
+position = Vector2(40, 184)

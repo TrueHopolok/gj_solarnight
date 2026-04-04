@@ -23,8 +23,6 @@ signal died(materials_dropped: int)
 
 var _attack_cooldown: float = 0.0
 
-var _dead: bool = false
-
 
 func _input(event: InputEvent) -> void:
 	if OS.is_debug_build() && event.is_action_pressed(&'debug_killall'):
@@ -86,7 +84,6 @@ func _attack() -> bool:
 func damage(dmg: int) -> void:
 	HEALTH -= dmg
 	if HEALTH <= 0:
-		_dead = true
 		$CollisionShape2D.set_deferred(&'disabled', true)
 		# TODO: show death
 		died.emit(MATERIALS_DROPPED)
@@ -94,4 +91,4 @@ func damage(dmg: int) -> void:
 
 
 func is_dead() -> bool:
-	return _dead
+	return HEALTH <= 0
