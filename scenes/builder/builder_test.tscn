@@ -10,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dmgorvreasa72" path="res://scenes/building/mirror/splitter_b.tscn" id="6_ifhcp"]
 [ext_resource type="PackedScene" uid="uid://bt740y4ks0po" path="res://scenes/building/mirror/splitter_t.tscn" id="7_1qxg1"]
 [ext_resource type="PackedScene" uid="uid://cy3oha0ardfa8" path="res://scenes/building/lightbulb/lightbulb.tscn" id="8_fwtt1"]
+[ext_resource type="PackedScene" uid="uid://ddv7ul50cfopu" path="res://scenes/building/tower/canon.tscn" id="11_rocfi"]
+[ext_resource type="PackedScene" uid="uid://c6m2t0msh8u8e" path="res://scenes/enemy/enemy_type/enemy_fodder.tscn" id="12_c3rwh"]
 
-[node name="BuilderTest" type="Node2D" unique_id=1599685715]
+[node name="BuilderTest" type="Node2D" unique_id=1599685715 groups=["main_game_scene"]]
 script = ExtResource("1_cyu0q")
 
 [node name="Builder" type="Node2D" parent="." unique_id=1636076812]
@@ -66,3 +68,42 @@ text = "┴"
 [node name="ButtonLightbulb" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=2128935399]
 layout_mode = 2
 text = "O"
+
+[node name="Canon" parent="." unique_id=1512153694 instance=ExtResource("11_rocfi")]
+position = Vector2(-6.0000076, -73)
+
+[node name="Canon2" parent="." unique_id=1897481567 instance=ExtResource("11_rocfi")]
+position = Vector2(8, -45)
+
+[node name="Canon4" parent="." unique_id=753039175 instance=ExtResource("11_rocfi")]
+position = Vector2(-303, -130)
+
+[node name="Canon3" parent="." unique_id=1040262217 instance=ExtResource("11_rocfi")]
+position = Vector2(6, -110)
+
+[node name="Enemy" parent="." unique_id=840357590 instance=ExtResource("12_c3rwh")]
+position = Vector2(301, 153)
+
+[node name="Enemy2" parent="." unique_id=729938245 instance=ExtResource("12_c3rwh")]
+position = Vector2(429, 130)
+
+[node name="Enemy3" parent="." unique_id=10014967 instance=ExtResource("12_c3rwh")]
+position = Vector2(394, 257)
+
+[node name="Enemy4" parent="." unique_id=790029279 instance=ExtResource("12_c3rwh")]
+position = Vector2(397, 209)
+
+[node name="Enemy5" parent="." unique_id=581030612 instance=ExtResource("12_c3rwh")]
+position = Vector2(373, 174)
+
+[node name="Enemy6" parent="." unique_id=351442646 instance=ExtResource("12_c3rwh")]
+position = Vector2(253, 197)
+
+[node name="Enemy7" parent="." unique_id=1449921778 instance=ExtResource("12_c3rwh")]
+position = Vector2(233, 110)
+
+[node name="Enemy8" parent="." unique_id=1401887763 instance=ExtResource("12_c3rwh")]
+position = Vector2(381, 96)
+
+[node name="Enemy9" parent="." unique_id=699151498 instance=ExtResource("12_c3rwh")]
+position = Vector2(225, 141)
