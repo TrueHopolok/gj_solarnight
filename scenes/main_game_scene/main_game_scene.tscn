@@ -4,12 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://cpvo88ktvlqb4" path="res://scenes/game_manager/game_manager.tscn" id="2_k1t50"]
 [ext_resource type="PackedScene" uid="uid://dco3bp4wnx0tl" path="res://scenes/building/sun/sun.tscn" id="3_k1t50"]
 [ext_resource type="Script" uid="uid://ca785icsltr3n" path="res://scenes/builder/builder.gd" id="4_0w8pv"]
-[ext_resource type="PackedScene" uid="uid://dym5qbfu5h0e4" path="res://scenes/building/mirror/mirror_dl.tscn" id="5_dw0dr"]
-[ext_resource type="PackedScene" uid="uid://un6w6s3k87c8" path="res://scenes/building/mirror/splitter_r.tscn" id="6_8hmrp"]
-[ext_resource type="PackedScene" uid="uid://bt740y4ks0po" path="res://scenes/building/mirror/splitter_t.tscn" id="9_ev87i"]
-[ext_resource type="PackedScene" uid="uid://ddv7ul50cfopu" path="res://scenes/building/tower/canon.tscn" id="10_gq030"]
-[ext_resource type="PackedScene" uid="uid://b5q0rxrnelrcs" path="res://scenes/building/tower/laser.tscn" id="11_ty5rg"]
-[ext_resource type="PackedScene" uid="uid://qfyraiudtjlh" path="res://scenes/building/tower/mortar.tscn" id="12_gkc0x"]
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="12_k87rj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw0dr"]
@@ -28,31 +22,6 @@ script = ExtResource("4_0w8pv")
 metadata/_custom_type_script = "uid://ca785icsltr3n"
 
 [node name="Sun" parent="." unique_id=1057295584 instance=ExtResource("3_k1t50")]
-
-[node name="Canon" parent="." unique_id=1512153694 instance=ExtResource("10_gq030")]
-position = Vector2(-40, 28)
-
-[node name="Canon2" parent="." unique_id=432604037 instance=ExtResource("10_gq030")]
-position = Vector2(-72, -32)
-
-[node name="Canon3" parent="." unique_id=1678849440 instance=ExtResource("10_gq030")]
-position = Vector2(-80, 28)
-
-[node name="Laser" parent="." unique_id=626864128 instance=ExtResource("11_ty5rg")]
-position = Vector2(56, -6)
-
-[node name="Mortar" parent="." unique_id=1157239026 instance=ExtResource("12_gkc0x")]
-position = Vector2(-24, 8)
-reload_time = 0.1
-
-[node name="SplitterR" parent="." unique_id=604295282 instance=ExtResource("6_8hmrp")]
-position = Vector2(-58, -6)
-
-[node name="MirrorDL" parent="." unique_id=927636601 instance=ExtResource("5_dw0dr")]
-position = Vector2(-56, -32)
-
-[node name="SplitterT" parent="." unique_id=1009355285 instance=ExtResource("9_ev87i")]
-position = Vector2(-56, 28)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=331024947]
 
