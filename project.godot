@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="pixelart_template"
+config/name="solar_punk"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://cu3wdat0ouma0"
 
@@ -53,7 +53,9 @@ folder_colors={
 
 [global_group]
 
-AudioSettings=""
+game_manager=""
+audio_settings=""
+main_game_scene=""
 
 [gui]
 

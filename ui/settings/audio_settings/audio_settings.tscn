@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://i0n7cjiw24yl"]
+[gd_scene format=3 uid="uid://i0n7cjiw24yl"]
 
 [ext_resource type="Script" uid="uid://b4lw8m4s6631l" path="res://ui/settings/audio_settings/audio_settings.gd" id="1_lfgo3"]
 [ext_resource type="Script" uid="uid://cocpu06gyo2pv" path="res://ui/settings/audio_settings/audio_slider.gd" id="1_vska6"]
 
-[node name="AudioSettings" type="VBoxContainer" groups=["AudioSettings"]]
+[node name="AudioSettings" type="VBoxContainer" unique_id=455712532 groups=["audio_settings"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,22 +13,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lfgo3")
 
-[node name="TitleLabel" type="Label" parent="."]
+[node name="TitleLabel" type="Label" parent="." unique_id=2086668379]
 layout_mode = 2
 text = "Audio Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GeneralContainer" type="HBoxContainer" parent="."]
+[node name="GeneralContainer" type="HBoxContainer" parent="." unique_id=10803477]
 layout_mode = 2
 
-[node name="GeneralLabel" type="Label" parent="GeneralContainer"]
+[node name="GeneralLabel" type="Label" parent="GeneralContainer" unique_id=744868401]
 layout_mode = 2
 text = "General"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GeneralSlider" type="HSlider" parent="GeneralContainer"]
+[node name="GeneralSlider" type="HSlider" parent="GeneralContainer" unique_id=1805039343]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
@@ -37,16 +37,16 @@ value = 0.5
 script = ExtResource("1_vska6")
 bus_name = &"Master"
 
-[node name="MusicContainer" type="HBoxContainer" parent="."]
+[node name="MusicContainer" type="HBoxContainer" parent="." unique_id=1534751422]
 layout_mode = 2
 
-[node name="MusicLabel" type="Label" parent="MusicContainer"]
+[node name="MusicLabel" type="Label" parent="MusicContainer" unique_id=719470128]
 layout_mode = 2
 text = "    Music"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="MusicContainer"]
+[node name="MusicSlider" type="HSlider" parent="MusicContainer" unique_id=1689493969]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
@@ -55,16 +55,16 @@ value = 0.5
 script = ExtResource("1_vska6")
 bus_name = &"Music"
 
-[node name="SFXContainer" type="HBoxContainer" parent="."]
+[node name="SFXContainer" type="HBoxContainer" parent="." unique_id=168321967]
 layout_mode = 2
 
-[node name="SFXLabel" type="Label" parent="SFXContainer"]
+[node name="SFXLabel" type="Label" parent="SFXContainer" unique_id=1803265392]
 layout_mode = 2
 text = "        SFX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SFXSlider" type="HSlider" parent="SFXContainer"]
+[node name="SFXSlider" type="HSlider" parent="SFXContainer" unique_id=379770730]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
