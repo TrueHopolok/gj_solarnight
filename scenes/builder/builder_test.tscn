@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dmgorvreasa72" path="res://scenes/building/mirror/splitter_b.tscn" id="6_ifhcp"]
 [ext_resource type="PackedScene" uid="uid://bt740y4ks0po" path="res://scenes/building/mirror/splitter_t.tscn" id="7_1qxg1"]
 [ext_resource type="PackedScene" uid="uid://cy3oha0ardfa8" path="res://scenes/building/lightbulb/lightbulb.tscn" id="8_fwtt1"]
+[ext_resource type="PackedScene" uid="uid://qfyraiudtjlh" path="res://scenes/building/tower/mortar.tscn" id="12_3c4em"]
 [ext_resource type="PackedScene" uid="uid://c6m2t0msh8u8e" path="res://scenes/enemy/enemy_type/enemy_fodder.tscn" id="12_c3rwh"]
-[ext_resource type="PackedScene" uid="uid://b5q0rxrnelrcs" path="res://scenes/building/tower/laser.tscn" id="13_3c4em"]
 
 [node name="BuilderTest" type="Node2D" unique_id=1599685715 groups=["main_game_scene"]]
 script = ExtResource("1_cyu0q")
@@ -77,5 +77,5 @@ MOVEMENT_SPEED = 0.0
 position = Vector2(286, 139)
 MOVEMENT_SPEED = 0.0
 
-[node name="Laser" parent="." unique_id=1512153694 instance=ExtResource("13_3c4em")]
-position = Vector2(96.34688, 20.69931)
+[node name="Mortar" parent="." unique_id=1512153694 instance=ExtResource("12_3c4em")]
+position = Vector2(170.08203, -80.03125)

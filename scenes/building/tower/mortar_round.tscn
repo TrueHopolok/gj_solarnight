@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c3rdihofwh032"]
+
+[ext_resource type="Script" uid="uid://dqak2jphsvq5g" path="res://scenes/building/tower/mortar_round.gd" id="1_fwk4h"]
+
+[node name="MortarRound" type="Node2D" unique_id=640226538]
+script = ExtResource("1_fwk4h")
+collision_mask = 4

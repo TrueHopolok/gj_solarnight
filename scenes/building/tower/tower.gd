@@ -6,6 +6,7 @@ const SUN_MULTIPLIER: float = 1.5
 
 @export var reload_time: float = 3.0
 @export var projectile: PackedScene
+@export var fire_manually: bool = false
 
 
 var _reload_left: float
@@ -27,7 +28,10 @@ func _physics_process(delta: float) -> void:
 		_reload_left -= delta
 
 	if _reload_left <= 0:
-		shoot()
+		if fire_manually:
+			_reload_left = 0
+		else:
+			shoot()
 
 
 static func pick_target(pos: Vector2) -> Node2D:
