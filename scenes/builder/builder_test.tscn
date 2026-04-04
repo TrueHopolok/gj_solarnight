@@ -1,18 +1,23 @@
 [gd_scene format=3 uid="uid://blrxfip3rf3cx"]
 
-[ext_resource type="PackedScene" uid="uid://dco3bp4wnx0tl" path="res://scenes/build_test/sun.tscn" id="1_c3iil"]
-[ext_resource type="Script" uid="uid://ca785icsltr3n" path="res://scenes/build_test/build_test.gd" id="1_sgb50"]
-[ext_resource type="PackedScene" uid="uid://c00c3vtmev4dv" path="res://scenes/build_test/mirror_dr.tscn" id="2_rtg1y"]
-[ext_resource type="PackedScene" uid="uid://dym5qbfu5h0e4" path="res://scenes/build_test/mirror_dl.tscn" id="3_fwtt1"]
-[ext_resource type="PackedScene" uid="uid://un6w6s3k87c8" path="res://scenes/build_test/splitter_r.tscn" id="4_g3gi7"]
-[ext_resource type="PackedScene" uid="uid://bhx3tkm8c6n24" path="res://scenes/build_test/splitter_l.tscn" id="5_76ts0"]
-[ext_resource type="PackedScene" uid="uid://dmgorvreasa72" path="res://scenes/build_test/splitter_b.tscn" id="6_ifhcp"]
-[ext_resource type="PackedScene" uid="uid://bt740y4ks0po" path="res://scenes/build_test/splitter_t.tscn" id="7_1qxg1"]
-[ext_resource type="PackedScene" uid="uid://cy3oha0ardfa8" path="res://scenes/build_test/lightbulb.tscn" id="8_fwtt1"]
+[ext_resource type="PackedScene" uid="uid://dco3bp4wnx0tl" path="res://scenes/building/sun/sun.tscn" id="1_c3iil"]
+[ext_resource type="Script" uid="uid://d14othi433ga2" path="res://scenes/builder/builder_test.gd" id="1_cyu0q"]
+[ext_resource type="Script" uid="uid://ca785icsltr3n" path="res://scenes/builder/builder.gd" id="1_sgb50"]
+[ext_resource type="PackedScene" uid="uid://c00c3vtmev4dv" path="res://scenes/building/mirror/mirror_dr.tscn" id="2_rtg1y"]
+[ext_resource type="PackedScene" uid="uid://dym5qbfu5h0e4" path="res://scenes/building/mirror/mirror_dl.tscn" id="3_fwtt1"]
+[ext_resource type="PackedScene" uid="uid://un6w6s3k87c8" path="res://scenes/building/mirror/splitter_r.tscn" id="4_g3gi7"]
+[ext_resource type="PackedScene" uid="uid://bhx3tkm8c6n24" path="res://scenes/building/mirror/splitter_l.tscn" id="5_76ts0"]
+[ext_resource type="PackedScene" uid="uid://dmgorvreasa72" path="res://scenes/building/mirror/splitter_b.tscn" id="6_ifhcp"]
+[ext_resource type="PackedScene" uid="uid://bt740y4ks0po" path="res://scenes/building/mirror/splitter_t.tscn" id="7_1qxg1"]
+[ext_resource type="PackedScene" uid="uid://cy3oha0ardfa8" path="res://scenes/building/lightbulb/lightbulb.tscn" id="8_fwtt1"]
 
-[node name="BuildTest" type="Node2D" unique_id=1599685715]
+[node name="BuilderTest" type="Node2D" unique_id=1599685715]
+script = ExtResource("1_cyu0q")
+
+[node name="Builder" type="Node2D" parent="." unique_id=1636076812]
 script = ExtResource("1_sgb50")
 placeables = Array[PackedScene]([ExtResource("2_rtg1y"), ExtResource("3_fwtt1"), ExtResource("4_g3gi7"), ExtResource("5_76ts0"), ExtResource("6_ifhcp"), ExtResource("7_1qxg1"), ExtResource("8_fwtt1")])
+metadata/_custom_type_script = "uid://ca785icsltr3n"
 
 [node name="Sun" parent="." unique_id=1057295584 instance=ExtResource("1_c3iil")]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cf3komskoiiuj"]
 
-[ext_resource type="Script" uid="uid://l0c3fkdyhaua" path="res://scenes/build_test/mirror.gd" id="1_2u7ob"]
+[ext_resource type="Script" uid="uid://l0c3fkdyhaua" path="res://scenes/building/mirror/mirror.gd" id="1_2u7ob"]
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="1_xwryx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2u7ob"]

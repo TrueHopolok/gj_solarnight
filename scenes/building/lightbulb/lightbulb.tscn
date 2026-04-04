@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cy3oha0ardfa8"]
 
-[ext_resource type="Script" uid="uid://c7dkjjpyr5lfa" path="res://scenes/build_test/lightbulb.gd" id="1_j74os"]
+[ext_resource type="Script" uid="uid://c7dkjjpyr5lfa" path="res://scenes/building/lightbulb/lightbulb.gd" id="1_j74os"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cqcfn"]
 radius = 6.0

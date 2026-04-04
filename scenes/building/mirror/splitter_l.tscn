@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhx3tkm8c6n24"]
 
-[ext_resource type="PackedScene" uid="uid://cf3komskoiiuj" path="res://scenes/build_test/mirror.tscn" id="1_cidpr"]
+[ext_resource type="PackedScene" uid="uid://cf3komskoiiuj" path="res://scenes/building/mirror/mirror.tscn" id="1_cidpr"]
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="2_bv7bf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d74v7"]
@@ -20,5 +20,4 @@ texture = SubResource("AtlasTexture_d74v7")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=245277124]
 position = Vector2(2, 0)
-rotation = 0.0
 shape = SubResource("CircleShape2D_bv7bf")

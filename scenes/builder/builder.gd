@@ -1,3 +1,4 @@
+class_name Builder
 extends Node2D
 
 
@@ -14,26 +15,8 @@ var _preview_instance: Node2D = null
 
 var _light_beams: PackedVector2Array
 
-# this is temporary
-
-@onready var button_mirror_r: Button = $CanvasLayer/ScrollContainer/HBoxContainer/ButtonMirrorR
-@onready var button_mirror_l: Button = $CanvasLayer/ScrollContainer/HBoxContainer/ButtonMirrorL
-@onready var button_split_r: Button = $CanvasLayer/ScrollContainer/HBoxContainer/ButtonSplitR
-@onready var button_split_l: Button = $CanvasLayer/ScrollContainer/HBoxContainer/ButtonSplitL
-@onready var button_split_b: Button = $CanvasLayer/ScrollContainer/HBoxContainer/ButtonSplitB
-@onready var button_split_u: Button = $CanvasLayer/ScrollContainer/HBoxContainer/ButtonSplitU
-@onready var button_light: Button = $CanvasLayer/ScrollContainer/HBoxContainer/ButtonLightbulb
-
 
 func _ready() -> void:
-	button_mirror_r.pressed.connect(select_building.bind(0))
-	button_mirror_l.pressed.connect(select_building.bind(1))
-	button_split_r.pressed.connect(select_building.bind(2))
-	button_split_l.pressed.connect(select_building.bind(3))
-	button_split_b.pressed.connect(select_building.bind(4))
-	button_split_u.pressed.connect(select_building.bind(5))
-	button_light.pressed.connect(select_building.bind(6))
-
 	_calculate_light()
 
 
