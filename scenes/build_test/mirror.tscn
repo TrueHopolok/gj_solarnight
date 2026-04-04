@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ctjw6cwed2y16"]
+
+[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="1_xwryx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u7ob"]
+atlas = ExtResource("1_xwryx")
+region = Rect2(24, 12, 12, 12)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_83x0x"]
+radius = 2.1213205
+height = 15.556351
+
+[node name="Mirror" type="StaticBody2D" unique_id=604295282 groups=["player_built"]]
+collision_layer = 3
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=375172614]
+texture = SubResource("AtlasTexture_2u7ob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=245277124]
+rotation = 0.7853982
+shape = SubResource("CapsuleShape2D_83x0x")
