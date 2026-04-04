@@ -31,6 +31,11 @@ func _input(event: InputEvent) -> void:
 		damage(HEALTH)
 
 
+func _ready() -> void:
+	if position.x < 0.0:
+		$Sprite2D.flip_h = true
+
+
 func _physics_process(delta: float) -> void:
 	_attack_cooldown = max(0.0, _attack_cooldown - delta)
 	if $AgroArea.has_overlapping_bodies():
@@ -52,9 +57,9 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.ZERO
 			move_and_slide()
 			return
-	velocity = global_position.direction_to(_sun.global_position) * MOVEMENT_SPEED
+	velocity = position.direction_to(_sun.position) * MOVEMENT_SPEED
 	move_and_slide()
-	$AgroArea.rotation = (global_position - _sun.global_position).angle()
+	$AgroArea.rotation = (position - _sun.position).angle()
 
 
 func _attack() -> bool:
@@ -64,16 +69,16 @@ func _attack() -> bool:
 	for body: Node2D in $AgroArea.get_overlapping_bodies():
 		if IGNORE_BULIDINGS && !body.is_in_group('sun'):
 			continue
-		var dist: float = global_position.distance_squared_to(body.global_position)
+		var dist: float = position.distance_squared_to(body.position)
 		if dist < closest_dist:
 			closest_body = body
 			closest_dist = dist
 	if closest_dist == INF:
 		return false
 	var proj: EnemyProjectile = _proj_scene.instantiate()
-	proj.global_position = global_position
+	proj.position = position
 	proj.dmg = ATTACK_DAMAGE
-	proj.dir = global_position.direction_to(closest_body.global_position)
+	proj.dir = position.direction_to(closest_body.position)
 	_main_game_scene.add_child(proj)
 	return true
 

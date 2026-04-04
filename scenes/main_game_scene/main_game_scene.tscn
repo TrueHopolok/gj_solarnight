@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bmj0fk04ljg6s" path="res://scenes/main_game_scene/main_game_scene.gd" id="1_7csvj"]
 [ext_resource type="PackedScene" uid="uid://cpvo88ktvlqb4" path="res://scenes/game_manager/game_manager.tscn" id="2_k1t50"]
-[ext_resource type="PackedScene" uid="uid://dco3bp4wnx0tl" path="res://scenes/build_test/sun.tscn" id="3_k1t50"]
+[ext_resource type="PackedScene" uid="uid://dco3bp4wnx0tl" path="res://scenes/building/sun/sun.tscn" id="3_k1t50"]
+[ext_resource type="PackedScene" uid="uid://cf52t3s72va4v" path="res://scenes/enemy/enemy_type/enemy_shield.tscn" id="4_0w8pv"]
 
 [node name="MainGameScene" type="Node2D" unique_id=521506140 groups=["main_game_scene"]]
 script = ExtResource("1_7csvj")
@@ -12,3 +13,9 @@ script = ExtResource("1_7csvj")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2088516356]
 
 [node name="Sun" parent="." unique_id=1057295584 instance=ExtResource("3_k1t50")]
+
+[node name="Enemy" parent="." unique_id=840357590 instance=ExtResource("4_0w8pv")]
+position = Vector2(-208, 0)
+
+[node name="Enemy2" parent="." unique_id=1785580904 instance=ExtResource("4_0w8pv")]
+position = Vector2(248, 0)

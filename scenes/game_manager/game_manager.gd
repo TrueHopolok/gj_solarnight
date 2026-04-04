@@ -21,70 +21,90 @@ func _physics_process(delta: float) -> void:
 #####################
 ### ENEMY MANAGER ###
 
-const ENEMY_SPAWN_INTERVAL: float = 0.5
+const ENEMY_SPAWN_INTERVAL: float = 0.2
 
 const ENEMY_BOSS_MIN_COST: int = 20
 const ENEMY_COMBO_MIN_COST: int = 100
 const ENEMY_DUO_MIN_COST: int = 10
 
-const ENEMY_BOSS_STARTING_WAVE: int = 5
+const ENEMY_BOSS_STARTING_WAVE: int = 10
 const ENEMY_COMBO_STARTING_WAVE: int = 5
 const ENEMY_DUO_STARTING_WAVE: int = 5
 
 var _enemy_spawn_queue: Array[SpawnItem]
 
-var _enemy_shop: Dictionary[String, Array] = {
-	'solo': [
-		# Fodder (cost of 1)
-		EnemyItem.new(1, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn')]),
+var _enemy_shop: Array[EnemyItem] = [
+	## SOLO:
 
-		# Shooter (cost of 2-3)
+	# Fodder (increased spawn priority)
+	EnemyItem.new(1, 2, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn')]),
+	EnemyItem.new(1, 2, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn')]),
+	EnemyItem.new(1, 2, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn')]),
+	EnemyItem.new(1, 2, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn')]),
+	EnemyItem.new(1, 2, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn')]),
 
-		# Shield (high cost preferably)
+	# Shooter (increased spawn priority)
+	EnemyItem.new(3, 5, [preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+	EnemyItem.new(3, 5, [preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
 
-		# Flying (mediun cost)
+	# Blimp
+	EnemyItem.new(5, 10, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]),
 
-	],
-	'duo': [
-		# Fodder + Shooter
+	# Shield
+	EnemyItem.new(10, 15, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn')]),
 
-		# Shield + Shooter
+	## DUO:
 
-		# Shield + Flying
+	# Fodder + Shooter (increased spawn priority)
+	EnemyItem.new(4, 6, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+	EnemyItem.new(4, 6, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
 
-	],
-	'combo': [
+	# Blimp + Shooter
+	EnemyItem.new(7, 12, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
 
-	],
-	'boss': [
+	# Shield + Shooter
+	EnemyItem.new(12, 17, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
 
-	],
-}
+	# Shield + Blimp
+	EnemyItem.new(15, 20, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]),
+
+	## COMBO:
+
+	# Blimp + 2xShooter
+	EnemyItem.new(9, 13, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+
+	# Shield + 2xShooter
+	EnemyItem.new(14, 18, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+
+	# 2xShield + 2xBlimp
+	EnemyItem.new(20, 18, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn'), preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]),
+]
 
 
 func _enemy_spawn_pos() -> Vector2i:
 	var vec: Vector2i
 	match randi_range(0, 2):
 		0:
-			vec = Vector2i(-30, randi_range(-30, 390))
+			vec = Vector2i(randi_range(-40, -30), randi_range(-30, 390))
 		1:
-			vec = Vector2i(670, randi_range(-30, 390))
+			vec = Vector2i(randi_range(670, 680), randi_range(-30, 390))
 		2:
-			vec = Vector2i(randi_range(-30, 50), [-30, 390].pick_random())
+			vec = Vector2i(randi_range(-30, 50), [randi_range(-40, -30), randi_range(390, 400)].pick_random())
 	vec -= Vector2i(320, 180)
 	return vec
 
 
-func _enemy_pack_spawn(enemies: Array[PackedScene]) -> void:
-	var spawn_pos: Vector2i = _enemy_spawn_pos()
-	for enemy_scene: PackedScene in enemies:
-		_enemy_spawn_queue.push_back(SpawnItem.new(spawn_pos, enemy_scene))
+func _enemy_pack_spawn(enemy_pack: Array[PackedScene]) -> void:
+	var pos: Vector2i = _enemy_spawn_pos()
+	for scene: PackedScene in enemy_pack:
+		_enemy_spawn_queue.push_back(SpawnItem.new(pos, scene))
 		_wave_enemy_counter += 1
+		pos.x = pos.x - 5 if pos.x <= 360 else pos.x + 5
 
 
-func _enemy_solo_spawn(spawn_item: SpawnItem) -> void:
-	var enemy: Node2D = spawn_item.scene.instantiate() # TODO add enemy class_name
-	enemy.global_position = spawn_item.pos
+func _enemy_solo_spawn(spawn: SpawnItem) -> void:
+	var enemy: Node2D = spawn.scene.instantiate() # TODO add enemy class_name
+	enemy.global_position = spawn.pos
 	enemy.died.connect(
 		func(materials_dropped: int) -> void:
 			materials_add(materials_dropped)
@@ -98,17 +118,19 @@ func _enemy_solo_spawn(spawn_item: SpawnItem) -> void:
 class SpawnItem:
 	var pos: Vector2i
 	var scene: PackedScene
-	func _init(spawn_pos: Vector2i, spawn_scene: PackedScene) -> void:
-		pos = spawn_pos
-		scene = spawn_scene
+	func _init(_pos: Vector2i, _scene: PackedScene) -> void:
+		pos = _pos
+		scene = _scene
 
 
 class EnemyItem:
+	var starting_wave: int
 	var cost: int
 	var enemies_pack: Array[PackedScene]
-	func _init(enemy_cost: int, loaded_enemies: Array[PackedScene]) -> void:
-		cost = enemy_cost
-		enemies_pack = loaded_enemies
+	func _init(_starting_wave: int, _cost: int, _enemies_pack: Array[PackedScene]) -> void:
+		starting_wave = _starting_wave
+		cost = _cost
+		enemies_pack = _enemies_pack
 
 
 ####################
@@ -117,6 +139,7 @@ class EnemyItem:
 signal wave_ended(wave_completed: int)
 
 const WAVE_MATERIALS: int = 5
+const WAVE_MINIMAL_MATERIALS: int = 10
 
 var _wave_number: int = 0 # important to set as 0, so first wave would be 1
 var _wave_enemy_counter: int
@@ -125,45 +148,27 @@ var _wave_enemy_counter: int
 func wave_start() -> void:
 	_wave_number += 1
 	_wave_enemy_counter = 0
-	print("STARTING WAVE: %d" % _wave_number)
 
-	var shopping_materials: int = _wave_number * WAVE_MATERIALS
+	var shopping_materials: int = max(WAVE_MINIMAL_MATERIALS, _wave_number * WAVE_MATERIALS)
+	print("STARTING WAVE: %d  |  sm=%d" % [_wave_number, shopping_materials])
 
-	var combination: Array[WaveItem] = [
-		WaveItem.new('solo', 0, 1),
-		WaveItem.new('duo', ENEMY_DUO_STARTING_WAVE, ENEMY_DUO_MIN_COST),
-		WaveItem.new('combo', ENEMY_COMBO_STARTING_WAVE, ENEMY_COMBO_MIN_COST)
-	]
-	combination.shuffle()
-	if _wave_number % 5 && _wave_number >= ENEMY_BOSS_STARTING_WAVE:
-		combination.insert(0, WaveItem.new('boss', ENEMY_BOSS_STARTING_WAVE, ENEMY_BOSS_MIN_COST))
+	_enemy_shop.shuffle()
+	if _wave_number % 5 == 0 && _wave_number >= ENEMY_BOSS_STARTING_WAVE:
+		print("this probably should be a boss wave, but we do not have a boss T_T")
 
 	while shopping_materials > 0:
 		var prev_shopping_materials: int = shopping_materials
 
-		for wave_item: WaveItem in combination:
-			if _wave_number < wave_item.starting_wave || shopping_materials < wave_item.min_cost:
+		for enemy: EnemyItem in _enemy_shop:
+			if _wave_number < enemy.starting_wave || shopping_materials < enemy.cost:
 				continue
-			_enemy_shop[wave_item.type_name].shuffle()
-			for enemy_item: EnemyItem in _enemy_shop[wave_item.type_name]:
-				if enemy_item.cost > shopping_materials:
-					continue
-				shopping_materials -= enemy_item.cost
-				_enemy_pack_spawn(enemy_item.enemies_pack)
-		_enemy_spawn_queue.reverse()
+			shopping_materials -= enemy.cost
+			_enemy_pack_spawn(enemy.enemies_pack)
 
 		if prev_shopping_materials == shopping_materials:
 			break
 
-
-class WaveItem:
-	var type_name: String
-	var starting_wave: int
-	var min_cost: int
-	func _init(enemy_type: String, first_spawn_wave: int, smallest_enemy_cost: int) -> void:
-		type_name = enemy_type
-		starting_wave = first_spawn_wave
-		min_cost = smallest_enemy_cost
+	_enemy_spawn_queue.reverse()
 
 
 ########################

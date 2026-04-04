@@ -12,3 +12,7 @@ script = ExtResource("1_jr3ss")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632511940]
 shape = SubResource("CircleShape2D_w1ldr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=40601866]
+position = Vector2(-160, -90)
+rect = Rect2(-32, -30, 384, 240)
