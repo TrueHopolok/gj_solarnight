@@ -159,16 +159,6 @@ func wave_start() -> void:
 			break
 
 
-func game_over() -> void:
-	'''
-	TODO:
-	1) Pause the game;
-	2) Play gameover sound / cutscene;
-	3) Transition to game over screen;
-	'''
-	print("GAME OVER")
-
-
 class WaveItem:
 	var type_name: String
 	var starting_wave: int
