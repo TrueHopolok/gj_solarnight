@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	global_position += dir * delta * SPEED
+	position += dir * delta * SPEED
 
 
 func _on_body_entered(body: Node2D) -> void:
