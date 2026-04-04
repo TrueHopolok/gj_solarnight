@@ -8,10 +8,10 @@ const TILE_SIZE := Vector2.ONE * 12
 const BUILDING_COLLISION_MASK: int = 1
 const LIGHT_COLLISION_MASK: int = 2
 
-@export var placeables: Array[PackedScene] = []
+@export var build_list: BuildList = preload("uid://d32aym1ox3gnq")
 
 var _selected_index: int = -1
-var _preview_instance: Node2D = null
+var _preview_instance: Sprite2D = null
 
 var _light_beams: PackedVector2Array
 
@@ -49,7 +49,10 @@ func _try_place(at: Vector2) -> void:
 	if _get_scene_at(_world_to_map(at)) != null:
 		return # already placed
 
-	var inst := placeables[_selected_index].instantiate()
+	if not GameManager.get_instance().materials_buy(build_list.items[_selected_index].price):
+		return
+
+	var inst := build_list.items[_selected_index].scene.instantiate()
 	inst.position = _round_to_cell_center(at)
 
 	add_child(inst)
@@ -81,7 +84,6 @@ func _get_scene_at(coord: Vector2i) -> Node:
 	params.collide_with_bodies = true
 	params.collision_mask = BUILDING_COLLISION_MASK
 	params.position = to_global(pos)
-	params.exclude = _extract_rids([_preview_instance])
 
 	var res := get_world_2d().direct_space_state.intersect_point(params, 1)
 	if res.is_empty():
@@ -146,7 +148,7 @@ func _calculate_light_recursive(
 	params.collide_with_areas = true
 	params.collide_with_bodies = true
 	params.collision_mask = LIGHT_COLLISION_MASK
-	params.exclude = _extract_rids([_preview_instance, _get_scene_at(from)])
+	params.exclude = _extract_rids([_get_scene_at(from)])
 	params.hit_from_inside = true
 	params.from = _map_to_world(from)
 	params.to = params.from + _dir_to_vec(dir) * A_LOT
@@ -202,28 +204,26 @@ func _extract_rids(nodes: Array[CollisionObject2D]) -> Array[RID]:
 
 
 func select_building(idx: int) -> void:
-	assert(idx == -1 or (0 <= idx and idx < placeables.size()),
-		"select building: index %s with len %s" % [idx, placeables.size()])
+	assert(idx == -1 or (0 <= idx and idx < build_list.items.size()),
+		"select building: index %s with len %s" % [idx, build_list.items.size()])
 
 	if idx == _selected_index:
 		return
 
-	if is_instance_valid(_preview_instance):
-		_preview_instance.queue_free()
+	if not is_instance_valid(_preview_instance):
+		_preview_instance = Sprite2D.new()
+		_preview_instance.modulate.a = 0.5
+		add_child(_preview_instance)
 
+	_preview_instance.visible = idx >= 0
+	_preview_instance.texture = null if idx == -1 else build_list.items[idx].preview
 	_selected_index = idx
-	_preview_instance = placeables[idx].instantiate()
-	_preview_instance.set_process(false)
-	_preview_instance.set_physics_process(false)
-	_preview_instance.set_process_input(false)
-	_preview_instance.set_process_shortcut_input(false)
-	_preview_instance.set_process_unhandled_input(false)
-	_preview_instance.set_process_unhandled_key_input(false)
-	_preview_instance.modulate.a = 0.5
-
 	_preview_instance.position = _round_to_cell_center(get_local_mouse_position())
-	add_child(_preview_instance)
+
+
+func deselect_building() -> void:
+	select_building(-1)
 
 
 func building_num() -> int:
-	return placeables.size()
+	return build_list.items.size()
