@@ -2,12 +2,62 @@
 
 [ext_resource type="PackedScene" uid="uid://dco3bp4wnx0tl" path="res://scenes/build_test/sun.tscn" id="1_c3iil"]
 [ext_resource type="Script" uid="uid://ca785icsltr3n" path="res://scenes/build_test/build_test.gd" id="1_sgb50"]
-[ext_resource type="PackedScene" uid="uid://ctjw6cwed2y16" path="res://scenes/build_test/mirror.tscn" id="2_kn0vu"]
+[ext_resource type="PackedScene" uid="uid://c00c3vtmev4dv" path="res://scenes/build_test/mirror_dr.tscn" id="2_rtg1y"]
+[ext_resource type="PackedScene" uid="uid://dym5qbfu5h0e4" path="res://scenes/build_test/mirror_dl.tscn" id="3_fwtt1"]
+[ext_resource type="PackedScene" uid="uid://un6w6s3k87c8" path="res://scenes/build_test/splitter_r.tscn" id="4_g3gi7"]
+[ext_resource type="PackedScene" uid="uid://bhx3tkm8c6n24" path="res://scenes/build_test/splitter_l.tscn" id="5_76ts0"]
+[ext_resource type="PackedScene" uid="uid://dmgorvreasa72" path="res://scenes/build_test/splitter_b.tscn" id="6_ifhcp"]
+[ext_resource type="PackedScene" uid="uid://bt740y4ks0po" path="res://scenes/build_test/splitter_t.tscn" id="7_1qxg1"]
+[ext_resource type="PackedScene" uid="uid://cy3oha0ardfa8" path="res://scenes/build_test/lightbulb.tscn" id="8_fwtt1"]
 
 [node name="BuildTest" type="Node2D" unique_id=1599685715]
 script = ExtResource("1_sgb50")
-placeables = Array[PackedScene]([ExtResource("2_kn0vu")])
+placeables = Array[PackedScene]([ExtResource("2_rtg1y"), ExtResource("3_fwtt1"), ExtResource("4_g3gi7"), ExtResource("5_76ts0"), ExtResource("6_ifhcp"), ExtResource("7_1qxg1"), ExtResource("8_fwtt1")])
 
 [node name="Sun" parent="." unique_id=1057295584 instance=ExtResource("1_c3iil")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1148579003]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=192658482]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer" unique_id=1559878180]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ScrollContainer" unique_id=165247818]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ButtonMirrorR" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=1473772247]
+layout_mode = 2
+text = "/"
+
+[node name="ButtonMirrorL" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=1632430306]
+layout_mode = 2
+text = "\\"
+
+[node name="ButtonSplitR" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=1913193925]
+layout_mode = 2
+text = "├"
+
+[node name="ButtonSplitL" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=787644721]
+layout_mode = 2
+text = "┤"
+
+[node name="ButtonSplitB" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=946478974]
+layout_mode = 2
+text = "┬"
+
+[node name="ButtonSplitU" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=1346283311]
+layout_mode = 2
+text = "┴"
+
+[node name="ButtonLightbulb" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=2128935399]
+layout_mode = 2
+text = "O"

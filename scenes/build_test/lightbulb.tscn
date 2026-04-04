@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cy3oha0ardfa8"]
+
+[ext_resource type="Script" uid="uid://c7dkjjpyr5lfa" path="res://scenes/build_test/lightbulb.gd" id="1_j74os"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cqcfn"]
+radius = 6.0
+
+[node name="Lightbulb" type="StaticBody2D" unique_id=1082487418 groups=["light_sensitive", "player_built"]]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_j74os")
+color_active = Color(0.78410983, 0.6702013, 0.17637062, 1)
+color_inactive = Color(0.1993736, 0.13439092, 0.03769758, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=223162959]
+shape = SubResource("CircleShape2D_cqcfn")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=671009629]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
