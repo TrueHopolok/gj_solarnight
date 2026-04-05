@@ -16,24 +16,34 @@
 [ext_resource type="Texture2D" uid="uid://c5g8ktreclx0q" path="res://assets/sprites/guns.png" id="11_1nmtp"]
 [ext_resource type="PackedScene" uid="uid://qfyraiudtjlh" path="res://scenes/building/tower/mortar.tscn" id="11_c2mrs"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ifvt4"]
-atlas = ExtResource("2_o41uc")
-region = Rect2(0, 24, 12, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pblee"]
+atlas = ExtResource("11_1nmtp")
+region = Rect2(56, 0, 12, 12)
 
-[sub_resource type="Resource" id="Resource_fq1x2"]
+[sub_resource type="Resource" id="Resource_eem80"]
 script = ExtResource("1_7ewgr")
-scene = ExtResource("3_fioon")
-preview = SubResource("AtlasTexture_ifvt4")
+scene = ExtResource("9_pblee")
+preview = SubResource("AtlasTexture_pblee")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6p4cn"]
-atlas = ExtResource("2_o41uc")
-region = Rect2(24, 24, 12, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq1x2"]
+atlas = ExtResource("11_1nmtp")
+region = Rect2(57, 14, 10, 12)
 
-[sub_resource type="Resource" id="Resource_c2mrs"]
+[sub_resource type="Resource" id="Resource_838gh"]
 script = ExtResource("1_7ewgr")
-scene = ExtResource("4_gvddr")
-preview = SubResource("AtlasTexture_6p4cn")
+scene = ExtResource("10_fq1x2")
+preview = SubResource("AtlasTexture_fq1x2")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2mrs"]
+atlas = ExtResource("11_1nmtp")
+region = Rect2(56, 28, 12, 12)
+
+[sub_resource type="Resource" id="Resource_p64n2"]
+script = ExtResource("1_7ewgr")
+scene = ExtResource("11_c2mrs")
+preview = SubResource("AtlasTexture_c2mrs")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0dh48"]
@@ -56,6 +66,26 @@ scene = ExtResource("6_1nmtp")
 preview = SubResource("AtlasTexture_sy30w")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifvt4"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(0, 24, 12, 12)
+
+[sub_resource type="Resource" id="Resource_fq1x2"]
+script = ExtResource("1_7ewgr")
+scene = ExtResource("3_fioon")
+preview = SubResource("AtlasTexture_ifvt4")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p4cn"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(24, 24, 12, 12)
+
+[sub_resource type="Resource" id="Resource_c2mrs"]
+script = ExtResource("1_7ewgr")
+scene = ExtResource("4_gvddr")
+preview = SubResource("AtlasTexture_6p4cn")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdqv5"]
 atlas = ExtResource("2_o41uc")
 region = Rect2(0, 12, 12, 12)
@@ -64,6 +94,26 @@ region = Rect2(0, 12, 12, 12)
 script = ExtResource("1_7ewgr")
 scene = ExtResource("5_6p4cn")
 preview = SubResource("AtlasTexture_fdqv5")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2fd4"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="Resource" id="Resource_qsgfc"]
+script = ExtResource("1_7ewgr")
+scene = ExtResource("8_1nmtp")
+preview = SubResource("AtlasTexture_i2fd4")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qojc3"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(12, 24, 12, 12)
+
+[sub_resource type="Resource" id="Resource_theyt"]
+script = ExtResource("1_7ewgr")
+scene = ExtResource("7_o41uc")
+preview = SubResource("AtlasTexture_qojc3")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7mqj"]
@@ -96,57 +146,7 @@ scene = SubResource("PackedScene_vbcbp")
 preview = SubResource("AtlasTexture_f7mqj")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qojc3"]
-atlas = ExtResource("2_o41uc")
-region = Rect2(12, 24, 12, 12)
-
-[sub_resource type="Resource" id="Resource_theyt"]
-script = ExtResource("1_7ewgr")
-scene = ExtResource("7_o41uc")
-preview = SubResource("AtlasTexture_qojc3")
-metadata/_custom_type_script = "uid://ddlsqsg032paw"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i2fd4"]
-atlas = ExtResource("2_o41uc")
-region = Rect2(12, 0, 12, 12)
-
-[sub_resource type="Resource" id="Resource_qsgfc"]
-script = ExtResource("1_7ewgr")
-scene = ExtResource("8_1nmtp")
-preview = SubResource("AtlasTexture_i2fd4")
-metadata/_custom_type_script = "uid://ddlsqsg032paw"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pblee"]
-atlas = ExtResource("11_1nmtp")
-region = Rect2(56, 0, 12, 12)
-
-[sub_resource type="Resource" id="Resource_eem80"]
-script = ExtResource("1_7ewgr")
-scene = ExtResource("9_pblee")
-preview = SubResource("AtlasTexture_pblee")
-metadata/_custom_type_script = "uid://ddlsqsg032paw"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fq1x2"]
-atlas = ExtResource("11_1nmtp")
-region = Rect2(57, 14, 10, 12)
-
-[sub_resource type="Resource" id="Resource_838gh"]
-script = ExtResource("1_7ewgr")
-scene = ExtResource("10_fq1x2")
-preview = SubResource("AtlasTexture_fq1x2")
-metadata/_custom_type_script = "uid://ddlsqsg032paw"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2mrs"]
-atlas = ExtResource("11_1nmtp")
-region = Rect2(56, 28, 12, 12)
-
-[sub_resource type="Resource" id="Resource_p64n2"]
-script = ExtResource("1_7ewgr")
-scene = ExtResource("11_c2mrs")
-preview = SubResource("AtlasTexture_c2mrs")
-metadata/_custom_type_script = "uid://ddlsqsg032paw"
-
 [resource]
 script = ExtResource("5_5e1dn")
-items = Array[ExtResource("1_7ewgr")]([SubResource("Resource_fq1x2"), SubResource("Resource_c2mrs"), SubResource("Resource_wri32"), SubResource("Resource_aa05n"), SubResource("Resource_uy7ey"), SubResource("Resource_y6j0c"), SubResource("Resource_theyt"), SubResource("Resource_qsgfc"), SubResource("Resource_eem80"), SubResource("Resource_838gh"), SubResource("Resource_p64n2")])
+items = Array[ExtResource("1_7ewgr")]([SubResource("Resource_eem80"), SubResource("Resource_838gh"), SubResource("Resource_p64n2"), SubResource("Resource_wri32"), SubResource("Resource_aa05n"), SubResource("Resource_fq1x2"), SubResource("Resource_c2mrs"), SubResource("Resource_uy7ey"), SubResource("Resource_qsgfc"), SubResource("Resource_theyt"), SubResource("Resource_y6j0c")])
 metadata/_custom_type_script = "uid://d1bjkejhlbrs1"

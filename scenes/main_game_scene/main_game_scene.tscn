@@ -24,6 +24,14 @@ viewport_path = NodePath("SubViewport")
 atlas = ExtResource("12_k87rj")
 region = Rect2(73, 0, 11, 12)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnlf3"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.4373444, 0.18196476, 0.16738698, 1)
+
 [node name="MainGameScene" type="Node2D" unique_id=521506140 groups=["main_game_scene"]]
 script = ExtResource("1_7csvj")
 
@@ -113,10 +121,23 @@ size_flags_horizontal = 3
 focus_behavior_recursive = 1
 alignment = 1
 
-[node name="ButtonUnselect" type="Button" parent="UI/Hotbar" unique_id=314429090]
+[node name="Node" type="Node" parent="UI/Hotbar" unique_id=256703975]
+
+[node name="ButtonUnselect" type="Button" parent="UI/Hotbar/Node" unique_id=314429090]
 unique_name_in_owner = true
-layout_mode = 2
+offset_left = 310.0
+offset_top = 374.0
+offset_right = 329.0
+offset_bottom = 394.0
 icon = SubResource("AtlasTexture_dw0dr")
+
+[node name="Selector" type="Panel" parent="UI/Hotbar/Node" unique_id=1987699257]
+unique_name_in_owner = true
+offset_left = 300.0
+offset_top = 375.0
+offset_right = 322.0
+offset_bottom = 396.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hnlf3")
 
 [node name="NextWave" parent="UI" unique_id=164179275 instance=ExtResource("9_b1vg4")]
 offset_left = 528.0
