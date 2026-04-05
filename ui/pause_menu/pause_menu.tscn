@@ -17,7 +17,7 @@ script = ExtResource("1_le02u")
 process_mode = 2
 offset_right = 640.0
 offset_bottom = 360.0
-color = Color(0, 0, 0, 0.27450982)
+color = Color(0, 0, 0, 0.39215687)
 
 [node name="Title" type="Label" parent="." unique_id=569674386]
 process_mode = 2
