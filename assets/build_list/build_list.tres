@@ -1,109 +1,152 @@
 [gd_resource type="Resource" script_class="BuildList" format=3 uid="uid://d32aym1ox3gnq"]
 
 [ext_resource type="Script" uid="uid://ddlsqsg032paw" path="res://scenes/builder/buildable.gd" id="1_7ewgr"]
-[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="2_0d06k"]
+[ext_resource type="Texture2D" uid="uid://bn7tw2cnm24vb" path="res://assets/sprites/mirror.png" id="2_o41uc"]
 [ext_resource type="PackedScene" uid="uid://dym5qbfu5h0e4" path="res://scenes/building/mirror/mirror_dl.tscn" id="3_fioon"]
 [ext_resource type="PackedScene" uid="uid://c00c3vtmev4dv" path="res://scenes/building/mirror/mirror_dr.tscn" id="4_gvddr"]
+[ext_resource type="PackedScene" uid="uid://bjvvacaa02e0m" path="res://scenes/building/mirror/mirror_ul.tscn" id="5_1nmtp"]
 [ext_resource type="Script" uid="uid://d1bjkejhlbrs1" path="res://scenes/builder/build_list.gd" id="5_5e1dn"]
 [ext_resource type="PackedScene" uid="uid://bhx3tkm8c6n24" path="res://scenes/building/mirror/splitter_l.tscn" id="5_6p4cn"]
-[ext_resource type="PackedScene" uid="uid://un6w6s3k87c8" path="res://scenes/building/mirror/splitter_r.tscn" id="6_1m00g"]
+[ext_resource type="PackedScene" uid="uid://dfk8wkgwchcyn" path="res://scenes/building/mirror/mirror_ur.tscn" id="6_1nmtp"]
 [ext_resource type="PackedScene" uid="uid://dmgorvreasa72" path="res://scenes/building/mirror/splitter_b.tscn" id="7_o41uc"]
 [ext_resource type="PackedScene" uid="uid://bt740y4ks0po" path="res://scenes/building/mirror/splitter_t.tscn" id="8_1nmtp"]
+[ext_resource type="PackedScene" uid="uid://cf3komskoiiuj" path="res://scenes/building/mirror/mirror.tscn" id="8_pblee"]
 [ext_resource type="PackedScene" uid="uid://ddv7ul50cfopu" path="res://scenes/building/tower/canon.tscn" id="9_pblee"]
 [ext_resource type="PackedScene" uid="uid://b5q0rxrnelrcs" path="res://scenes/building/tower/laser.tscn" id="10_fq1x2"]
+[ext_resource type="Texture2D" uid="uid://c5g8ktreclx0q" path="res://assets/sprites/guns.png" id="11_1nmtp"]
 [ext_resource type="PackedScene" uid="uid://qfyraiudtjlh" path="res://scenes/building/tower/mortar.tscn" id="11_c2mrs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ifvt4"]
-atlas = ExtResource("2_0d06k")
-region = Rect2(36, 12, 12, 12)
+atlas = ExtResource("2_o41uc")
+region = Rect2(0, 24, 12, 12)
 
-[sub_resource type="Resource" id="Resource_3phmx"]
+[sub_resource type="Resource" id="Resource_fq1x2"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("3_fioon")
 preview = SubResource("AtlasTexture_ifvt4")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6p4cn"]
-atlas = ExtResource("2_0d06k")
-region = Rect2(24, 12, 12, 12)
+atlas = ExtResource("2_o41uc")
+region = Rect2(24, 24, 12, 12)
 
-[sub_resource type="Resource" id="Resource_1m00g"]
+[sub_resource type="Resource" id="Resource_c2mrs"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("4_gvddr")
 preview = SubResource("AtlasTexture_6p4cn")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fdqv5"]
-atlas = ExtResource("2_0d06k")
-region = Rect2(48, 12, 12, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dh48"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(0, 0, 12, 12)
 
-[sub_resource type="Resource" id="Resource_o41uc"]
+[sub_resource type="Resource" id="Resource_wri32"]
+script = ExtResource("1_7ewgr")
+scene = ExtResource("5_1nmtp")
+preview = SubResource("AtlasTexture_0dh48")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy30w"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="Resource" id="Resource_aa05n"]
+script = ExtResource("1_7ewgr")
+scene = ExtResource("6_1nmtp")
+preview = SubResource("AtlasTexture_sy30w")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdqv5"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(0, 12, 12, 12)
+
+[sub_resource type="Resource" id="Resource_uy7ey"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("5_6p4cn")
 preview = SubResource("AtlasTexture_fdqv5")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7mqj"]
-atlas = ExtResource("2_0d06k")
-region = Rect2(60, 12, 12, 12)
+atlas = ExtResource("2_o41uc")
+region = Rect2(24, 12, 12, 12)
 
-[sub_resource type="Resource" id="Resource_1nmtp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n7us"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(24, 12, 12, 12)
+
+[sub_resource type="PackedScene" id="PackedScene_vbcbp"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array()],
+"names": PackedStringArray("SplitterR", "reflection_down", "reflection_up", "reflection_right", "Sprite2D", "texture"),
+"node_count": 2,
+"node_ids": PackedInt32Array(604295282, 375172614),
+"node_paths": [NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 3, 1, 1, 2, 2, 3, 3, 0, 1073741824, -1, 2147483647, 262148, -1, 1, 5, 4, 0),
+"variants": [ExtResource("8_pblee"), Array[int]([3]), Array[int]([3]), Array[int]([0, 1]), SubResource("AtlasTexture_1n7us")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_y6j0c"]
 script = ExtResource("1_7ewgr")
-scene = ExtResource("6_1m00g")
+scene = SubResource("PackedScene_vbcbp")
 preview = SubResource("AtlasTexture_f7mqj")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qojc3"]
-atlas = ExtResource("2_0d06k")
-region = Rect2(48, 0, 12, 12)
+atlas = ExtResource("2_o41uc")
+region = Rect2(12, 24, 12, 12)
 
-[sub_resource type="Resource" id="Resource_pblee"]
+[sub_resource type="Resource" id="Resource_theyt"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("7_o41uc")
 preview = SubResource("AtlasTexture_qojc3")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i2fd4"]
-atlas = ExtResource("2_0d06k")
-region = Rect2(60, 0, 12, 12)
+atlas = ExtResource("2_o41uc")
+region = Rect2(12, 0, 12, 12)
 
-[sub_resource type="Resource" id="Resource_fq1x2"]
+[sub_resource type="Resource" id="Resource_qsgfc"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("8_1nmtp")
 preview = SubResource("AtlasTexture_i2fd4")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wafxf"]
-atlas = ExtResource("2_0d06k")
-region = Rect2(24, 0, 12, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pblee"]
+atlas = ExtResource("11_1nmtp")
+region = Rect2(56, 0, 12, 12)
 
-[sub_resource type="Resource" id="Resource_c2mrs"]
+[sub_resource type="Resource" id="Resource_eem80"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("9_pblee")
-preview = SubResource("AtlasTexture_wafxf")
+preview = SubResource("AtlasTexture_pblee")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_174te"]
-atlas = ExtResource("2_0d06k")
-region = Rect2(24, 0, 12, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq1x2"]
+atlas = ExtResource("11_1nmtp")
+region = Rect2(57, 14, 10, 12)
 
-[sub_resource type="Resource" id="Resource_fdqv5"]
+[sub_resource type="Resource" id="Resource_838gh"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("10_fq1x2")
-preview = SubResource("AtlasTexture_174te")
+preview = SubResource("AtlasTexture_fq1x2")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ill4i"]
-atlas = ExtResource("2_0d06k")
-region = Rect2(24, 0, 12, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2mrs"]
+atlas = ExtResource("11_1nmtp")
+region = Rect2(56, 28, 12, 12)
 
-[sub_resource type="Resource" id="Resource_f7mqj"]
+[sub_resource type="Resource" id="Resource_p64n2"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("11_c2mrs")
-preview = SubResource("AtlasTexture_ill4i")
+preview = SubResource("AtlasTexture_c2mrs")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
 [resource]
 script = ExtResource("5_5e1dn")
-items = Array[ExtResource("1_7ewgr")]([SubResource("Resource_3phmx"), SubResource("Resource_1m00g"), SubResource("Resource_o41uc"), SubResource("Resource_1nmtp"), SubResource("Resource_pblee"), SubResource("Resource_fq1x2"), SubResource("Resource_c2mrs"), SubResource("Resource_fdqv5"), SubResource("Resource_f7mqj")])
+items = Array[ExtResource("1_7ewgr")]([SubResource("Resource_fq1x2"), SubResource("Resource_c2mrs"), SubResource("Resource_wri32"), SubResource("Resource_aa05n"), SubResource("Resource_uy7ey"), SubResource("Resource_y6j0c"), SubResource("Resource_theyt"), SubResource("Resource_qsgfc"), SubResource("Resource_eem80"), SubResource("Resource_838gh"), SubResource("Resource_p64n2")])
 metadata/_custom_type_script = "uid://d1bjkejhlbrs1"

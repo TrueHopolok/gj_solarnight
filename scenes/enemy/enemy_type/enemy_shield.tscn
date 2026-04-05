@@ -2,18 +2,47 @@
 
 [ext_resource type="PackedScene" uid="uid://qnbnsmdfgk34" path="res://scenes/enemy/enemy.tscn" id="1_1y5xm"]
 [ext_resource type="PackedScene" uid="uid://82xcd2i4rd2o" path="res://scenes/enemy/enemy_shield/enemy_shield.tscn" id="2_3ruxo"]
+[ext_resource type="Script" uid="uid://cn810pkgho0wn" path="res://scenes/enemy/enemy_type/enemy_shield.gd" id="2_wr53y"]
+[ext_resource type="Texture2D" uid="uid://h8xrhdrbvesi" path="res://assets/sprites/ships.png" id="3_f4oy8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr53y"]
+atlas = ExtResource("3_f4oy8")
+region = Rect2(35, 21, 36, 26)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4oy8"]
+height = 36.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ruxo"]
 size = Vector2(48, 16)
 
 [node name="Enemy" unique_id=840357590 instance=ExtResource("1_1y5xm")]
+script = ExtResource("2_wr53y")
+_health = null
+_attack_damage = null
+_attack_cooldown = null
+_movement_speed = null
+_materials_dropped = null
+_ignore_buildings = null
 
-[node name="EnemyShield" parent="." index="0" unique_id=448864929 instance=ExtResource("2_3ruxo")]
+[node name="Sprite2D" parent="." index="0" unique_id=505247766]
+position = Vector2(-3, -3)
+texture = SubResource("AtlasTexture_wr53y")
+
+[node name="Shield" parent="." index="1" unique_id=448864929 instance=ExtResource("2_3ruxo")]
+position = Vector2(-21, -8)
 sync_to_physics = false
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=1749457072]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_f4oy8")
 debug_color = Color(0, 0.937906, 0.9821667, 0.27450982)
 
 [node name="CollisionShape2D" parent="AgroArea" parent_id_path=PackedInt32Array(341088951) index="0" unique_id=1329865744]
 position = Vector2(-16, 0)
 shape = SubResource("RectangleShape2D_3ruxo")
+
+[node name="ShieldPosL" type="Marker2D" parent="." index="4" unique_id=1294295083]
+position = Vector2(-21, -8)
+
+[node name="ShieldPosR" type="Marker2D" parent="." index="5" unique_id=1034722145]
+position = Vector2(21, -8)

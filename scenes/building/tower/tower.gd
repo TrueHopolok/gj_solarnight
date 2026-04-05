@@ -3,9 +3,6 @@ extends Node2D
 
 
 const SUN_MULTIPLIER: float = 1.5
-const SUN_POLYGON_POINTS: int = 30
-const SUN_POLYGON_MAJOR: float = 12
-const SUN_POLYGON_MINOR: float = 10
 
 @export var reload_time: float = 3.0
 @export var projectile: PackedScene
@@ -17,8 +14,8 @@ var _energry: bool = false
 var _under_sun: bool = false
 var _health: int
 
-@onready var sun_polygon: Polygon2D = $SunPolygon
-
+@onready var sun_polygon: Node2D = $SunPolygon
+@onready var sprite: AnimatedSprite2D = $Sprite
 
 func _ready() -> void:
 	_reload_left = randf_range(reload_time, reload_time * 2)
@@ -27,17 +24,12 @@ func _ready() -> void:
 	set_light_state(false)
 	set_sun_state(false)
 
-	var polygon: PackedVector2Array
-	for i: int in SUN_POLYGON_POINTS:
-		polygon.push_back(Vector2.RIGHT.rotated(remap(i, 0, SUN_POLYGON_POINTS, 0, TAU))
-			* (SUN_POLYGON_MINOR if i % 2 == 0 else SUN_POLYGON_MAJOR))
-
-	sun_polygon.polygon = polygon
-
 
 func _physics_process(delta: float) -> void:
 	if not _energry:
 		return
+
+	_track_target()
 
 	if _under_sun:
 		_reload_left -= delta * 1.5
@@ -71,6 +63,37 @@ static func pick_target(pos: Vector2) -> Node2D:
 	return closest
 
 
+func _set_sun_state(v: bool) -> void:
+	_under_sun = v
+	sun_polygon.visible = _under_sun
+
+
+
+func _set_light_state(v: bool) -> void:
+	_energry = v
+	sun_polygon.visible = _under_sun
+
+
+## VIRTUAL!
+func _track_target() -> void:
+	var target := pick_target(global_position)
+	if target == null:
+		return
+
+	_look_at(target.global_position)
+
+
+func _look_at(global_pos: Vector2) -> void:
+	var angle := (global_pos - global_position).angle()
+	# 0 = right, positive = cw
+
+	angle = wrapf(angle - PI*0.5, 0, TAU)
+	# 0 = up, positive = cw
+
+	var idx := roundi(remap(angle, 0, TAU, 0, 8)) % 8
+	sprite.frame = idx
+
+
 func shoot() -> void:
 	var target: Node2D = pick_target(global_position)
 	if target == null:
@@ -84,14 +107,19 @@ func shoot() -> void:
 	inst.set(&"target", target)
 
 
+
 func set_sun_state(v: bool) -> void:
-	_under_sun = v
-	sun_polygon.visible = _under_sun
+	if not is_node_ready():
+		ready.connect(_set_sun_state.bind(v), CONNECT_ONE_SHOT|CONNECT_REFERENCE_COUNTED)
+	else:
+		_set_sun_state(v)
 
 
 func set_light_state(v: bool) -> void:
-	_energry = v
-	sun_polygon.visible = _under_sun
+	if not is_node_ready():
+		ready.connect(_set_light_state.bind(v), CONNECT_ONE_SHOT|CONNECT_REFERENCE_COUNTED)
+	else:
+		_set_light_state(v)
 
 
 func damage(val: int) -> void:
