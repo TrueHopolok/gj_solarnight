@@ -1,11 +1,25 @@
 [gd_scene format=3 uid="uid://c6m2t0msh8u8e"]
 
 [ext_resource type="PackedScene" uid="uid://qnbnsmdfgk34" path="res://scenes/enemy/enemy.tscn" id="1_us3ff"]
+[ext_resource type="Texture2D" uid="uid://h8xrhdrbvesi" path="res://assets/sprites/ships.png" id="2_2j1a5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f83u"]
+atlas = ExtResource("2_2j1a5")
+region = Rect2(8, 5, 14, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2j1a5"]
+radius = 7.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us3ff"]
 size = Vector2(24.5, 16)
 
 [node name="Enemy" unique_id=840357590 instance=ExtResource("1_us3ff")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=505247766]
+texture = SubResource("AtlasTexture_5f83u")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1749457072]
+shape = SubResource("CircleShape2D_2j1a5")
 
 [node name="CollisionShape2D" parent="AgroArea" parent_id_path=PackedInt32Array(341088951) index="0" unique_id=1329865744]
 shape = SubResource("RectangleShape2D_us3ff")
