@@ -53,7 +53,7 @@ func _ready() -> void:
 	button_unselect.pressed.connect(builder.deselect_building)
 	_update_selector()
 
-	$Sun.died.connect(builder.hide)
+	%Sun.died.connect(builder.hide)
 
 
 func _unhandled_input(event: InputEvent) -> void:

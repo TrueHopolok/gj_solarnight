@@ -63,10 +63,12 @@ z_index = -1
 script = ExtResource("4_0w8pv")
 metadata/_custom_type_script = "uid://ca785icsltr3n"
 
+[node name="Sun" parent="Builder" unique_id=1057295584 instance=ExtResource("3_k1t50")]
+unique_name_in_owner = true
+z_index = -7
+
 [node name="Objects" type="Node2D" parent="." unique_id=1759718396 groups=["main_game_scene"]]
 y_sort_enabled = true
-
-[node name="Sun" parent="." unique_id=1057295584 instance=ExtResource("3_k1t50")]
 
 [node name="PauseButton" parent="." unique_id=1413801646 instance=ExtResource("9_b1vg4")]
 process_mode = 3

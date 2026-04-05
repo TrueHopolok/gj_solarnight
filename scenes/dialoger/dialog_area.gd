@@ -55,7 +55,7 @@ func _render_line(line: DialogLine) -> void:
 	t.chain().tween_callback(next.set.bind("disabled", false))
 
 	var callable := t.custom_step.bind(1e100)
-	next.pressed.connect(callable, CONNECT_ONE_SHOT)
+	next.pressed.connect(callable)
 
 	await t.finished
 	next.pressed.disconnect(callable)
