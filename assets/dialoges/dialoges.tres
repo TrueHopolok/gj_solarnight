@@ -32,12 +32,18 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
 text = "Use scrollwheel or press 'Q' to select the canon.
-Press LMB to place it on the field. Be aware, [wave freq=2][color=orange]canons must be powered by the Sun[/color]."
+Press LMB to place it on the field. Be aware, [wave freq=2][color=orange]all cannons must be powered by the Sun[/color]."
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_rmcqy"]
+script = ExtResource("2_mjpo8")
+speaker = "[color=gray]Tutorial[/color]"
+text = "To unselect current building press 'Space'."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_vwykj"]
 script = ExtResource("1_pgein")
-dialog_pack = Array[ExtResource("2_mjpo8")]([SubResource("Resource_pl5cf"), SubResource("Resource_qg7ps"), SubResource("Resource_pgein"), SubResource("Resource_mjpo8"), SubResource("Resource_vwyhe")])
+dialog_pack = Array[ExtResource("2_mjpo8")]([SubResource("Resource_pl5cf"), SubResource("Resource_qg7ps"), SubResource("Resource_pgein"), SubResource("Resource_mjpo8"), SubResource("Resource_vwyhe"), SubResource("Resource_rmcqy")])
 metadata/_custom_type_script = "uid://bvu05un8hxew1"
 
 [sub_resource type="Resource" id="Resource_hv5yp"]
