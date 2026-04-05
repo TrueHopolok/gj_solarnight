@@ -1,13 +1,24 @@
 [gd_scene format=3 uid="uid://dnuyswecqo2wf"]
 
+[ext_resource type="Texture2D" uid="uid://bnp27aglyhddw" path="res://assets/sprites/game over.png" id="1_i7awf"]
 [ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="1_rbamj"]
 [ext_resource type="AudioStream" uid="uid://bwmdx0xlackyf" path="res://audio/music/levelMusic_intense.wav" id="1_rsdiu"]
 [ext_resource type="Script" uid="uid://bnyd2oaoh74f3" path="res://ui/gameover_menu/button_restart.gd" id="2_akiq2"]
-[ext_resource type="Script" path="res://ui/gameover_menu/score_label.gd" id="2_qqyla"]
+[ext_resource type="Script" uid="uid://6ow22fqjctnb" path="res://ui/gameover_menu/score_label.gd" id="2_qqyla"]
 [ext_resource type="Script" uid="uid://bhlvakmnrbcv2" path="res://ui/gameover_menu/button_return.gd" id="3_kt1v6"]
 [ext_resource type="AudioStream" uid="uid://drw1cuauj8hsf" path="res://audio/sfx/ui/sound_BUUUUUMMM.wav" id="5_6wnpt"]
 
 [node name="GameoverMenu" type="CanvasLayer" unique_id=628126712]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2038769635]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_i7awf")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1103123614]
 stream = ExtResource("1_rsdiu")
@@ -16,10 +27,10 @@ autoplay = true
 bus = &"Music_lowpass"
 
 [node name="Title" type="Label" parent="." unique_id=1246260745]
-offset_left = 224.0
-offset_top = 96.0
-offset_right = 416.0
-offset_bottom = 145.0
+offset_left = 225.0
+offset_top = 170.0
+offset_right = 417.0
+offset_bottom = 219.0
 theme_override_font_sizes/font_size = 48
 text = "GameOver"
 horizontal_alignment = 1
@@ -29,10 +40,10 @@ vertical_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 176.0
-offset_top = 152.0
-offset_right = -176.0
-offset_bottom = -159.0
+offset_left = 177.0
+offset_top = 226.0
+offset_right = -175.0
+offset_bottom = -85.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -44,10 +55,10 @@ vertical_alignment = 1
 script = ExtResource("2_qqyla")
 
 [node name="RestartButton" parent="." unique_id=1413801646 instance=ExtResource("1_rbamj")]
-offset_left = 248.0
-offset_top = 208.0
-offset_right = 392.0
-offset_bottom = 240.0
+offset_left = 171.0
+offset_top = 301.0
+offset_right = 315.0
+offset_bottom = 333.0
 script = ExtResource("2_akiq2")
 
 [node name="Label" parent="RestartButton" index="0" unique_id=960341710]
@@ -58,10 +69,10 @@ process_mode = 3
 stream = ExtResource("5_6wnpt")
 
 [node name="ReturnButton" parent="." unique_id=444219693 instance=ExtResource("1_rbamj")]
-offset_left = 248.0
-offset_top = 248.0
-offset_right = 392.0
-offset_bottom = 280.0
+offset_left = 333.0
+offset_top = 301.0
+offset_right = 477.0
+offset_bottom = 333.0
 script = ExtResource("3_kt1v6")
 
 [node name="Label" parent="ReturnButton" index="0" unique_id=960341710]
