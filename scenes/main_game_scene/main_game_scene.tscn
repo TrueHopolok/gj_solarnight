@@ -10,10 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://dyy30mlffvxph" path="res://ui/pause_menu/pause_menu.tscn" id="8_7v0l4"]
 [ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="9_b1vg4"]
 [ext_resource type="Script" uid="uid://qm0kcu3ig2tq" path="res://ui/pause_menu/button_to_pause.gd" id="9_do46k"]
-[ext_resource type="Script" path="res://scenes/main_game_scene/score_label.gd" id="10_2inbw"]
-[ext_resource type="Script" path="res://scenes/main_game_scene/materials_label.gd" id="11_6hiqo"]
+[ext_resource type="Script" uid="uid://clg3o7qogbi5h" path="res://scenes/main_game_scene/score_label.gd" id="10_2inbw"]
+[ext_resource type="Script" uid="uid://cgfptppkqywh2" path="res://scenes/main_game_scene/materials_label.gd" id="11_6hiqo"]
 [ext_resource type="AudioStream" uid="uid://cxq3ca5el6dja" path="res://audio/sfx/gameplay/sound_not_enough_materials.wav" id="12_dw0dr"]
+[ext_resource type="Script" uid="uid://bdq0qvdqct6el" path="res://scenes/main_game_scene/wave_label.gd" id="12_hnlf3"]
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="12_k87rj"]
+[ext_resource type="Script" uid="uid://c74mokkbt2eu0" path="res://scenes/main_game_scene/next_wave.gd" id="14_8hmrp"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2inbw"]
 viewport_path = NodePath("SubViewport")
@@ -64,6 +66,40 @@ text = "Pause"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=331024947]
 
+[node name="ColorRect" type="ColorRect" parent="UI" unique_id=843631807]
+offset_right = 104.0
+offset_bottom = 56.0
+color = Color(0, 0, 0, 0.27450982)
+
+[node name="ScoreLabel" type="Label" parent="UI/ColorRect" unique_id=1800454882]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 64.0
+offset_bottom = 40.0
+text = "Score: %d"
+vertical_alignment = 1
+script = ExtResource("10_2inbw")
+
+[node name="WaveLabel" type="Label" parent="UI/ColorRect" unique_id=1099541672]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 24.0
+text = "Wave: %d"
+vertical_alignment = 1
+script = ExtResource("12_hnlf3")
+
+[node name="MaterialsLabel" type="Label" parent="UI/ColorRect" unique_id=633829262]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 93.0
+offset_bottom = 56.0
+text = "Materials: %d"
+vertical_alignment = 1
+script = ExtResource("11_6hiqo")
+
+[node name="NotEnoughSFX" type="AudioStreamPlayer" parent="UI/ColorRect/MaterialsLabel" unique_id=573316324]
+stream = ExtResource("12_dw0dr")
+
 [node name="Hotbar" type="HBoxContainer" parent="UI" unique_id=763721529]
 unique_name_in_owner = true
 anchors_preset = 12
@@ -80,24 +116,17 @@ unique_name_in_owner = true
 layout_mode = 2
 icon = SubResource("AtlasTexture_dw0dr")
 
-[node name="ScoreLabel" type="Label" parent="UI" unique_id=1800454882]
-offset_right = 40.0
-offset_bottom = 17.0
-text = "Score: %d"
-vertical_alignment = 1
-script = ExtResource("10_2inbw")
+[node name="NextWave" parent="UI" unique_id=164179275 instance=ExtResource("9_b1vg4")]
+offset_left = 528.0
+offset_top = 328.0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("14_8hmrp")
 
-[node name="MaterialsLabel" type="Label" parent="UI" unique_id=633829262]
-offset_top = 16.0
-offset_right = 93.0
-offset_bottom = 39.0
-text = "Materials: %d"
-vertical_alignment = 1
-script = ExtResource("11_6hiqo")
-
-[node name="NotEnoughSFX" type="AudioStreamPlayer" parent="UI/MaterialsLabel" unique_id=573316324]
-stream = ExtResource("12_dw0dr")
+[node name="Label" parent="UI/NextWave" index="0" unique_id=960341710]
+text = "Next wave"
 
 [node name="PauseMenu" parent="." unique_id=1351550630 instance=ExtResource("8_7v0l4")]
 
 [editable path="PauseButton"]
+[editable path="UI/NextWave"]
