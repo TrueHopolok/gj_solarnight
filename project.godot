@@ -17,7 +17,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="solarpunk"
 run/main_scene="uid://cgicckc6q6ysf"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="uid://cu3wdat0ouma0"
+boot_splash/bg_color=Color(0.13333334, 0.1254902, 0.20392157, 1)
+boot_splash/stretch_mode=4
+boot_splash/use_filter=false
+boot_splash/image="uid://b85tmhtdhseda"
+config/icon="uid://tew7lxra2o21"
+boot_splash/minimum_display_time=1000
 
 [audio]
 
