@@ -84,6 +84,8 @@ projectile = ExtResource("2_nb2ud")
 
 [node name="SunPolygon" type="Sprite2D" parent="." unique_id=919555537]
 modulate = Color(1, 1, 1, 0.8)
+z_index = -1
+z_as_relative = false
 texture = SubResource("AtlasTexture_ddedq")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1941252386]
