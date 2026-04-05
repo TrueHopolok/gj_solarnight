@@ -1,12 +1,76 @@
 [gd_scene format=3 uid="uid://ddv7ul50cfopu"]
 
-[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="1_4fx22"]
 [ext_resource type="Script" uid="uid://x2ibpwgflc7o" path="res://scenes/building/tower/tower.gd" id="2_d30og"]
 [ext_resource type="PackedScene" uid="uid://c4l6t3fwm1jr7" path="res://scenes/building/tower/canonball.tscn" id="2_nb2ud"]
+[ext_resource type="Texture2D" uid="uid://c5g8ktreclx0q" path="res://assets/sprites/guns.png" id="3_nb2ud"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d30og"]
-atlas = ExtResource("1_4fx22")
-region = Rect2(24, 0, 12, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddedq"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(0, 42, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb2ud"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_petq7"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(14, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r43u"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(28, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05qrf"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(42, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1v4h"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(56, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_macr1"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(70, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbbnv"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(84, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvxpi"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(98, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nb2ud"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb2ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_petq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r43u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05qrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1v4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_macr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbbnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvxpi")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nb2ud"]
 size = Vector2(12, 12)
@@ -18,12 +82,14 @@ script = ExtResource("2_d30og")
 reload_time = 1.5
 projectile = ExtResource("2_nb2ud")
 
-[node name="SunPolygon" type="Polygon2D" parent="." unique_id=1200198887]
-color = Color(0.9843137, 0, 0.12941177, 1)
-polygon = PackedVector2Array(-7, -7, -6, -13, -3, -9, -3, -15, 0, -9, 6, -13, 4, -9, 12, -9, 8, -6, 8, -3, 7, -1, 14, 1, 7, 3, 12, 6, 7, 6, 10, 12, 5, 8, 3, 12, 1, 8, -1, 12, -2, 8, -6, 12, -6, 7, -11, 8, -7, 2, -12, 2, -8, -3, -11, -5)
+[node name="SunPolygon" type="Sprite2D" parent="." unique_id=919555537]
+modulate = Color(1, 1, 1, 0.8)
+texture = SubResource("AtlasTexture_ddedq")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=244333039]
-texture = SubResource("AtlasTexture_d30og")
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1941252386]
+sprite_frames = SubResource("SpriteFrames_nb2ud")
+speed_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=519917457]
+visible = false
 shape = SubResource("RectangleShape2D_nb2ud")

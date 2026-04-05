@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="BuildList" format=3 uid="uid://d32aym1ox3gnq"]
 
 [ext_resource type="Script" uid="uid://ddlsqsg032paw" path="res://scenes/builder/buildable.gd" id="1_7ewgr"]
-[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="2_0d06k"]
 [ext_resource type="Texture2D" uid="uid://bn7tw2cnm24vb" path="res://assets/sprites/mirror.png" id="2_o41uc"]
 [ext_resource type="PackedScene" uid="uid://dym5qbfu5h0e4" path="res://scenes/building/mirror/mirror_dl.tscn" id="3_fioon"]
 [ext_resource type="PackedScene" uid="uid://c00c3vtmev4dv" path="res://scenes/building/mirror/mirror_dr.tscn" id="4_gvddr"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cf3komskoiiuj" path="res://scenes/building/mirror/mirror.tscn" id="8_pblee"]
 [ext_resource type="PackedScene" uid="uid://ddv7ul50cfopu" path="res://scenes/building/tower/canon.tscn" id="9_pblee"]
 [ext_resource type="PackedScene" uid="uid://b5q0rxrnelrcs" path="res://scenes/building/tower/laser.tscn" id="10_fq1x2"]
+[ext_resource type="Texture2D" uid="uid://c5g8ktreclx0q" path="res://assets/sprites/guns.png" id="11_1nmtp"]
 [ext_resource type="PackedScene" uid="uid://qfyraiudtjlh" path="res://scenes/building/tower/mortar.tscn" id="11_c2mrs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ifvt4"]
@@ -116,34 +116,34 @@ scene = ExtResource("8_1nmtp")
 preview = SubResource("AtlasTexture_i2fd4")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wafxf"]
-atlas = ExtResource("2_0d06k")
-region = Rect2(24, 0, 12, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pblee"]
+atlas = ExtResource("11_1nmtp")
+region = Rect2(56, 0, 12, 12)
 
 [sub_resource type="Resource" id="Resource_eem80"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("9_pblee")
-preview = SubResource("AtlasTexture_wafxf")
+preview = SubResource("AtlasTexture_pblee")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_174te"]
-atlas = ExtResource("2_0d06k")
-region = Rect2(24, 0, 12, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq1x2"]
+atlas = ExtResource("11_1nmtp")
+region = Rect2(57, 14, 10, 12)
 
 [sub_resource type="Resource" id="Resource_838gh"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("10_fq1x2")
-preview = SubResource("AtlasTexture_174te")
+preview = SubResource("AtlasTexture_fq1x2")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ill4i"]
-atlas = ExtResource("2_0d06k")
-region = Rect2(24, 0, 12, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2mrs"]
+atlas = ExtResource("11_1nmtp")
+region = Rect2(56, 28, 12, 12)
 
 [sub_resource type="Resource" id="Resource_p64n2"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("11_c2mrs")
-preview = SubResource("AtlasTexture_ill4i")
+preview = SubResource("AtlasTexture_c2mrs")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
 [resource]

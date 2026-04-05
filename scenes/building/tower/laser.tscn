@@ -2,10 +2,75 @@
 
 [ext_resource type="PackedScene" uid="uid://ddv7ul50cfopu" path="res://scenes/building/tower/canon.tscn" id="1_uwytl"]
 [ext_resource type="PackedScene" uid="uid://bc6u7fnvooyx1" path="res://scenes/building/tower/laserbolt.tscn" id="2_ae7y3"]
+[ext_resource type="Texture2D" uid="uid://c5g8ktreclx0q" path="res://assets/sprites/guns.png" id="3_a0kxl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e62t"]
+atlas = ExtResource("3_a0kxl")
+region = Rect2(0, 14, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44g53"]
+atlas = ExtResource("3_a0kxl")
+region = Rect2(14, 14, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhxwn"]
+atlas = ExtResource("3_a0kxl")
+region = Rect2(28, 14, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydok3"]
+atlas = ExtResource("3_a0kxl")
+region = Rect2(42, 14, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xkuw"]
+atlas = ExtResource("3_a0kxl")
+region = Rect2(56, 14, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt08b"]
+atlas = ExtResource("3_a0kxl")
+region = Rect2(70, 14, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x74yj"]
+atlas = ExtResource("3_a0kxl")
+region = Rect2(84, 14, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s73op"]
+atlas = ExtResource("3_a0kxl")
+region = Rect2(98, 14, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ufgs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e62t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44g53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhxwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydok3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xkuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt08b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x74yj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s73op")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Laser" unique_id=1512153694 instance=ExtResource("1_uwytl")]
 reload_time = 6.0
 projectile = ExtResource("2_ae7y3")
 
-[node name="Sprite2D" parent="." index="0" unique_id=244333039]
-modulate = Color(0.502389, 0.8691286, 0, 1)
+[node name="Sprite" parent="." index="1" unique_id=1941252386]
+sprite_frames = SubResource("SpriteFrames_8ufgs")

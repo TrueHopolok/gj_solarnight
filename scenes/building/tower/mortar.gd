@@ -76,3 +76,8 @@ func shoot() -> void:
 	get_parent().add_child(inst)
 	inst.set(&"global_position", get_global_mouse_position())
 	_cancel_aiming()
+
+
+func _track_target() -> void:
+	if _is_targeting:
+		_look_at(get_global_mouse_position())
