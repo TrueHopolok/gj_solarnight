@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmj0fk04ljg6s" path="res://scenes/main_game_scene/main_game_scene.gd" id="1_7csvj"]
 [ext_resource type="PackedScene" uid="uid://cpvo88ktvlqb4" path="res://scenes/game_manager/game_manager.tscn" id="2_k1t50"]
+[ext_resource type="PackedScene" uid="uid://bkl55wj7p4u1a" path="res://scenes/music_manager/music_manager.tscn" id="2_spbxy"]
 [ext_resource type="PackedScene" uid="uid://dco3bp4wnx0tl" path="res://scenes/building/sun/sun.tscn" id="3_k1t50"]
 [ext_resource type="Script" uid="uid://ca785icsltr3n" path="res://scenes/builder/builder.gd" id="4_0w8pv"]
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="12_k87rj"]
@@ -12,6 +13,8 @@ region = Rect2(73, 0, 11, 12)
 
 [node name="MainGameScene" type="Node2D" unique_id=521506140 groups=["main_game_scene"]]
 script = ExtResource("1_7csvj")
+
+[node name="IntenseMusicPlayer" parent="." unique_id=745860557 instance=ExtResource("2_spbxy")]
 
 [node name="GameManager" parent="." unique_id=951158312 instance=ExtResource("2_k1t50")]
 
