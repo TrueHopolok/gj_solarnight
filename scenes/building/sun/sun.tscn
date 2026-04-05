@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="1_g3ldi"]
 [ext_resource type="Script" uid="uid://dufetp8uqm06p" path="res://scenes/building/sun/sun.gd" id="1_vlfx2"]
+[ext_resource type="AudioStream" uid="uid://drw1cuauj8hsf" path="res://audio/sfx/ui/sound_BUUUUUMMM.wav" id="3_hat3m"]
+[ext_resource type="AudioStream" uid="uid://dbwundn4yorrw" path="res://audio/sfx/gameplay/sound_turrets_destroyed.wav" id="4_5201s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ejyq"]
 atlas = ExtResource("1_g3ldi")
@@ -34,3 +36,11 @@ collision_mask = 2
 [node name="ProjectorShape" type="CollisionPolygon2D" parent="BuildingDetector" unique_id=134624686]
 unique_name_in_owner = true
 polygon = PackedVector2Array(0, 0, 42, -71, 100, -37)
+
+[node name="BUUUMSFX" type="AudioStreamPlayer" parent="." unique_id=652109227]
+stream = ExtResource("3_hat3m")
+bus = &"SFX"
+
+[node name="DestroyedSFX" type="AudioStreamPlayer" parent="." unique_id=863592873]
+stream = ExtResource("4_5201s")
+bus = &"SFX"

@@ -4,6 +4,10 @@
 resource_name = "LowPassFilter"
 db = 1
 
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_sj8iw"]
+resource_name = "LowPassFilter"
+db = 1
+
 [sub_resource type="AudioEffectPanner" id="AudioEffectPanner_73ea7"]
 resource_name = "Panner"
 
@@ -15,18 +19,26 @@ bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectLowPassFilter_73ea7")
-bus/1/effect/0/enabled = true
-bus/2/name = &"SFX"
+bus/1/effect/0/enabled = false
+bus/2/name = &"Music_lowpass"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
-bus/2/send = &"Master"
-bus/3/name = &"SFX_panner"
+bus/2/send = &"Music"
+bus/2/effect/0/effect = SubResource("AudioEffectLowPassFilter_sj8iw")
+bus/2/effect/0/enabled = true
+bus/3/name = &"SFX"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
-bus/3/send = &"SFX"
-bus/3/effect/0/effect = SubResource("AudioEffectPanner_73ea7")
-bus/3/effect/0/enabled = true
+bus/3/send = &"Master"
+bus/4/name = &"SFX_panner"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"SFX"
+bus/4/effect/0/effect = SubResource("AudioEffectPanner_73ea7")
+bus/4/effect/0/enabled = true

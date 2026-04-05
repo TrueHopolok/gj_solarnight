@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://x8be2ben8g6i"]
 
+[ext_resource type="AudioStream" uid="uid://bdny8yr5n28j5" path="res://audio/music/menuMusic.wav" id="1_6mijq"]
 [ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="1_mu8pm"]
 [ext_resource type="Script" uid="uid://djugp43tpkhni" path="res://ui/main_menu/button_play.gd" id="2_3c04x"]
 [ext_resource type="AudioStream" uid="uid://drw1cuauj8hsf" path="res://audio/sfx/ui/sound_BUUUUUMMM.wav" id="3_joh67"]
@@ -10,6 +11,11 @@
 
 [node name="MainMenu" type="CanvasLayer" unique_id=291949947]
 layer = 2
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=419277975]
+stream = ExtResource("1_6mijq")
+autoplay = true
+bus = &"Music"
 
 [node name="Title" type="RichTextLabel" parent="." unique_id=924643620]
 process_mode = 3

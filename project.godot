@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="solarpunk"
+config/name="solarnight"
 run/main_scene="uid://cgicckc6q6ysf"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://cu3wdat0ouma0"

@@ -10,6 +10,8 @@ const ROTATION_SPEED: float = TAU / 3.0
 @onready var building_detector: Area2D = %BuildingDetector
 @onready var projector_shape: CollisionPolygon2D = %ProjectorShape
 
+var _dead: bool = false
+
 
 func _ready() -> void:
 	building_detector.body_entered.connect(_set_sun_state.bind(true))
@@ -40,11 +42,16 @@ func _set_sun_state(obj: Node, state: bool) -> void:
 
 
 func damage(dmg: int) -> void:
+	if _dead: return
 	health -= dmg
 	if health <= 0:
+		_dead = true
+		$DestroyedSFX.play()
+		$BUUUMSFX.play()
 		# TODO: gameover animation
-		OS.alert("GG")
+		await $BUUUMSFX.finished
+		Transition.change_scene_path('res://ui/gameover_menu/gameover_menu.tscn')
 
 
 func is_dead() -> bool:
-	return health <= 0
+	return _dead
