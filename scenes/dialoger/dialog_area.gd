@@ -132,7 +132,7 @@ func _fade_out() -> void:
 	_state = State.FADE_OUT
 
 
-func _get_speaker_face(speaker: String) -> Texture:
-	if speaker.to_lower().contains("king"):
+func _get_speaker_face(s: String) -> Texture:
+	if s.to_lower().contains("king"):
 		return king_face
 	return wizard_face
