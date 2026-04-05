@@ -39,17 +39,18 @@ func execute() -> void:
 	var line2d := $Line2D as Line2D
 	line2d.points = [Vector2.ZERO, to_local(end)]
 
-
-	var line_shape := SegmentShape2D.new()
-	line_shape.a = global_position
-	line_shape.b = end
+	var shape := RectangleShape2D.new()
+	shape.size = Vector2(end.distance_to(global_position), 6)
 
 	var shapecast_params := PhysicsShapeQueryParameters2D.new()
 	shapecast_params.collide_with_areas = true
 	shapecast_params.collide_with_bodies = true
 	shapecast_params.collision_mask = shapecast_mask
-	shapecast_params.shape = line_shape
-	shapecast_params.transform = Transform2D.IDENTITY
+	shapecast_params.shape = shape
+	shapecast_params.transform = Transform2D(
+		(global_position - end).angle(),
+		(end + global_position) * 0.5,
+	)
 
 	for v: Dictionary in  get_world_2d().direct_space_state.intersect_shape(shapecast_params):
 		var obj: Node = v.collider
