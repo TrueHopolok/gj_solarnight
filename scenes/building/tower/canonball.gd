@@ -10,9 +10,6 @@ var target: Node2D = null
 
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(target):
-		target = Tower.pick_target(global_position)
-
-	if not is_instance_valid(target):
 		queue_free()
 		return
 

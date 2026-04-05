@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://dco3bp4wnx0tl"]
 
-[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="1_g3ldi"]
 [ext_resource type="Script" uid="uid://dufetp8uqm06p" path="res://scenes/building/sun/sun.gd" id="1_vlfx2"]
+[ext_resource type="Texture2D" uid="uid://qa22jxbku0j6" path="res://assets/sprites/lighthouse.png" id="2_vlfx2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ejyq"]
-atlas = ExtResource("1_g3ldi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlfx2"]
+atlas = ExtResource("2_vlfx2")
 region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnubv"]
+atlas = ExtResource("2_vlfx2")
+region = Rect2(29, 5, 14, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inxby"]
 size = Vector2(24, 24)
@@ -20,8 +24,11 @@ unique_name_in_owner = true
 color = Color(0.7019608, 0.72156864, 0.050980393, 0.5647059)
 polygon = PackedVector2Array(43, -69, 0, 0, 97, -35)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1954649595]
-texture = SubResource("AtlasTexture_4ejyq")
+[node name="Base" type="Sprite2D" parent="." unique_id=1954649595]
+texture = SubResource("AtlasTexture_vlfx2")
+
+[node name="Top" type="Sprite2D" parent="." unique_id=1599975275]
+texture = SubResource("AtlasTexture_dnubv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602799174]
 shape = SubResource("RectangleShape2D_inxby")

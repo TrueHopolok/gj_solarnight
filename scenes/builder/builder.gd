@@ -8,12 +8,16 @@ const TILE_SIZE := Vector2.ONE * 12
 const BUILDING_COLLISION_MASK: int = 1
 const LIGHT_COLLISION_MASK: int = 2
 
+const BEAM_COLOR_OUTER := Color("eeee90", 0.6)
+const BEAM_COLOR_INNER := Color("fbfbe4", 0.8)
+
 @export var build_list: BuildList = preload("uid://d32aym1ox3gnq")
 
 var _selected_index: int = -1
 var _preview_instance: Sprite2D = null
 
 var _light_beams: PackedVector2Array
+var _light_beams_outer: PackedVector2Array
 
 
 func _ready() -> void:
@@ -39,7 +43,19 @@ func _physics_process(_delta: float) -> void:
 
 func _draw() -> void:
 	if not _light_beams.is_empty():
-		draw_multiline(_light_beams, Color("eaef4a", 0.7), 8, false)
+		draw_multiline(_light_beams, BEAM_COLOR_INNER, 1, false)
+		draw_multiline(_light_beams_outer, BEAM_COLOR_OUTER, 1, false)
+
+
+func _push_light_beam(from: Vector2, to: Vector2) -> void:
+	_light_beams.push_back(from)
+	_light_beams.push_back(to)
+
+	var perp := (to - from).rotated(TAU*0.25).normalized()
+	_light_beams_outer.push_back(from+perp)
+	_light_beams_outer.push_back(to+perp)
+	_light_beams_outer.push_back(from-perp)
+	_light_beams_outer.push_back(to-perp)
 
 
 func _try_place(at: Vector2) -> void:
@@ -107,6 +123,7 @@ func _world_to_map(point: Vector2) -> Vector2i:
 
 func _calculate_light() -> void:
 	_light_beams.clear()
+	_light_beams_outer.clear()
 
 	var visited: Dictionary[Vector3i, bool] = {}
 	var lit_nodes: Dictionary[Node, bool] = {}
@@ -156,12 +173,10 @@ func _calculate_light_recursive(
 
 	var res := get_world_2d().direct_space_state.intersect_ray(params)
 	if res.is_empty():
-		_light_beams.push_back(params.from)
-		_light_beams.push_back(params.to)
+		_push_light_beam(params.from, params.to)
 		return
 
-	_light_beams.push_back(params.from)
-	_light_beams.push_back(_round_to_cell_center(res.position))
+	_push_light_beam(params.from, _round_to_cell_center(res.position + Vector2(_dir_to_vec(dir))))
 
 	var obj: Node = res.collider
 

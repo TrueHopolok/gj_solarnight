@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://qnbnsmdfgk34"]
 
 [ext_resource type="Script" uid="uid://c1wf2pi08g270" path="res://scenes/enemy/enemy.gd" id="1_4a83h"]
+[ext_resource type="Texture2D" uid="uid://h8xrhdrbvesi" path="res://assets/sprites/ships.png" id="2_a3pup"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40wdo"]
+atlas = ExtResource("2_a3pup")
+region = Rect2(0, 26, 35, 21)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4a83h"]
 radius = 8.0
@@ -16,6 +21,7 @@ motion_mode = 1
 script = ExtResource("1_4a83h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=505247766]
+texture = SubResource("AtlasTexture_40wdo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1749457072]
 shape = SubResource("CircleShape2D_4a83h")
