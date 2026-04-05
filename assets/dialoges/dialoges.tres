@@ -25,7 +25,7 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 [sub_resource type="Resource" id="Resource_mjpo8"]
 script = ExtResource("2_mjpo8")
 speaker = "Evil Wizard (you)"
-text = "Ha ha ha ha... My canon are stronger than entire fleet! Bring it on!"
+text = "Ha ha ha ha... My canons are stronger than your entire fleet! Bring it on!"
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_vwyhe"]
@@ -63,7 +63,7 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
 text = "Press 'A' and 'D' or left and right arrows to turn your beacon's light.
-All towers under the light, will have [color=orange][wave freq=2]increased dps[/wave][/color]."
+All towers under the light, will have [color=orange][wave freq=2]increased shooting rate[/wave][/color]."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_npu4j"]
@@ -86,7 +86,7 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 [sub_resource type="Resource" id="Resource_twngu"]
 script = ExtResource("2_mjpo8")
 speaker = "Evil Wizard (you)"
-text = "Nah, this won't matter. No matter what you throw at me, I can redirect with my [color=skyblue]mirrors[/color] and spells!"
+text = "Nay, this won't matter. No matter what you throw at me, I can redirect with my [color=skyblue]mirrors[/color] and spells!"
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_eumhh"]
@@ -98,7 +98,7 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 [sub_resource type="Resource" id="Resource_6pwd8"]
 script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
-text = "Use numbers on your keyboard or scroll whell to select [color=skyblue]mirrors[/color] on your hotbar.
+text = "Use numbers on your keyboard or scroll wheel to select [color=skyblue]mirrors[/color] on your hotbar.
 [color=skyblue]Mirrors[/color] can redirect light. More expensive mirrors can split light into 2 beams."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
@@ -118,15 +118,15 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
 text = "Press 'E' or use scrollwheel to select a Mortar.
-Press LBM to place it."
+Press LMB to place it."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_idv6w"]
 script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
 text = "Mortars shot manually.
-Press LMD on mortar when it is charged and press LMB where you want to hit.
-Press RMB to cancel. "
+Press LMB on mortar when it is charged and press LMB where you want to hit.
+Press RMB to cancel aiming."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_54pn3"]
@@ -155,7 +155,7 @@ metadata/_custom_type_script = "uid://bvu05un8hxew1"
 [sub_resource type="Resource" id="Resource_t857h"]
 script = ExtResource("2_mjpo8")
 speaker = "The King"
-text = "[color=lawngreen]Heros[/color] across the land, gathe togheter! Prepare the assult!"
+text = "[color=lawngreen]Heros[/color] across the land, gathe togheter! Prepare the assault!"
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_52ypl"]
@@ -202,13 +202,13 @@ metadata/_custom_type_script = "uid://bvu05un8hxew1"
 [sub_resource type="Resource" id="Resource_oba81"]
 script = ExtResource("2_mjpo8")
 speaker = "Evil Wizard (you)"
-text = "I bested your machine! It is magnificent, yet no match for me - \"[shake][color=royalblue]Illusionist[/color] - the most evil wizard in existance![/shake]\""
+text = "I bested your machine! It was magnificent, yet no match for me, [shake][color=royalblue]the Illusionist[/color], the most evil wizard in existance![/shake]."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_bacan"]
 script = ExtResource("2_mjpo8")
 speaker = "The King"
-text = "Yes indeed, yet you forgot, that I am the [color=gold]King of ENTIRE WORLD[/color]! Everyone will continue to fight you until the day you lose!"
+text = "Yes indeed, yet you forgot, that I am the [color=gold]King of the ENTIRE WORLD[/color]! Everyone will continue to fight you until the day you lose!"
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_ro77l"]
