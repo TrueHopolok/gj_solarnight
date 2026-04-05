@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bulxe7g4wb117"]
+
+[ext_resource type="Script" uid="uid://m4nv6bq6k135" path="res://scenes/building/tower/shooting_sfx.gd" id="1_60tae"]
+
+[node name="ShootingSfx" type="AudioStreamPlayer" unique_id=366450851]
+script = ExtResource("1_60tae")

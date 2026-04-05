@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c5g8ktreclx0q" path="res://assets/sprites/guns.png" id="3_nb2ud"]
 [ext_resource type="AudioStream" uid="uid://cd66rkwvos4ax" path="res://audio/sfx/gameplay/sound_cannon_placed.wav" id="4_ddedq"]
 [ext_resource type="AudioStream" uid="uid://dbwundn4yorrw" path="res://audio/sfx/gameplay/sound_turrets_destroyed.wav" id="5_petq7"]
+[ext_resource type="PackedScene" uid="uid://bulxe7g4wb117" path="res://scenes/building/tower/shooting_sfx.tscn" id="6_macr1"]
+[ext_resource type="AudioStream" uid="uid://bg3d5yq7xvqnp" path="res://audio/sfx/gameplay/sound_shot_cannon_1.wav" id="7_rbbnv"]
+[ext_resource type="AudioStream" uid="uid://cqs8bjdum35wh" path="res://audio/sfx/gameplay/sound_shot_cannon_2.wav" id="8_tvxpi"]
+[ext_resource type="AudioStream" uid="uid://dwc6aenslk8wk" path="res://audio/sfx/gameplay/sound_shot_cannon_3.wav" id="9_idy5s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddedq"]
 atlas = ExtResource("3_nb2ud")
@@ -102,7 +106,14 @@ shape = SubResource("RectangleShape2D_nb2ud")
 stream = ExtResource("4_ddedq")
 volume_db = -5.0
 autoplay = true
+bus = &"SFX"
 
 [node name="DestroyedSFX" type="AudioStreamPlayer" parent="." unique_id=1448878713]
 stream = ExtResource("5_petq7")
 volume_db = -5.0
+bus = &"SFX"
+
+[node name="ShootingSfx" parent="." unique_id=366450851 instance=ExtResource("6_macr1")]
+volume_db = -5.0
+bus = &"SFX"
+_audio_streams = Array[AudioStream]([ExtResource("7_rbbnv"), ExtResource("8_tvxpi"), ExtResource("9_idy5s")])
