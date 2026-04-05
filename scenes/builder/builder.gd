@@ -246,3 +246,15 @@ func deselect_building() -> void:
 
 func building_num() -> int:
 	return build_list.items.size()
+
+
+func select_next() -> void:
+	select_building((_selected_index + 1) % building_num())
+
+
+func select_prev() -> void:
+	select_building((_selected_index + building_num() - 1) % building_num())
+
+
+func get_selected() -> int:
+	return _selected_index
