@@ -72,6 +72,7 @@ func play_dialog(lines: Array[DialogLine]) -> void:
 
 	_current_seq = lines.duplicate()
 	_current_seq.reverse()
+	face.texture = _get_speaker_face(_current_seq.back().speaker)
 
 	_fade_in()
 
