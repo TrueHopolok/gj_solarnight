@@ -81,7 +81,8 @@ func shoot() -> void:
 	_reload_left = reload_time
 	var inst := projectile.instantiate()
 	get_parent().add_child(inst)
-	inst.set(&"global_position", get_global_mouse_position())
+	inst.target_pos = get_global_mouse_position()
+	inst.global_position = global_position
 	$ShootingSfx.play_sfx()
 	_cancel_aiming()
 
