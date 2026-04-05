@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dqnfh66qfcpt7"]
+
+[node name="BestScoreLabel" type="Label" unique_id=317245024]
+text = "Best score: %d"
+horizontal_alignment = 1
+vertical_alignment = 1

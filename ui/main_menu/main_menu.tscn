@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://x8be2ben8g6i"]
+
+[ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="1_mu8pm"]
+[ext_resource type="Script" uid="uid://djugp43tpkhni" path="res://ui/main_menu/button_play.gd" id="2_3c04x"]
+[ext_resource type="AudioStream" uid="uid://drw1cuauj8hsf" path="res://audio/sfx/ui/sound_BUUUUUMMM.wav" id="3_joh67"]
+[ext_resource type="Script" uid="uid://cbytf7ng2ntnq" path="res://ui/main_menu/button_reset_progress.gd" id="3_omy8q"]
+[ext_resource type="Script" uid="uid://vswp6l03rkdc" path="res://ui/main_menu/reset_window_dialog.gd" id="4_i5wg5"]
+[ext_resource type="PackedScene" uid="uid://i0n7cjiw24yl" path="res://ui/settings/audio_settings/audio_settings.tscn" id="6_joh67"]
+[ext_resource type="PackedScene" uid="uid://dqnfh66qfcpt7" path="res://ui/best_score_label/best_score_label.tscn" id="7_u184e"]
+
+[node name="MainMenu" type="Control" unique_id=2062465196]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=924643620]
+process_mode = 3
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 112.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[wave amp=20 freq=1][color=orange]SOLAR[/color][color=midnight_blue]NIGHT[/color]"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="PlayButton" parent="." unique_id=1413801646 instance=ExtResource("1_mu8pm")]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 384.0
+offset_bottom = 160.0
+script = ExtResource("2_3c04x")
+
+[node name="Label" parent="PlayButton" index="0" unique_id=960341710]
+text = "Play"
+
+[node name="StartGameSFX" type="AudioStreamPlayer" parent="PlayButton" unique_id=1312736550]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("3_joh67")
+bus = &"SFX"
+
+[node name="BestScoreLabel" parent="." unique_id=317245024 instance=ExtResource("7_u184e")]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 160.0
+offset_right = 376.0
+offset_bottom = 183.0
+
+[node name="AudioSettings" parent="." unique_id=455712532 instance=ExtResource("6_joh67")]
+layout_mode = 1
+offset_left = 192.0
+offset_top = 200.0
+offset_right = -192.0
+offset_bottom = -80.0
+
+[node name="ResetScoreButton" parent="." unique_id=210859841 instance=ExtResource("1_mu8pm")]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 320.0
+offset_right = 384.0
+offset_bottom = 352.0
+script = ExtResource("3_omy8q")
+
+[node name="Label" parent="ResetScoreButton" index="0" unique_id=960341710]
+text = "Reset score"
+
+[node name="ResetWindowDialog" type="ConfirmationDialog" parent="ResetScoreButton" unique_id=1436020528]
+unique_name_in_owner = true
+oversampling_override = 1.0
+initial_position = 1
+dialog_text = "Reset your progress?"
+script = ExtResource("4_i5wg5")
+
+[editable path="PlayButton"]
+[editable path="ResetScoreButton"]

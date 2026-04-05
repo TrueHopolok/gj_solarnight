@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bcfn5243eqtbv" path="res://scenes/ambient_player/random_audio_player.tscn" id="2_ch1f7"]
 [ext_resource type="AudioStream" uid="uid://bv34yoh28guw" path="res://audio/sfx/ambient/sound_bird_1.wav" id="3_6371t"]
 [ext_resource type="AudioStream" uid="uid://coxqd6rw6gx2j" path="res://audio/sfx/ambient/sound_bird_2.wav" id="4_qkxp2"]
+[ext_resource type="AudioStream" uid="uid://cvhu8kfvdcadx" path="res://audio/sfx/ambient/sound_bell.wav" id="5_6371t"]
+[ext_resource type="AudioStream" uid="uid://cylbl6wwadxhd" path="res://audio/sfx/ambient/sound_wind_1.wav" id="6_etiv8"]
+[ext_resource type="AudioStream" uid="uid://f1fmtv2hrwem" path="res://audio/sfx/ambient/sound_wind_2.wav" id="7_74gut"]
 
 [node name="AmbientPlayer" type="Node" unique_id=2136708715]
 
@@ -15,4 +18,4 @@ bus = &"SFX"
 
 [node name="RandomAudioPlayer" parent="." unique_id=1803041930 instance=ExtResource("2_ch1f7")]
 volume_db = -15.0
-_audio_streams = Array[AudioStream]([ExtResource("3_6371t"), ExtResource("4_qkxp2")])
+_audio_streams = Array[AudioStream]([ExtResource("3_6371t"), ExtResource("4_qkxp2"), ExtResource("5_6371t"), ExtResource("6_etiv8"), ExtResource("7_74gut")])
