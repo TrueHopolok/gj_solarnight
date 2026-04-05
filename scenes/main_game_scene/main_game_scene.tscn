@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://bdq0qvdqct6el" path="res://scenes/main_game_scene/wave_label.gd" id="12_hnlf3"]
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="12_k87rj"]
 [ext_resource type="Script" uid="uid://c74mokkbt2eu0" path="res://scenes/main_game_scene/next_wave.gd" id="14_8hmrp"]
+[ext_resource type="Script" uid="uid://ckmiyklnfr6lr" path="res://scenes/main_game_scene/hotbar_label.gd" id="15_gq030"]
 [ext_resource type="PackedScene" uid="uid://dmuybgrmw47ak" path="res://scenes/dialoger/dialog_area.tscn" id="16_pp6md"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2inbw"]
@@ -59,6 +60,7 @@ texture = SubResource("ViewportTexture_2inbw")
 metadata/_edit_lock_ = true
 
 [node name="Builder" type="Node2D" parent="." unique_id=645637280]
+unique_name_in_owner = true
 z_index = -1
 script = ExtResource("4_0w8pv")
 metadata/_custom_type_script = "uid://ca785icsltr3n"
@@ -117,6 +119,23 @@ script = ExtResource("11_6hiqo")
 
 [node name="NotEnoughSFX" type="AudioStreamPlayer" parent="UI/ColorRect/MaterialsLabel" unique_id=573316324]
 stream = ExtResource("12_dw0dr")
+
+[node name="HotbarLabel" type="Label" parent="UI" unique_id=2054632182]
+offset_left = 128.0
+offset_top = 312.0
+offset_right = 512.0
+offset_bottom = 336.0
+text = "%s, %d cost, %d dmg, %d dps"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("15_gq030")
+
+[node name="ColorRect" type="ColorRect" parent="UI/HotbarLabel" unique_id=1997214640]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 48.0
+color = Color(0, 0, 0, 0.27450982)
 
 [node name="Hotbar" type="HBoxContainer" parent="UI" unique_id=763721529]
 unique_name_in_owner = true

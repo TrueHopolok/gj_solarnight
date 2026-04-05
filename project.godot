@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="solarnight"
-run/main_scene="uid://cgicckc6q6ysf"
+run/main_scene="uid://x8be2ben8g6i"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.13333334, 0.1254902, 0.20392157, 1)
 boot_splash/stretch_mode=4
