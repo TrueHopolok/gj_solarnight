@@ -80,6 +80,9 @@ radius = 7.0
 size = Vector2(24.5, 16)
 
 [node name="Enemy" unique_id=840357590 instance=ExtResource("1_us3ff")]
+_health = 12
+_attack_damage = 2
+_movement_speed = 12.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=2079620814]
 sprite_frames = SubResource("SpriteFrames_41gso")

@@ -71,8 +71,9 @@ animations = [{
 }]
 
 [node name="Laser" unique_id=1512153694 instance=ExtResource("1_uwytl")]
-reload_time = 6.0
+reload_time = 4.5
 projectile = ExtResource("2_ae7y3")
+initial_health = 30
 
 [node name="Sprite" parent="." index="1" unique_id=1941252386]
 sprite_frames = SubResource("SpriteFrames_8ufgs")

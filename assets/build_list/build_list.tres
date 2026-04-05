@@ -23,6 +23,7 @@ region = Rect2(56, 0, 12, 12)
 [sub_resource type="Resource" id="Resource_eem80"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("9_pblee")
+price = 5
 preview = SubResource("AtlasTexture_pblee")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
@@ -33,6 +34,7 @@ region = Rect2(57, 14, 10, 12)
 [sub_resource type="Resource" id="Resource_838gh"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("10_fq1x2")
+price = 10
 preview = SubResource("AtlasTexture_fq1x2")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
@@ -43,6 +45,7 @@ region = Rect2(56, 28, 12, 12)
 [sub_resource type="Resource" id="Resource_p64n2"]
 script = ExtResource("1_7ewgr")
 scene = ExtResource("11_c2mrs")
+price = 20
 preview = SubResource("AtlasTexture_c2mrs")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 

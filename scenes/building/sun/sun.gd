@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 const PULSE_TIME: float = 0.2
-const PROJECTOR_ANGLE: float = 45.0
+const PROJECTOR_ANGLE: float = 60
 const ROTATION_SPEED: float = TAU / 3.0
 
 @export var initial_health: int = 100
