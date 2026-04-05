@@ -52,8 +52,8 @@ func _draw() -> void:
 		var target := get_local_mouse_position()
 		var mid := target * clampf(remap(_reload_left, 0, reload_time, 1, 0), 0, 1)
 
-		draw_dashed_line(Vector2.ZERO, mid, color_ready, 5)
-		draw_dashed_line(mid, target, color_reload, 5)
+		draw_dashed_line(Vector2.ZERO, mid, color_ready, 1)
+		draw_dashed_line(mid, target, color_reload, 1)
 
 
 func _start_aiming() -> void:

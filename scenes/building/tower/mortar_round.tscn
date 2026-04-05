@@ -130,6 +130,7 @@ animations = [{
 }]
 
 [node name="MortarRound" type="Node2D" unique_id=640226538]
+z_index = 2
 script = ExtResource("1_fwk4h")
 collision_mask = 4
 
