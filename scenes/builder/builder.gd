@@ -21,7 +21,7 @@ var _light_beams_outer: PackedVector2Array
 
 
 func _ready() -> void:
-	_calculate_light()
+	_calculate_light.call_deferred()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -122,6 +122,9 @@ func _world_to_map(point: Vector2) -> Vector2i:
 
 
 func _calculate_light() -> void:
+	if not is_inside_tree() or is_queued_for_deletion():
+		return
+
 	_light_beams.clear()
 	_light_beams_outer.clear()
 
