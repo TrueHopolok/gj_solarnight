@@ -175,6 +175,10 @@ func wave_start() -> void:
 ########################
 ### PLAYER RESOURCES ###
 
+signal materials_not_enough
+signal materials_spent
+signal materials_added
+
 const MATERIALS_START: int = 10
 
 var _materials: int = MATERIALS_START
@@ -185,13 +189,20 @@ func materials_get() -> int:
 
 
 func materials_buy(cost: int) -> bool:
-	if (cost < 0 && !_sun.is_dead()):
-		Persistence.current_score -= cost
+	if (cost == 0): return true
+	elif (cost < 0):
+		return materials_add(-cost)
 	elif (cost > _materials):
+		materials_not_enough.emit()
 		return false
 	_materials -= cost
+	materials_spent.emit()
 	return true
 
 
 func materials_add(addition: int) -> bool:
-	return materials_buy(-addition)
+	if (addition == 0): return true
+	elif (addition < 0):
+		return materials_buy(-addition)
+	materials_added.emit()
+	return true

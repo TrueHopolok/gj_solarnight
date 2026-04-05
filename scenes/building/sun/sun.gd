@@ -13,6 +13,11 @@ const ROTATION_SPEED: float = TAU / 3.0
 var _dead: bool = false
 
 
+func _input(event: InputEvent) -> void:
+	if OS.is_debug_build() && event.is_action_pressed(&'debug_kys'):
+		damage(health)
+
+
 func _ready() -> void:
 	building_detector.body_entered.connect(_set_sun_state.bind(true))
 	building_detector.body_exited.connect(_set_sun_state.bind(false))

@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dyy30mlffvxph" path="res://ui/pause_menu/pause_menu.tscn" id="8_7v0l4"]
 [ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="9_b1vg4"]
 [ext_resource type="Script" uid="uid://qm0kcu3ig2tq" path="res://ui/pause_menu/button_to_pause.gd" id="9_do46k"]
+[ext_resource type="Script" uid="uid://clg3o7qogbi5h" path="res://scenes/main_game_scene/score_label.gd" id="10_2inbw"]
+[ext_resource type="Script" uid="uid://cgfptppkqywh2" path="res://scenes/main_game_scene/materials_label.gd" id="11_6hiqo"]
+[ext_resource type="AudioStream" uid="uid://cxq3ca5el6dja" path="res://audio/sfx/gameplay/sound_not_enough_materials.wav" id="12_dw0dr"]
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="12_k87rj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw0dr"]
@@ -34,9 +37,9 @@ metadata/_custom_type_script = "uid://ca785icsltr3n"
 
 [node name="PauseButton" parent="." unique_id=1413801646 instance=ExtResource("9_b1vg4")]
 process_mode = 3
-offset_left = -320.0
+offset_left = 277.0
 offset_top = -180.0
-offset_right = -277.0
+offset_right = 320.0
 offset_bottom = -156.0
 script = ExtResource("9_do46k")
 
@@ -61,6 +64,24 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 icon = SubResource("AtlasTexture_dw0dr")
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=1800454882]
+offset_right = 40.0
+offset_bottom = 17.0
+text = "Score: %d"
+vertical_alignment = 1
+script = ExtResource("10_2inbw")
+
+[node name="MaterialsLabel" type="Label" parent="UI" unique_id=633829262]
+offset_top = 16.0
+offset_right = 93.0
+offset_bottom = 39.0
+text = "Materials: %d"
+vertical_alignment = 1
+script = ExtResource("11_6hiqo")
+
+[node name="NotEnoughSFX" type="AudioStreamPlayer" parent="UI/MaterialsLabel" unique_id=573316324]
+stream = ExtResource("12_dw0dr")
 
 [node name="PauseMenu" parent="." unique_id=1351550630 instance=ExtResource("8_7v0l4")]
 

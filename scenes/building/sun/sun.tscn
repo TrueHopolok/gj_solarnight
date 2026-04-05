@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dco3bp4wnx0tl"]
 
 [ext_resource type="Script" uid="uid://dufetp8uqm06p" path="res://scenes/building/sun/sun.gd" id="1_vlfx2"]
+[ext_resource type="Texture2D" uid="uid://qa22jxbku0j6" path="res://assets/sprites/lighthouse.png" id="2_vlfx2"]
 [ext_resource type="AudioStream" uid="uid://drw1cuauj8hsf" path="res://audio/sfx/ui/sound_BUUUUUMMM.wav" id="3_hat3m"]
 [ext_resource type="AudioStream" uid="uid://dbwundn4yorrw" path="res://audio/sfx/gameplay/sound_turrets_destroyed.wav" id="4_5201s"]
-[ext_resource type="Texture2D" uid="uid://qa22jxbku0j6" path="res://assets/sprites/lighthouse.png" id="2_vlfx2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vlfx2"]
 atlas = ExtResource("2_vlfx2")
