@@ -1,17 +1,27 @@
 [gd_scene format=3 uid="uid://c4cbgi0tgwths"]
 
-[ext_resource type="Texture2D" uid="uid://bb8o81ao1k5eg" path="res://assets/temperary/button_normal.png" id="1_qihkd"]
-[ext_resource type="Texture2D" uid="uid://cip27x0vv7ae8" path="res://assets/temperary/button_pushed.png" id="2_wj5ij"]
-[ext_resource type="Texture2D" uid="uid://bn5em7yl11u5c" path="res://assets/temperary/button_hovered.png" id="3_1givc"]
+[ext_resource type="Texture2D" uid="uid://2s60e0t8ajy2" path="res://assets/sprites/buttons.png" id="1_u8lij"]
 [ext_resource type="AudioStream" uid="uid://dwi57s6tw2wpu" path="res://audio/sfx/ui/sound_button.wav" id="4_56tfd"]
 [ext_resource type="Script" uid="uid://h8hiiwjd36q0" path="res://ui/premade_button/press_sfx.gd" id="5_56tfd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwg2x"]
+atlas = ExtResource("1_u8lij")
+region = Rect2(1, 1, 68, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56tfd"]
+atlas = ExtResource("1_u8lij")
+region = Rect2(1, 38, 68, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rv81"]
+atlas = ExtResource("1_u8lij")
+region = Rect2(1, 19, 68, 16)
 
 [node name="PremadeButton" type="TextureButton" unique_id=1413801646]
 offset_right = 128.0
 offset_bottom = 32.0
-texture_normal = ExtResource("1_qihkd")
-texture_pressed = ExtResource("2_wj5ij")
-texture_hover = ExtResource("3_1givc")
+texture_normal = SubResource("AtlasTexture_fwg2x")
+texture_pressed = SubResource("AtlasTexture_56tfd")
+texture_hover = SubResource("AtlasTexture_0rv81")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="." unique_id=960341710]
@@ -19,6 +29,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3

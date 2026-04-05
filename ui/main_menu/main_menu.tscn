@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="1_mu8pm"]
 [ext_resource type="Script" uid="uid://djugp43tpkhni" path="res://ui/main_menu/button_play.gd" id="2_3c04x"]
 [ext_resource type="Script" uid="uid://bkgvd7qtbbm0k" path="res://ui/main_menu/best_score_label.gd" id="2_6mijq"]
-[ext_resource type="Texture2D" uid="uid://b85tmhtdhseda" path="res://assets/sprites/big-logo.png" id="2_w2r0d"]
+[ext_resource type="Texture2D" uid="uid://brogxu6oi5ooe" path="res://assets/sprites/menu.png" id="2_w2r0d"]
 [ext_resource type="AudioStream" uid="uid://drw1cuauj8hsf" path="res://audio/sfx/ui/sound_BUUUUUMMM.wav" id="3_joh67"]
 [ext_resource type="Script" uid="uid://cbytf7ng2ntnq" path="res://ui/main_menu/button_reset_progress.gd" id="3_omy8q"]
 [ext_resource type="Script" uid="uid://vswp6l03rkdc" path="res://ui/main_menu/reset_window_dialog.gd" id="4_i5wg5"]
@@ -30,8 +30,10 @@ stretch_mode = 6
 
 [node name="Title" type="RichTextLabel" parent="." unique_id=924643620]
 process_mode = 3
-offset_right = 640.0
-offset_bottom = 60.0
+offset_left = -147.0
+offset_top = 17.0
+offset_right = 493.0
+offset_bottom = 77.0
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[wave amp=20 freq=1][color=orange]SOLAR[/color][color=midnight_blue]NIGHT[/color]"
@@ -39,20 +41,20 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="BestScoreLabel" type="Label" parent="." unique_id=366243123]
-offset_left = 248.0
-offset_top = 204.0
-offset_right = 392.0
-offset_bottom = 227.0
+offset_left = 45.0
+offset_top = 147.0
+offset_right = 189.0
+offset_bottom = 170.0
 text = "Best score: %d"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_6mijq")
 
 [node name="PlayButton" parent="." unique_id=1413801646 instance=ExtResource("1_mu8pm")]
-offset_left = 248.0
-offset_top = 173.0
-offset_right = 392.0
-offset_bottom = 205.0
+offset_left = 48.0
+offset_top = 103.0
+offset_right = 192.0
+offset_bottom = 135.0
 script = ExtResource("2_3c04x")
 
 [node name="Label" parent="PlayButton" index="0" unique_id=960341710]
@@ -63,16 +65,16 @@ process_mode = 3
 stream = ExtResource("3_joh67")
 
 [node name="AudioSettings" parent="." unique_id=455712532 instance=ExtResource("6_joh67")]
-offset_left = 192.0
-offset_top = 228.0
-offset_right = -192.0
-offset_bottom = -52.0
+offset_left = 17.0
+offset_top = 172.0
+offset_right = -427.0
+offset_bottom = -84.0
 
 [node name="ResetScoreButton" parent="." unique_id=210859841 instance=ExtResource("1_mu8pm")]
-offset_left = 248.0
-offset_top = 320.0
-offset_right = 392.0
-offset_bottom = 352.0
+offset_left = 52.0
+offset_top = 291.0
+offset_right = 196.0
+offset_bottom = 323.0
 script = ExtResource("3_omy8q")
 
 [node name="Label" parent="ResetScoreButton" index="0" unique_id=960341710]

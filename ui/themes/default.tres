@@ -1,8 +1,54 @@
 [gd_resource type="Theme" format=3 uid="uid://b8ecc687tvf12"]
 
 [ext_resource type="FontFile" uid="uid://baft4cs2mxmrg" path="res://assets/fonts/MedievalKnife-Regular.ttf" id="1_6tjce"]
+[ext_resource type="Texture2D" uid="uid://ej5weg4cmtqu" path="res://assets/sprites/slider.png" id="1_l84ts"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l84ts"]
+atlas = ExtResource("1_l84ts")
+region = Rect2(24, 20, 18, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkqby"]
+atlas = ExtResource("1_l84ts")
+region = Rect2(0, 20, 18, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g30mv"]
+atlas = ExtResource("1_l84ts")
+region = Rect2(0, 10, 102, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qsqt6"]
+texture = SubResource("AtlasTexture_g30mv")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 102, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a5x1"]
+atlas = ExtResource("1_l84ts")
+region = Rect2(0, 0, 102, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l84ts"]
+texture = SubResource("AtlasTexture_4a5x1")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 102, 8)
 
 [resource]
 default_font = ExtResource("1_6tjce")
-default_font_size = 8
+default_font_size = 16
+HSlider/icons/grabber = SubResource("AtlasTexture_l84ts")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_jkqby")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_qsqt6")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_qsqt6")
+HSlider/styles/slider = SubResource("StyleBoxTexture_l84ts")
 Label/font_sizes/font_size = 16
