@@ -16,12 +16,14 @@ offset_left = 17.0
 offset_top = 14.0
 offset_right = 114.0
 offset_bottom = 44.0
+mouse_filter = 2
 script = ExtResource("1_47a61")
 king_face = SubResource("AtlasTexture_i7cdo")
 wizard_face = SubResource("AtlasTexture_u4s5l")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1216711579]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
@@ -29,24 +31,29 @@ theme_override_constants/margin_bottom = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=61326407]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Face" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=83706988]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(66.825, 0)
 layout_mode = 2
+mouse_filter = 2
 expand_mode = 1
 stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=80121188]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1544839561]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Speaker" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=761106754]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 theme_override_font_sizes/bold_italics_font_size = 16
@@ -62,6 +69,7 @@ vertical_alignment = 1
 [node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=764154018]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="Next" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=375052896]
 unique_name_in_owner = true
@@ -73,6 +81,7 @@ text = ">>"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 theme_override_font_sizes/bold_italics_font_size = 16
