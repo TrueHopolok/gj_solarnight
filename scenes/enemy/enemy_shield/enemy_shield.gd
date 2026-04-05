@@ -6,14 +6,21 @@ extends AnimatableBody2D
 var _health: int = 90
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
+func _ready() -> void:
+	animation_player.animation_finished.connect(func(anim: StringName) -> void:
+		if anim == &"death":
+			queue_free()
+	)
 
 
 func damage(dmg: int) -> void:
 	_health -= dmg
 	if _health <= 0:
 		$CollisionShape2D.set_deferred(&'disabled', true)
-		# TODO: show death
-		queue_free()
+		animation_player.play("death")
 
 
 func is_dead() -> bool:
