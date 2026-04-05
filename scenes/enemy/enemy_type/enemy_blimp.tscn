@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b6ce63jg63qsl"]
+
+[ext_resource type="PackedScene" uid="uid://qnbnsmdfgk34" path="res://scenes/enemy/enemy.tscn" id="1_565ka"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_565ka"]
+size = Vector2(48.5, 16)
+
+[node name="Enemy" unique_id=840357590 instance=ExtResource("1_565ka")]
+HEALTH = 32
+ATTACK_DAMAGE = 2
+ATTACK_COOLDOWN = 0.5
+MOVEMENT_SPEED = 10.0
+MATERIALS_DROPPED = 16
+IGNORE_BULIDINGS = true
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1749457072]
+debug_color = Color(1, 1, 1, 0.27450982)
+
+[node name="CollisionShape2D" parent="AgroArea" parent_id_path=PackedInt32Array(341088951) index="0" unique_id=1329865744]
+position = Vector2(-15.75, 0)
+shape = SubResource("RectangleShape2D_565ka")

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dym5qbfu5h0e4"]
+
+[ext_resource type="PackedScene" uid="uid://cf3komskoiiuj" path="res://scenes/building/mirror/mirror.tscn" id="1_qkfiw"]
+[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="2_u3f75"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0muuw"]
+atlas = ExtResource("2_u3f75")
+region = Rect2(36, 12, 12, 12)
+
+[node name="MirrorDL" unique_id=604295282 instance=ExtResource("1_qkfiw")]
+reflection_down = Array[int]([2])
+reflection_up = Array[int]([3])
+reflection_left = Array[int]([1])
+reflection_right = Array[int]([0])
+
+[node name="Sprite2D" parent="." index="0" unique_id=375172614]
+texture = SubResource("AtlasTexture_0muuw")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=245277124]
+rotation = -0.7853982

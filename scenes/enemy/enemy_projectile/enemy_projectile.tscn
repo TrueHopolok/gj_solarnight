@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bka2af2ijitac"]
+
+[ext_resource type="Script" uid="uid://c834uc5u4lgrp" path="res://scenes/enemy/enemy_projectile/enemy_projectile.gd" id="1_jr3ss"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w1ldr"]
+
+[node name="EnemyProjectile" type="Area2D" unique_id=528964790]
+collision_layer = 0
+input_pickable = false
+script = ExtResource("1_jr3ss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632511940]
+shape = SubResource("CircleShape2D_w1ldr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=40601866]
+position = Vector2(-160, -90)
+rect = Rect2(-32, -30, 384, 240)

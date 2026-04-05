@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ddv7ul50cfopu"]
+
+[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="1_4fx22"]
+[ext_resource type="Script" uid="uid://x2ibpwgflc7o" path="res://scenes/building/tower/tower.gd" id="2_d30og"]
+[ext_resource type="PackedScene" uid="uid://c4l6t3fwm1jr7" path="res://scenes/building/tower/canonball.tscn" id="2_nb2ud"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d30og"]
+atlas = ExtResource("1_4fx22")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb2ud"]
+size = Vector2(12, 12)
+
+[node name="Canon" type="StaticBody2D" unique_id=1512153694 groups=["light_sensitive", "player_built"]]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("2_d30og")
+reload_time = 1.5
+projectile = ExtResource("2_nb2ud")
+
+[node name="SunPolygon" type="Polygon2D" parent="." unique_id=1200198887]
+color = Color(0.9843137, 0, 0.12941177, 1)
+polygon = PackedVector2Array(-7, -7, -6, -13, -3, -9, -3, -15, 0, -9, 6, -13, 4, -9, 12, -9, 8, -6, 8, -3, 7, -1, 14, 1, 7, 3, 12, 6, 7, 6, 10, 12, 5, 8, 3, 12, 1, 8, -1, 12, -2, 8, -6, 12, -6, 7, -11, 8, -7, 2, -12, 2, -8, -3, -11, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=244333039]
+texture = SubResource("AtlasTexture_d30og")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=519917457]
+shape = SubResource("RectangleShape2D_nb2ud")

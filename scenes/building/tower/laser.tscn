@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b5q0rxrnelrcs"]
+
+[ext_resource type="PackedScene" uid="uid://ddv7ul50cfopu" path="res://scenes/building/tower/canon.tscn" id="1_uwytl"]
+[ext_resource type="PackedScene" uid="uid://bc6u7fnvooyx1" path="res://scenes/building/tower/laserbolt.tscn" id="2_ae7y3"]
+
+[node name="Laser" unique_id=1512153694 instance=ExtResource("1_uwytl")]
+reload_time = 6.0
+projectile = ExtResource("2_ae7y3")
+
+[node name="Sprite2D" parent="." index="0" unique_id=244333039]
+modulate = Color(0.502389, 0.8691286, 0, 1)

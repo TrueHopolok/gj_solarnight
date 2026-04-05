@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://qfyraiudtjlh"]
+
+[ext_resource type="PackedScene" uid="uid://ddv7ul50cfopu" path="res://scenes/building/tower/canon.tscn" id="1_n4wkq"]
+[ext_resource type="Script" uid="uid://xo0fgmgg18kt" path="res://scenes/building/tower/mortar.gd" id="2_a2cks"]
+[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="3_1arh1"]
+[ext_resource type="PackedScene" uid="uid://c3rdihofwh032" path="res://scenes/building/tower/mortar_round.tscn" id="3_ufnnf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufnnf"]
+atlas = ExtResource("3_1arh1")
+region = Rect2(84, 1, 23, 23)
+
+[node name="Mortar" unique_id=1512153694 instance=ExtResource("1_n4wkq")]
+input_pickable = true
+script = ExtResource("2_a2cks")
+color_reload = Color(1, 0.27058825, 0, 1)
+color_ready = Color(0, 1, 0, 1)
+reload_time = 12.0
+projectile = ExtResource("3_ufnnf")
+fire_manually = true
+
+[node name="Sprite2D" parent="." index="0" unique_id=244333039]
+modulate = Color(0, 0.15669426, 0.21979111, 1)
+flip_v = true
+
+[node name="Aim" type="Sprite2D" parent="." index="2" unique_id=1095914969]
+visible = false
+texture = SubResource("AtlasTexture_ufnnf")

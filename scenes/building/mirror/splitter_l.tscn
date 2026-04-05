@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bhx3tkm8c6n24"]
+
+[ext_resource type="PackedScene" uid="uid://cf3komskoiiuj" path="res://scenes/building/mirror/mirror.tscn" id="1_cidpr"]
+[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="2_bv7bf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d74v7"]
+atlas = ExtResource("2_bv7bf")
+region = Rect2(48, 12, 12, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bv7bf"]
+radius = 4.0
+
+[node name="SplitterL" unique_id=604295282 instance=ExtResource("1_cidpr")]
+reflection_down = Array[int]([2])
+reflection_up = Array[int]([2])
+reflection_left = Array[int]([0, 1])
+
+[node name="Sprite2D" parent="." index="0" unique_id=375172614]
+texture = SubResource("AtlasTexture_d74v7")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=245277124]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_bv7bf")

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cgicckc6q6ysf"]
+
+[ext_resource type="Script" uid="uid://bmj0fk04ljg6s" path="res://scenes/main_game_scene/main_game_scene.gd" id="1_7csvj"]
+[ext_resource type="PackedScene" uid="uid://cpvo88ktvlqb4" path="res://scenes/game_manager/game_manager.tscn" id="2_k1t50"]
+[ext_resource type="PackedScene" uid="uid://dco3bp4wnx0tl" path="res://scenes/building/sun/sun.tscn" id="3_k1t50"]
+[ext_resource type="Script" uid="uid://ca785icsltr3n" path="res://scenes/builder/builder.gd" id="4_0w8pv"]
+[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="12_k87rj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw0dr"]
+atlas = ExtResource("12_k87rj")
+region = Rect2(73, 0, 11, 12)
+
+[node name="MainGameScene" type="Node2D" unique_id=521506140 groups=["main_game_scene"]]
+script = ExtResource("1_7csvj")
+
+[node name="GameManager" parent="." unique_id=951158312 instance=ExtResource("2_k1t50")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2088516356]
+
+[node name="Builder" type="Node2D" parent="." unique_id=645637280]
+script = ExtResource("4_0w8pv")
+metadata/_custom_type_script = "uid://ca785icsltr3n"
+
+[node name="Sun" parent="." unique_id=1057295584 instance=ExtResource("3_k1t50")]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=331024947]
+
+[node name="Hotbar" type="HBoxContainer" parent="UI" unique_id=763721529]
+unique_name_in_owner = true
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ButtonUnselect" type="Button" parent="UI/Hotbar" unique_id=314429090]
+unique_name_in_owner = true
+layout_mode = 2
+icon = SubResource("AtlasTexture_dw0dr")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cf52t3s72va4v"]
+
+[ext_resource type="PackedScene" uid="uid://qnbnsmdfgk34" path="res://scenes/enemy/enemy.tscn" id="1_1y5xm"]
+[ext_resource type="PackedScene" uid="uid://82xcd2i4rd2o" path="res://scenes/enemy/enemy_shield/enemy_shield.tscn" id="2_3ruxo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ruxo"]
+size = Vector2(48, 16)
+
+[node name="Enemy" unique_id=840357590 instance=ExtResource("1_1y5xm")]
+
+[node name="EnemyShield" parent="." index="0" unique_id=448864929 instance=ExtResource("2_3ruxo")]
+sync_to_physics = false
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1749457072]
+debug_color = Color(0, 0.937906, 0.9821667, 0.27450982)
+
+[node name="CollisionShape2D" parent="AgroArea" parent_id_path=PackedInt32Array(341088951) index="0" unique_id=1329865744]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_3ruxo")

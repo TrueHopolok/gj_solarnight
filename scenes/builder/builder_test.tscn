@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://blrxfip3rf3cx"]
+
+[ext_resource type="PackedScene" uid="uid://dco3bp4wnx0tl" path="res://scenes/building/sun/sun.tscn" id="1_c3iil"]
+[ext_resource type="Script" uid="uid://d14othi433ga2" path="res://scenes/builder/builder_test.gd" id="1_cyu0q"]
+[ext_resource type="Script" uid="uid://ca785icsltr3n" path="res://scenes/builder/builder.gd" id="1_sgb50"]
+[ext_resource type="PackedScene" uid="uid://cpvo88ktvlqb4" path="res://scenes/game_manager/game_manager.tscn" id="2_s64oy"]
+[ext_resource type="PackedScene" uid="uid://qfyraiudtjlh" path="res://scenes/building/tower/mortar.tscn" id="12_3c4em"]
+[ext_resource type="PackedScene" uid="uid://c6m2t0msh8u8e" path="res://scenes/enemy/enemy_type/enemy_fodder.tscn" id="12_c3rwh"]
+
+[node name="BuilderTest" type="Node2D" unique_id=1599685715 groups=["main_game_scene"]]
+script = ExtResource("1_cyu0q")
+
+[node name="GameManager" parent="." unique_id=951158312 instance=ExtResource("2_s64oy")]
+
+[node name="Builder" type="Node2D" parent="." unique_id=1636076812]
+script = ExtResource("1_sgb50")
+metadata/_custom_type_script = "uid://ca785icsltr3n"
+
+[node name="Sun" parent="." unique_id=1057295584 instance=ExtResource("1_c3iil")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1148579003]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=192658482]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer" unique_id=1559878180]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ScrollContainer" unique_id=165247818]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ButtonMirrorR" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=1473772247]
+layout_mode = 2
+text = "/"
+
+[node name="ButtonMirrorL" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=1632430306]
+layout_mode = 2
+text = "\\"
+
+[node name="ButtonSplitR" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=1913193925]
+layout_mode = 2
+text = "├"
+
+[node name="ButtonSplitL" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=787644721]
+layout_mode = 2
+text = "┤"
+
+[node name="ButtonSplitB" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=946478974]
+layout_mode = 2
+text = "┬"
+
+[node name="ButtonSplitU" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=1346283311]
+layout_mode = 2
+text = "┴"
+
+[node name="ButtonLightbulb" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=2128935399]
+layout_mode = 2
+text = "O"
+
+[node name="Control" type="Control" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=943492958]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonDeselect" type="Button" parent="CanvasLayer/ScrollContainer/HBoxContainer" unique_id=866240079]
+layout_mode = 2
+text = "Deselect"
+
+[node name="Enemy7" parent="." unique_id=1449921778 instance=ExtResource("12_c3rwh")]
+position = Vector2(233, 110)
+MOVEMENT_SPEED = 0.0
+
+[node name="Enemy9" parent="." unique_id=699151498 instance=ExtResource("12_c3rwh")]
+position = Vector2(286, 139)
+MOVEMENT_SPEED = 0.0
+
+[node name="Mortar" parent="." unique_id=1512153694 instance=ExtResource("12_3c4em")]
+position = Vector2(170.08203, -80.03125)

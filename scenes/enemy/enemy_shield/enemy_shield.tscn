@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://82xcd2i4rd2o"]
+
+[ext_resource type="Script" uid="uid://20y14io17h8k" path="res://scenes/enemy/enemy_shield/enemy_shield.gd" id="1_44qct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44qct"]
+size = Vector2(32, 96)
+
+[node name="EnemyShield" type="AnimatableBody2D" unique_id=448864929]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_44qct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=676233866]
+shape = SubResource("RectangleShape2D_44qct")
+debug_color = Color(0, 0.6, 0.7019608, 0.27450982)

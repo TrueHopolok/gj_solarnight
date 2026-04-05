@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cl6843fhndg6w"]
+
+[ext_resource type="Shader" uid="uid://2dc8xad8ktc5" path="res://scenes/water_test/water_test.gdshader" id="1_l4m65"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iyjrf"]
+shader = ExtResource("1_l4m65")
+shader_parameter/pixel_size = Vector2(405, 257)
+shader_parameter/effect_scale = 12.34
+shader_parameter/col1 = Color(0.239, 0.714, 0.984, 1)
+shader_parameter/modulate = Color(0.22447062, 0.3069372, 0.41459182, 1)
+shader_parameter/base_cell_color = Color(0, 0.4, 1.4, 1)
+shader_parameter/threshold_low = 0.64
+shader_parameter/threshold_high = 0.655
+shader_parameter/brightness_mid = 1.0
+shader_parameter/brightness_high = 1.45
+
+[node name="WaterTest" type="Node2D" unique_id=1492319446]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=953213435]
+material = SubResource("ShaderMaterial_iyjrf")
+offset_left = 122.0
+offset_top = 61.0
+offset_right = 527.0
+offset_bottom = 318.0

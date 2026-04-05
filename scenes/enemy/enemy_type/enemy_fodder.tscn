@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c6m2t0msh8u8e"]
+
+[ext_resource type="PackedScene" uid="uid://qnbnsmdfgk34" path="res://scenes/enemy/enemy.tscn" id="1_us3ff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_us3ff"]
+size = Vector2(24.5, 16)
+
+[node name="Enemy" unique_id=840357590 instance=ExtResource("1_us3ff")]
+
+[node name="CollisionShape2D" parent="AgroArea" parent_id_path=PackedInt32Array(341088951) index="0" unique_id=1329865744]
+shape = SubResource("RectangleShape2D_us3ff")
+debug_color = Color(0.54497474, 0.08746185, 0, 0.27450982)
