@@ -29,9 +29,9 @@ region_rect = Rect2(0, 0, 102, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4a5x1"]
 atlas = ExtResource("1_l84ts")
-region = Rect2(4, 4, 204, 16)
+region = Rect2(0, 0, 102, 8)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jkqby"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l84ts"]
 texture = SubResource("AtlasTexture_4a5x1")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
@@ -41,7 +41,7 @@ expand_margin_left = 2.0
 expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
-region_rect = Rect2(0, 0, 204, 16)
+region_rect = Rect2(0, 0, 102, 8)
 
 [resource]
 default_font = ExtResource("1_6tjce")
@@ -50,5 +50,5 @@ HSlider/icons/grabber = SubResource("AtlasTexture_l84ts")
 HSlider/icons/grabber_highlight = SubResource("AtlasTexture_jkqby")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_qsqt6")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_qsqt6")
-HSlider/styles/slider = SubResource("StyleBoxTexture_jkqby")
+HSlider/styles/slider = SubResource("StyleBoxTexture_l84ts")
 Label/font_sizes/font_size = 16
