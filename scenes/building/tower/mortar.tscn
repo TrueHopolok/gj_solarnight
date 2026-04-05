@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c3rdihofwh032" path="res://scenes/building/tower/mortar_round.tscn" id="3_ufnnf"]
 [ext_resource type="Texture2D" uid="uid://c5g8ktreclx0q" path="res://assets/sprites/guns.png" id="4_8gs13"]
 [ext_resource type="AudioStream" uid="uid://c12psciv057dr" path="res://audio/sfx/gameplay/sound_mortar_placed.wav" id="6_q1465"]
-[ext_resource type="AudioStream" uid="uid://cxq3ca5el6dja" path="res://audio/sfx/gameplay/sound_not_enough_materials.wav" id="7_wr2se"]
+[ext_resource type="AudioStream" uid="uid://i5t2im7qib4c" path="res://audio/sfx/sound_mortar_allInOne.wav" id="7_wr2se"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q1465"]
 atlas = ExtResource("4_8gs13")
@@ -84,8 +84,8 @@ region = Rect2(32, 46, 6, 6)
 z_index = 1
 input_pickable = true
 script = ExtResource("2_a2cks")
-color_reload = Color(1, 0.27058825, 0, 1)
-color_ready = Color(0, 1, 0, 1)
+color_reload = Color(0.99607843, 0.42352942, 0.2901961, 1)
+color_ready = Color(0.9411765, 0.8862745, 0.65882355, 1)
 reload_time = 12.0
 projectile = ExtResource("3_ufnnf")
 fire_manually = true

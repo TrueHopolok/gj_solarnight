@@ -1,5 +1,8 @@
 extends StaticBody2D
 
+
+signal died
+
 const PULSE_TIME: float = 0.2
 const PROJECTOR_ANGLE: float = 60
 const ROTATION_SPEED: float = TAU / 3.0
@@ -66,8 +69,13 @@ func damage(dmg: int) -> void:
 		Persistence.submit()
 		$DestroyedSFX.play()
 		$BUUUMSFX.play()
-		# TODO: gameover animation
-		get_tree().create_timer(2.0).timeout.connect(Transition.change_scene_path.bind('res://ui/gameover_menu/gameover_menu.tscn'))
+		$Base.hide()
+		$Top.hide()
+		$Explosion.play("default")
+		$ProjectorVisual.hide()
+		died.emit()
+		await $Explosion.animation_finished
+		get_tree().create_timer(1.0).timeout.connect(_change_to_gameover)
 	elif float(health) / float(initial_health) <= 0.1:
 		if $FastestPulseTimer.is_stopped():
 			$SlowPulseTimer.stop()
@@ -90,3 +98,7 @@ func damage(dmg: int) -> void:
 
 func is_dead() -> bool:
 	return _dead
+
+
+func _change_to_gameover() -> void:
+	Transition.change_scene_path('res://ui/gameover_menu/gameover_menu.tscn')

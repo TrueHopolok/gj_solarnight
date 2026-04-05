@@ -1,22 +1,15 @@
 [gd_scene format=3 uid="uid://bka2af2ijitac"]
 
 [ext_resource type="Script" uid="uid://c834uc5u4lgrp" path="res://scenes/enemy/enemy_projectile/enemy_projectile.gd" id="1_jr3ss"]
-[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="2_hv57r"]
+[ext_resource type="Texture2D" uid="uid://4fnwk3ap3itv" path="res://assets/sprites/enemy_cannonball.png" id="2_hv57r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w1ldr"]
-radius = 3.1622777
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_psu71"]
-atlas = ExtResource("2_hv57r")
-region = Rect2(75, 3, 6, 6)
+radius = 2.0
 
 [node name="EnemyProjectile" type="Area2D" unique_id=528964790]
 collision_layer = 0
 input_pickable = false
 script = ExtResource("1_jr3ss")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632511940]
-shape = SubResource("CircleShape2D_w1ldr")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=40601866]
 visible = false
@@ -24,4 +17,7 @@ position = Vector2(-160, -90)
 rect = Rect2(-32, -30, 384, 240)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=783161357]
-texture = SubResource("AtlasTexture_psu71")
+texture = ExtResource("2_hv57r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632511940]
+shape = SubResource("CircleShape2D_w1ldr")
