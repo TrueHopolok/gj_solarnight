@@ -30,9 +30,13 @@ color = Color(0.90588236, 0.8392157, 0.41960785, 0.37254903)
 polygon = PackedVector2Array(43, -69, 0, 0, 97, -35)
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1954649595]
+z_index = -1
+z_as_relative = false
 texture = SubResource("AtlasTexture_vlfx2")
 
 [node name="Top" type="Sprite2D" parent="." unique_id=1599975275]
+z_index = -1
+z_as_relative = false
 texture = SubResource("AtlasTexture_dnubv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602799174]

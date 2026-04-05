@@ -1,14 +1,46 @@
 [gd_scene format=3 uid="uid://c4l6t3fwm1jr7"]
 
 [ext_resource type="Script" uid="uid://dfdv6tsoryctg" path="res://scenes/building/tower/canonball.gd" id="1_tkpb4"]
-[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="2_75dkc"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1blpo"]
-atlas = ExtResource("2_75dkc")
-region = Rect2(75, 3, 6, 6)
+[ext_resource type="Texture2D" uid="uid://biggrx4mprhm5" path="res://assets/sprites/player_cannonball.png" id="2_75dkc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8upw4"]
 radius = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75dkc"]
+atlas = ExtResource("2_75dkc")
+region = Rect2(3, 3, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1blpo"]
+atlas = ExtResource("2_75dkc")
+region = Rect2(19, 3, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8upw4"]
+atlas = ExtResource("2_75dkc")
+region = Rect2(35, 3, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxkl4"]
+atlas = ExtResource("2_75dkc")
+region = Rect2(51, 3, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ani0y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75dkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1blpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8upw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxkl4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
 
 [node name="Canonball" type="AnimatableBody2D" unique_id=843264937]
 collision_layer = 16
@@ -16,8 +48,9 @@ collision_mask = 12
 sync_to_physics = false
 script = ExtResource("1_tkpb4")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1162244677]
-texture = SubResource("AtlasTexture_1blpo")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=351978198]
 shape = SubResource("CircleShape2D_8upw4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=754079927]
+sprite_frames = SubResource("SpriteFrames_ani0y")
+autoplay = "default"
