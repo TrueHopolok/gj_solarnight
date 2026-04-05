@@ -16,7 +16,7 @@ uniform float foam_softness : hint_range(0.001, 0.2) = 0.05;
 uniform float water_darkness : hint_range(0.0, 1.0) = 0.4;
 
 void fragment() {
-	vec2 uv = floor(UV * output_size) / output_size;
+	vec2 uv = UV;
 
     vec4 n1 = texture(noise1, mod(uv + TIME * scroll_speed1, vec2(1.0)));
     vec4 n2 = texture(noise2, mod(uv + TIME * scroll_speed2, vec2(1.0)));
