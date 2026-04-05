@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 
 const DURATION = 0.5

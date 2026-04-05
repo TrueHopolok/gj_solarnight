@@ -2,4 +2,4 @@ extends TextureButton
 
 
 func _ready() -> void:
-	pressed.connect(%ResetWindowDialog.show)
+	pressed.connect($ResetWindowDialog.show)

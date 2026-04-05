@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dyy30mlffvxph"]
+
+[ext_resource type="Script" uid="uid://csss66oyjjme4" path="res://ui/pause_menu/pause_menu.gd" id="1_le02u"]
+[ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="1_mnjdh"]
+[ext_resource type="PackedScene" uid="uid://i0n7cjiw24yl" path="res://ui/settings/audio_settings/audio_settings.tscn" id="2_jbgdu"]
+[ext_resource type="Script" uid="uid://oegg7ut1jsy2" path="res://ui/pause_menu/button_continue.gd" id="3_b4b0p"]
+[ext_resource type="Script" uid="uid://cdxlp56bg3ax4" path="res://ui/pause_menu/button_return.gd" id="4_c3jo5"]
+[ext_resource type="Script" uid="uid://bel6ypinb1di5" path="res://ui/pause_menu/return_confirmation_window.gd" id="5_uraes"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1351550630]
+process_mode = 3
+layer = 2
+script = ExtResource("1_le02u")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=686466852]
+process_mode = 2
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 0.27450982)
+
+[node name="Title" type="Label" parent="." unique_id=569674386]
+process_mode = 2
+offset_left = 224.0
+offset_top = 72.0
+offset_right = 416.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 36
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" parent="." unique_id=1413801646 instance=ExtResource("1_mnjdh")]
+process_mode = 2
+offset_left = 136.0
+offset_top = 144.0
+offset_right = 280.0
+offset_bottom = 176.0
+script = ExtResource("3_b4b0p")
+
+[node name="Label" parent="ContinueButton" index="0" unique_id=960341710]
+text = "Continue"
+
+[node name="ReturnButton" parent="." unique_id=137220489 instance=ExtResource("1_mnjdh")]
+process_mode = 2
+offset_left = 136.0
+offset_top = 192.0
+offset_right = 280.0
+offset_bottom = 224.0
+script = ExtResource("4_c3jo5")
+
+[node name="Label" parent="ReturnButton" index="0" unique_id=960341710]
+text = "Return to mainmenu"
+
+[node name="ReturnConfirmationWindow" type="ConfirmationDialog" parent="ReturnButton" unique_id=1920985108]
+oversampling_override = 1.0
+initial_position = 1
+dialog_text = "Return to main menu?
+All progress would be lost..."
+script = ExtResource("5_uraes")
+
+[node name="AudioSettings" parent="." unique_id=455712532 instance=ExtResource("2_jbgdu")]
+process_mode = 2
+offset_left = 304.0
+offset_top = 144.0
+offset_right = -96.0
+offset_bottom = -136.0
+
+[editable path="ContinueButton"]
+[editable path="ReturnButton"]

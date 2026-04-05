@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bwmdx0xlackyf" path="res://audio/music/levelMusic_intense.wav" id="3_5jk4l"]
 
 [node name="IntenseMusicPlayer" type="Node" unique_id=745860557 groups=["music_manager"]]
+process_mode = 3
 script = ExtResource("1_l1eea")
 
 [node name="MainMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=547606349]
