@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://dmuybgrmw47ak"]
 
 [ext_resource type="Script" uid="uid://xtfhg08vfl4x" path="res://scenes/dialoger/dialog_area.gd" id="1_47a61"]
+[ext_resource type="Texture2D" uid="uid://csqyn1qqojlue" path="res://assets/sprites/faces.png" id="2_1amv2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7cdo"]
+atlas = ExtResource("2_1amv2")
+region = Rect2(0, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4s5l"]
+atlas = ExtResource("2_1amv2")
+region = Rect2(22, 0, 22, 22)
 
 [node name="DialogArea" type="PanelContainer" unique_id=78673157]
 offset_left = 17.0
@@ -8,6 +17,8 @@ offset_top = 14.0
 offset_right = 114.0
 offset_bottom = 44.0
 script = ExtResource("1_47a61")
+king_face = SubResource("AtlasTexture_i7cdo")
+wizard_face = SubResource("AtlasTexture_u4s5l")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1216711579]
 layout_mode = 2
@@ -16,13 +27,24 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=80121188]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=61326407]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1544839561]
+[node name="Face" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=83706988]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(66.825, 0)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=80121188]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1544839561]
 layout_mode = 2
 
-[node name="Speaker" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=761106754]
+[node name="Speaker" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=761106754]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 16
@@ -37,17 +59,17 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=764154018]
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=764154018]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Next" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=375052896]
+[node name="Next" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=375052896]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 text = ">>"
 
-[node name="Content" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=261349718]
+[node name="Content" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=261349718]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
