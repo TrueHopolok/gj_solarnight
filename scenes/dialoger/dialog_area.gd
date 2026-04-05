@@ -11,6 +11,9 @@ enum State {
 
 const CHARS_PER_SECOND: float = 70.0
 
+@export var king_face: Texture
+@export var wizard_face: Texture
+
 var _current_seq: Array[DialogLine] = []
 var _state := State.INACTIVE
 var _last_tween: Tween
@@ -18,6 +21,7 @@ var _last_tween: Tween
 @onready var speaker: RichTextLabel = %Speaker
 @onready var next: Button = %Next
 @onready var content: RichTextLabel = %Content
+@onready var face: TextureRect = %Face
 
 
 func _ready() -> void:
@@ -80,6 +84,7 @@ func _show_line(line: DialogLine) -> void:
 	speaker.text = line.speaker
 	content.text = line.text
 	content.visible_ratio = 0
+	face.texture = _get_speaker_face(line.speaker)
 
 	var dur := clampf(float(line.text.length()) / CHARS_PER_SECOND, 1, 30)
 
@@ -125,3 +130,9 @@ func _fade_out() -> void:
 	t.finished.connect(_on_tween_finished)
 
 	_state = State.FADE_OUT
+
+
+func _get_speaker_face(speaker: String) -> Texture:
+	if speaker.to_lower().contains("king"):
+		return king_face
+	return wizard_face
