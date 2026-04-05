@@ -75,6 +75,7 @@ func shoot() -> void:
 	var inst := projectile.instantiate()
 	get_parent().add_child(inst)
 	inst.set(&"global_position", get_global_mouse_position())
+	$ShootingSfx.play_sfx()
 	_cancel_aiming()
 
 

@@ -12,7 +12,7 @@
 
 [node name="Ocean" type="AudioStreamPlayer" parent="." unique_id=1997184950]
 stream = ExtResource("1_lvx10")
-volume_db = -10.0
+volume_db = -20.0
 autoplay = true
 bus = &"SFX"
 

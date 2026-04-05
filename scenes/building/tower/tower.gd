@@ -104,6 +104,7 @@ func shoot() -> void:
 	inst.set(&"global_transform", global_transform)
 	inst.set(&"target", target)
 	get_parent().add_child(inst)
+	$ShootingSfx.play_sfx()
 
 
 func set_sun_state(v: bool) -> void:
