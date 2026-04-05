@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bdq0qvdqct6el" path="res://scenes/main_game_scene/wave_label.gd" id="12_hnlf3"]
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="12_k87rj"]
 [ext_resource type="Script" uid="uid://c74mokkbt2eu0" path="res://scenes/main_game_scene/next_wave.gd" id="14_8hmrp"]
+[ext_resource type="PackedScene" uid="uid://dmuybgrmw47ak" path="res://scenes/dialoger/dialog_area.tscn" id="16_pp6md"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2inbw"]
 viewport_path = NodePath("SubViewport")
@@ -149,6 +150,15 @@ script = ExtResource("14_8hmrp")
 
 [node name="Label" parent="UI/NextWave" index="0" unique_id=960341710]
 text = "Next wave"
+
+[node name="DialogArea" parent="UI" unique_id=78673157 instance=ExtResource("16_pp6md")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 144.0
+offset_top = 17.0
+offset_right = -144.0
+offset_bottom = 81.0
+grow_horizontal = 2
 
 [node name="PauseMenu" parent="." unique_id=1351550630 instance=ExtResource("8_7v0l4")]
 
