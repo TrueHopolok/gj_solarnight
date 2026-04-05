@@ -75,6 +75,10 @@ animations = [{
 atlas = ExtResource("3_1arh1")
 region = Rect2(84, 1, 23, 23)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr2w5"]
+atlas = ExtResource("4_8gs13")
+region = Rect2(32, 46, 6, 6)
+
 [node name="Mortar" unique_id=1512153694 instance=ExtResource("1_n4wkq")]
 input_pickable = true
 script = ExtResource("2_a2cks")
@@ -91,5 +95,10 @@ sprite_frames = SubResource("SpriteFrames_hr2w5")
 visible = false
 texture = SubResource("AtlasTexture_ufnnf")
 
-[node name="PlacedSFX" parent="." index="4" unique_id=1344402789]
+[node name="Ready" type="Sprite2D" parent="." index="3" unique_id=1650793715]
+visible = false
+modulate = Color(0.51119727, 0.51119727, 0.5111972, 0.48235294)
+texture = SubResource("AtlasTexture_hr2w5")
+
+[node name="PlacedSFX" parent="." index="5" unique_id=1344402789]
 stream = ExtResource("6_q1465")

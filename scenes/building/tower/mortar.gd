@@ -4,6 +4,7 @@ extends Tower
 @export var color_reload := Color.ORANGE_RED
 @export var color_ready := Color.LIME
 
+@onready var ready_marker: Sprite2D = $Ready
 @onready var aim_sprite: Sprite2D = $Aim
 
 var _mouse_inside: bool = false
@@ -34,9 +35,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
+
+	ready_marker.visible = _energry and _reload_left <= 0
+
 	if _is_targeting:
 		aim_sprite.modulate = _get_color()
 		aim_sprite.global_position = get_global_mouse_position()
+
+		var a := snappedf(global_position.direction_to(get_global_mouse_position()).angle(), TAU / 8)
+		ready_marker.position = Vector2.from_angle(a)
 		queue_redraw()
 
 

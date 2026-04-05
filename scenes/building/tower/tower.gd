@@ -17,6 +17,7 @@ var _health: int
 @onready var sun_polygon: Node2D = $SunPolygon
 @onready var sprite: AnimatedSprite2D = $Sprite
 
+
 func _ready() -> void:
 	_reload_left = randf_range(reload_time * 0.5, reload_time * 1.5)
 	_health = initial_health
@@ -79,7 +80,7 @@ func _track_target() -> void:
 	if target == null:
 		return
 
-	_look_at(target.global_position)
+	_look_at(-target.global_position)
 
 
 func _look_at(global_pos: Vector2) -> void:
