@@ -3,6 +3,9 @@ extends Node2D
 
 
 const SUN_MULTIPLIER: float = 1.5
+const SUN_POLYGON_POINTS: int = 30
+const SUN_POLYGON_MAJOR: float = 12
+const SUN_POLYGON_MINOR: float = 10
 
 @export var reload_time: float = 3.0
 @export var projectile: PackedScene
@@ -14,10 +17,22 @@ var _energry: bool = false
 var _under_sun: bool = false
 var _health: int
 
+@onready var sun_polygon: Polygon2D = $SunPolygon
+
 
 func _ready() -> void:
 	_reload_left = randf_range(reload_time, reload_time * 2)
 	_health = initial_health
+
+	set_light_state(false)
+	set_sun_state(false)
+
+	var polygon: PackedVector2Array
+	for i: int in SUN_POLYGON_POINTS:
+		polygon.push_back(Vector2.RIGHT.rotated(remap(i, 0, SUN_POLYGON_POINTS, 0, TAU))
+			* (SUN_POLYGON_MINOR if i % 2 == 0 else SUN_POLYGON_MAJOR))
+
+	sun_polygon.polygon = polygon
 
 
 func _physics_process(delta: float) -> void:
@@ -71,11 +86,12 @@ func shoot() -> void:
 
 func set_sun_state(v: bool) -> void:
 	_under_sun = v
+	sun_polygon.visible = _under_sun
 
 
 func set_light_state(v: bool) -> void:
 	_energry = v
-
+	sun_polygon.visible = _under_sun
 
 
 func damage(val: int) -> void:
