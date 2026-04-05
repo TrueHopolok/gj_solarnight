@@ -71,7 +71,9 @@ func _try_place(at: Vector2) -> void:
 	var inst := build_list.items[_selected_index].scene.instantiate()
 	inst.position = _round_to_cell_center(at)
 	inst.set_meta(&"builder_price", build_list.items[_selected_index].price)
-	add_child(inst)
+
+	var root := get_tree().get_first_node_in_group(&"main_game_scene")
+	root.add_child(inst)
 
 	if inst.is_in_group(&"light_sensitive") or inst.has_method(&"redirect_light"):
 		inst.tree_exited.connect(_calculate_light, CONNECT_ONE_SHOT)

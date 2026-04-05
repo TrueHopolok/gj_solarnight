@@ -63,7 +63,7 @@ z_index = -1
 script = ExtResource("4_0w8pv")
 metadata/_custom_type_script = "uid://ca785icsltr3n"
 
-[node name="Sun" parent="Builder" unique_id=1057295584 instance=ExtResource("3_k1t50")]
+[node name="Sun" parent="." unique_id=1057295584 instance=ExtResource("3_k1t50")]
 unique_name_in_owner = true
 z_index = -7
 
