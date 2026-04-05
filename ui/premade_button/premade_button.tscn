@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bb8o81ao1k5eg" path="res://assets/temperary/button_normal.png" id="1_qihkd"]
 [ext_resource type="Texture2D" uid="uid://cip27x0vv7ae8" path="res://assets/temperary/button_pushed.png" id="2_wj5ij"]
 [ext_resource type="Texture2D" uid="uid://bn5em7yl11u5c" path="res://assets/temperary/button_hovered.png" id="3_1givc"]
+[ext_resource type="AudioStream" uid="uid://dwi57s6tw2wpu" path="res://audio/sfx/ui/sound_button.wav" id="4_56tfd"]
 [ext_resource type="Script" uid="uid://h8hiiwjd36q0" path="res://ui/premade_button/press_sfx.gd" id="5_56tfd"]
 
 [node name="PremadeButton" type="TextureButton" unique_id=1413801646]
@@ -28,5 +29,6 @@ vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="PressSFX" type="AudioStreamPlayer" parent="." unique_id=1860650791]
+stream = ExtResource("4_56tfd")
 bus = &"SFX"
 script = ExtResource("5_56tfd")

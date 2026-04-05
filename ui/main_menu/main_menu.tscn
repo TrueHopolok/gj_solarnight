@@ -37,10 +37,8 @@ script = ExtResource("2_3c04x")
 [node name="Label" parent="PlayButton" index="0" unique_id=960341710]
 text = "Play"
 
-[node name="StartGameSFX" type="AudioStreamPlayer" parent="PlayButton" unique_id=1312736550]
-process_mode = 3
+[node name="PressSFX" parent="PlayButton" index="1" unique_id=1860650791]
 stream = ExtResource("3_joh67")
-bus = &"SFX"
 
 [node name="BestScoreLabel" parent="." unique_id=317245024 instance=ExtResource("7_u184e")]
 offset_left = 256.0

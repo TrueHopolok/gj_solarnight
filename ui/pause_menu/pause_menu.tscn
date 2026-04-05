@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://i0n7cjiw24yl" path="res://ui/settings/audio_settings/audio_settings.tscn" id="2_jbgdu"]
 [ext_resource type="Script" uid="uid://oegg7ut1jsy2" path="res://ui/pause_menu/button_continue.gd" id="3_b4b0p"]
 [ext_resource type="Script" uid="uid://cdxlp56bg3ax4" path="res://ui/pause_menu/button_return.gd" id="4_c3jo5"]
+[ext_resource type="AudioStream" uid="uid://cwfsh6ugj6mfy" path="res://audio/sfx/ui/sound_pause.wav" id="4_ihaig"]
 [ext_resource type="Script" uid="uid://bel6ypinb1di5" path="res://ui/pause_menu/return_confirmation_window.gd" id="5_uraes"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1351550630]
@@ -39,6 +40,10 @@ script = ExtResource("3_b4b0p")
 
 [node name="Label" parent="ContinueButton" index="0" unique_id=960341710]
 text = "Continue"
+
+[node name="PressSFX" parent="ContinueButton" index="1" unique_id=1860650791]
+process_mode = 3
+stream = ExtResource("4_ihaig")
 
 [node name="ReturnButton" parent="." unique_id=137220489 instance=ExtResource("1_mnjdh")]
 process_mode = 2
