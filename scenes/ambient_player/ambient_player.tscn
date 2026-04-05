@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://5yo5qwv1thla"]
+
+[ext_resource type="AudioStream" uid="uid://cb2sjcileca4o" path="res://audio/sfx/ambient/sound_ocean.wav" id="1_lvx10"]
+[ext_resource type="PackedScene" uid="uid://bcfn5243eqtbv" path="res://scenes/ambient_player/random_audio_player.tscn" id="2_ch1f7"]
+[ext_resource type="AudioStream" uid="uid://bv34yoh28guw" path="res://audio/sfx/ambient/sound_bird_1.wav" id="3_6371t"]
+[ext_resource type="AudioStream" uid="uid://coxqd6rw6gx2j" path="res://audio/sfx/ambient/sound_bird_2.wav" id="4_qkxp2"]
+
+[node name="AmbientPlayer" type="Node" unique_id=2136708715]
+
+[node name="Ocean" type="AudioStreamPlayer" parent="." unique_id=1997184950]
+stream = ExtResource("1_lvx10")
+volume_db = -10.0
+autoplay = true
+bus = &"SFX"
+
+[node name="RandomAudioPlayer" parent="." unique_id=1803041930 instance=ExtResource("2_ch1f7")]
+volume_db = -15.0
+_audio_streams = Array[AudioStream]([ExtResource("3_6371t"), ExtResource("4_qkxp2")])

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bkl55wj7p4u1a"]
+
+[ext_resource type="Script" uid="uid://p65kr3dys8c" path="res://scenes/intense_music_player/intense_music_player.gd" id="1_l1eea"]
+[ext_resource type="AudioStream" uid="uid://bxkvd0kiyn23s" path="res://audio/music/levelMusic_main.wav" id="2_u8qda"]
+[ext_resource type="AudioStream" uid="uid://bwmdx0xlackyf" path="res://audio/music/levelMusic_intense.wav" id="3_5jk4l"]
+
+[node name="IntenseMusicPlayer" type="Node" unique_id=745860557 groups=["music_manager"]]
+script = ExtResource("1_l1eea")
+
+[node name="MainMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=547606349]
+stream = ExtResource("2_u8qda")
+autoplay = true
+bus = &"Music"
+
+[node name="IntenseMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=987708682]
+stream = ExtResource("3_5jk4l")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"

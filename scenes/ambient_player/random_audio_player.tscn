@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bcfn5243eqtbv"]
+
+[ext_resource type="Script" uid="uid://c1j0q7xm0uhp2" path="res://scenes/ambient_player/random_audio_player.gd" id="1_1dnrv"]
+
+[node name="RandomAudioPlayer" type="AudioStreamPlayer" unique_id=1803041930]
+bus = &"SFX_panner"
+script = ExtResource("1_1dnrv")
+
+[node name="Timer" type="Timer" parent="." unique_id=2085354624]
+one_shot = true
