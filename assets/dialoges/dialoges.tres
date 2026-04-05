@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="DialogPerWave" format=3 uid="uid://cyfcye08u5rh1"]
+
+[ext_resource type="Script" uid="uid://2mv272ku3nwu" path="res://assets/dialoges/dialoges.gd" id="1_hkf0d"]
+[ext_resource type="Script" uid="uid://bvu05un8hxew1" path="res://assets/dialoges/dialoges_pack.gd" id="1_pgein"]
+[ext_resource type="Script" uid="uid://xcsbj0dde8d2" path="res://scenes/dialoger/dialoger.gd" id="2_mjpo8"]
+
+[sub_resource type="Resource" id="Resource_pl5cf"]
+script = ExtResource("2_mjpo8")
+speaker = "Evil Wizard"
+text = "Finally, after, so long... I managed to pull this off... to power all my creations and plunge the world in [color=steelblue]chaos[/color] and [color=steelblue]darkness[/color]..."
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_qg7ps"]
+script = ExtResource("2_mjpo8")
+speaker = "Evil Wizard"
+text = "I stole the [color=orange][wave amp=20 freq=2]SUN[/wave][/color]!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_pgein"]
+script = ExtResource("2_mjpo8")
+speaker = "King"
+text = "Not so fast! I, the [color=gold]King[/color] of the entire world, will destroy your [color=orange]Sun-Powered beacon[/color] and return the [color=orange]Sun[/color] back to the sky!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_mjpo8"]
+script = ExtResource("2_mjpo8")
+speaker = "Evil Wizard (you)"
+text = "Ha ha ha ha... My canon are stronger than entire fleet! Bring it on!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_vwyhe"]
+script = ExtResource("2_mjpo8")
+speaker = "Tutorial"
+text = "Use scrollwheel or press 'Q' to select the canon.
+Press LMB to place it on the field. Be aware, [wave freq=2][color=orange]canons must be powered by sun[/color]."
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_vwykj"]
+script = ExtResource("1_pgein")
+dialog_pack = Array[ExtResource("2_mjpo8")]([SubResource("Resource_pl5cf"), SubResource("Resource_qg7ps"), SubResource("Resource_pgein"), SubResource("Resource_mjpo8"), SubResource("Resource_vwyhe")])
+metadata/_custom_type_script = "uid://bvu05un8hxew1"
+
+[resource]
+script = ExtResource("1_hkf0d")
+dialoges_per_wave = Dictionary[int, ExtResource("1_pgein")]({
+0: SubResource("Resource_vwykj")
+})
+metadata/_custom_type_script = "uid://2mv272ku3nwu"

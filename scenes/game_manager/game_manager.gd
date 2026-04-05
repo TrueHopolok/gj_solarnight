@@ -10,6 +10,11 @@ var _time_after_spawn: float = 0.0
 static func get_instance() -> GameManager:
 	return Engine.get_main_loop().get_first_node_in_group('game_manager')
 
+
+func _ready() -> void:
+	_dialog_next.call_deferred()
+
+
 func _physics_process(delta: float) -> void:
 	_time_after_spawn += delta
 	if _time_after_spawn >= ENEMY_SPAWN_INTERVAL:
@@ -100,6 +105,7 @@ func _enemy_solo_spawn(spawn: SpawnItem) -> void:
 			materials_add(materials_dropped)
 			_wave_enemy_counter -= 1
 			if _wave_enemy_counter == 0:
+				_dialog_next()
 				wave_ended.emit(_wave_number)
 	)
 	_main_game_scene.add_child(enemy)
@@ -217,3 +223,13 @@ func materials_add(addition: int) -> bool:
 		Persistence.current_score += addition
 		materials_added.emit()
 	return true
+
+
+######################
+### DIALOG MANAGER ###
+
+@export var _dialog_per_wave: DialogPerWave
+
+func _dialog_next() -> void:
+	if _dialog_per_wave.dialoges_per_wave.has(_wave_number):
+		%DialogArea.play_dialog(_dialog_per_wave.dialoges_per_wave[_wave_number].dialog_pack)

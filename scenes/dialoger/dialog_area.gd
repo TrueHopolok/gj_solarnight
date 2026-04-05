@@ -2,7 +2,7 @@ class_name DialogArea
 extends Control
 
 
-const CHARS_PER_SECOND: float = 30.0
+const CHARS_PER_SECOND: float = 70.0
 
 var _current_seq: Array[DialogLine] = []
 
