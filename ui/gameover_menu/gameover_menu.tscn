@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="1_rbamj"]
 [ext_resource type="AudioStream" uid="uid://bwmdx0xlackyf" path="res://audio/music/levelMusic_intense.wav" id="1_rsdiu"]
 [ext_resource type="Script" uid="uid://bnyd2oaoh74f3" path="res://ui/gameover_menu/button_restart.gd" id="2_akiq2"]
+[ext_resource type="Script" uid="uid://6ow22fqjctnb" path="res://ui/gameover_menu/score_label.gd" id="2_qqyla"]
 [ext_resource type="Script" uid="uid://bhlvakmnrbcv2" path="res://ui/gameover_menu/button_return.gd" id="3_kt1v6"]
 
 [node name="GameoverMenu" type="CanvasLayer" unique_id=628126712]
@@ -29,16 +30,16 @@ anchor_bottom = 1.0
 offset_left = 176.0
 offset_top = 152.0
 offset_right = -176.0
-offset_bottom = -139.0
+offset_bottom = -159.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Your score: %d
-Best score %d
-(or text saying that it is you new best score)"
+Best score %d"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("2_qqyla")
 
 [node name="RestartButton" parent="." unique_id=1413801646 instance=ExtResource("1_rbamj")]
 offset_left = 248.0

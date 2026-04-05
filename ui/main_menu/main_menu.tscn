@@ -3,11 +3,11 @@
 [ext_resource type="AudioStream" uid="uid://bdny8yr5n28j5" path="res://audio/music/menuMusic.wav" id="1_6mijq"]
 [ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="1_mu8pm"]
 [ext_resource type="Script" uid="uid://djugp43tpkhni" path="res://ui/main_menu/button_play.gd" id="2_3c04x"]
+[ext_resource type="Script" uid="uid://bkgvd7qtbbm0k" path="res://ui/main_menu/best_score_label.gd" id="2_6mijq"]
 [ext_resource type="AudioStream" uid="uid://drw1cuauj8hsf" path="res://audio/sfx/ui/sound_BUUUUUMMM.wav" id="3_joh67"]
 [ext_resource type="Script" uid="uid://cbytf7ng2ntnq" path="res://ui/main_menu/button_reset_progress.gd" id="3_omy8q"]
 [ext_resource type="Script" uid="uid://vswp6l03rkdc" path="res://ui/main_menu/reset_window_dialog.gd" id="4_i5wg5"]
 [ext_resource type="PackedScene" uid="uid://i0n7cjiw24yl" path="res://ui/settings/audio_settings/audio_settings.tscn" id="6_joh67"]
-[ext_resource type="PackedScene" uid="uid://dqnfh66qfcpt7" path="res://ui/best_score_label/best_score_label.tscn" id="7_u184e"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=291949947]
 layer = 2
@@ -27,6 +27,16 @@ text = "[wave amp=20 freq=1][color=orange]SOLAR[/color][color=midnight_blue]NIGH
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="BestScoreLabel" type="Label" parent="." unique_id=366243123]
+offset_left = 248.0
+offset_top = 160.0
+offset_right = 392.0
+offset_bottom = 183.0
+text = "Best score: %d"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_6mijq")
+
 [node name="PlayButton" parent="." unique_id=1413801646 instance=ExtResource("1_mu8pm")]
 offset_left = 248.0
 offset_top = 128.0
@@ -39,12 +49,6 @@ text = "Play"
 
 [node name="PressSFX" parent="PlayButton" index="1" unique_id=1860650791]
 stream = ExtResource("3_joh67")
-
-[node name="BestScoreLabel" parent="." unique_id=317245024 instance=ExtResource("7_u184e")]
-offset_left = 256.0
-offset_top = 160.0
-offset_right = 376.0
-offset_bottom = 183.0
 
 [node name="AudioSettings" parent="." unique_id=455712532 instance=ExtResource("6_joh67")]
 offset_left = 192.0

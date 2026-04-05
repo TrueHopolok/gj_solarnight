@@ -9,6 +9,7 @@ var buildables: BuildList = preload("uid://d32aym1ox3gnq")
 
 
 func _ready() -> void:
+	Persistence.current_score = 0
 	GameManager.get_instance().wave_start()
 	GameManager.get_instance().wave_ended.connect(GameManager.get_instance().wave_start.unbind(1))
 

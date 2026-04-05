@@ -46,6 +46,7 @@ func damage(dmg: int) -> void:
 	health -= dmg
 	if health <= 0:
 		_dead = true
+		Persistence.submit()
 		$DestroyedSFX.play()
 		$BUUUMSFX.play()
 		# TODO: gameover animation
