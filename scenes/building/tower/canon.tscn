@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://x2ibpwgflc7o" path="res://scenes/building/tower/tower.gd" id="2_d30og"]
 [ext_resource type="PackedScene" uid="uid://c4l6t3fwm1jr7" path="res://scenes/building/tower/canonball.tscn" id="2_nb2ud"]
 [ext_resource type="Texture2D" uid="uid://c5g8ktreclx0q" path="res://assets/sprites/guns.png" id="3_nb2ud"]
+[ext_resource type="AudioStream" uid="uid://cd66rkwvos4ax" path="res://audio/sfx/gameplay/sound_cannon_placed.wav" id="4_ddedq"]
+[ext_resource type="AudioStream" uid="uid://dbwundn4yorrw" path="res://audio/sfx/gameplay/sound_turrets_destroyed.wav" id="5_petq7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddedq"]
 atlas = ExtResource("3_nb2ud")
@@ -95,3 +97,12 @@ speed_scale = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=519917457]
 visible = false
 shape = SubResource("RectangleShape2D_nb2ud")
+
+[node name="PlacedSFX" type="AudioStreamPlayer" parent="." unique_id=1344402789]
+stream = ExtResource("4_ddedq")
+volume_db = -5.0
+autoplay = true
+
+[node name="DestroyedSFX" type="AudioStreamPlayer" parent="." unique_id=1448878713]
+stream = ExtResource("5_petq7")
+volume_db = -5.0

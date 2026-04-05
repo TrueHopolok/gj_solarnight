@@ -18,7 +18,7 @@ var _health: int
 @onready var sprite: AnimatedSprite2D = $Sprite
 
 func _ready() -> void:
-	_reload_left = randf_range(reload_time, reload_time * 2)
+	_reload_left = randf_range(reload_time * 0.5, reload_time * 1.5)
 	_health = initial_health
 
 	set_light_state(false)
@@ -124,9 +124,16 @@ func set_light_state(v: bool) -> void:
 
 func damage(val: int) -> void:
 	_health -= val
-	if _health < 0:
+	if _health <= 0:
 		die()
 
 
+func is_dead() -> bool:
+	return _health <= 0
+
+
 func die() -> void:
-	queue_free()
+	$CollisionShape2D.call_deferred(&'set_disabled', true)
+	$DestroyedSFX.play()
+	# TODO: add death animation
+	$DestroyedSFX.finished.connect(queue_free)

@@ -36,47 +36,38 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_remaining_cooldown = max(0.0, _remaining_cooldown - delta)
-	if $AgroArea.has_overlapping_bodies():
-		if _ignore_buildings:
-			var found_sun: bool = false
-			for body: Node2D in $AgroArea.get_overlapping_bodies():
-				if body.is_in_group('sun'):
-					found_sun = true
-					break
-			if found_sun:
-				if _remaining_cooldown <= 0.0:
-					_attack()
-				velocity = Vector2.ZERO
-				move_and_slide()
-				return
-		else:
-			if _remaining_cooldown <= 0.0:
-				_attack()
-			velocity = Vector2.ZERO
-			move_and_slide()
-			return
+	var target: Node2D = _find_target()
+	if target:
+		if _remaining_cooldown <= 0.0:
+			_attack(target)
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
 	velocity = position.direction_to(_sun.position) * _movement_speed
 	move_and_slide()
 	$AgroArea.rotation = (position - _sun.position).angle()
 
 
-func _attack() -> bool:
-	_remaining_cooldown = _attack_cooldown
-	var closest_body: StaticBody2D
+func _find_target() -> Node2D:
+	var closest_body: Node2D = null
 	var closest_dist: float = INF
 	for body: Node2D in $AgroArea.get_overlapping_bodies():
-		if _ignore_buildings && !body.is_in_group('sun'):
+		if (_ignore_buildings && !body.is_in_group('sun')) || (body.has_method('is_dead') && body.is_dead()):
 			continue
 		var dist: float = position.distance_squared_to(body.position)
 		if dist < closest_dist:
 			closest_body = body
 			closest_dist = dist
-	if closest_dist == INF:
-		return false
+	return closest_body
+
+
+func _attack(target: Node2D) -> bool:
+	_remaining_cooldown = _attack_cooldown
+
 	var proj: EnemyProjectile = _proj_scene.instantiate()
 	proj.position = position
 	proj.dmg = _attack_damage
-	proj.dir = position.direction_to(closest_body.position)
+	proj.dir = position.direction_to(target.position)
 	_main_game_scene.add_child(proj)
 	return true
 

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ddv7ul50cfopu" path="res://scenes/building/tower/canon.tscn" id="1_uwytl"]
 [ext_resource type="PackedScene" uid="uid://bc6u7fnvooyx1" path="res://scenes/building/tower/laserbolt.tscn" id="2_ae7y3"]
 [ext_resource type="Texture2D" uid="uid://c5g8ktreclx0q" path="res://assets/sprites/guns.png" id="3_a0kxl"]
+[ext_resource type="AudioStream" uid="uid://iqieuk4xsrdd" path="res://audio/sfx/gameplay/sound_laser_placed.wav" id="4_5e62t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5e62t"]
 atlas = ExtResource("3_a0kxl")
@@ -74,3 +75,6 @@ projectile = ExtResource("2_ae7y3")
 
 [node name="Sprite" parent="." index="1" unique_id=1941252386]
 sprite_frames = SubResource("SpriteFrames_8ufgs")
+
+[node name="PlacedSFX" parent="." index="3" unique_id=1344402789]
+stream = ExtResource("4_5e62t")

@@ -204,5 +204,8 @@ func materials_add(addition: int) -> bool:
 	if (addition == 0): return true
 	elif (addition < 0):
 		return materials_buy(-addition)
-	materials_added.emit()
+	if (!_sun.is_dead()):
+		_materials += addition
+		Persistence.current_score += addition
+		materials_added.emit()
 	return true
