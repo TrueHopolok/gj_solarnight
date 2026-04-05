@@ -161,7 +161,7 @@ func _calculate_light_recursive(
 		return
 
 	_light_beams.push_back(params.from)
-	_light_beams.push_back(_round_to_cell_center(res.position))
+	_light_beams.push_back(_round_to_cell_center(res.position + Vector2(_dir_to_vec(dir))))
 
 	var obj: Node = res.collider
 

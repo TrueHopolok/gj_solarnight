@@ -1,20 +1,15 @@
 [gd_scene format=3 uid="uid://c00c3vtmev4dv"]
 
 [ext_resource type="PackedScene" uid="uid://cf3komskoiiuj" path="res://scenes/building/mirror/mirror.tscn" id="1_ajpte"]
-[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="2_unq2n"]
+[ext_resource type="Texture2D" uid="uid://bn7tw2cnm24vb" path="res://assets/sprites/mirror.png" id="2_g6njj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_enl48"]
-atlas = ExtResource("2_unq2n")
-region = Rect2(24, 12, 12, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_omwg2"]
+atlas = ExtResource("2_g6njj")
+region = Rect2(24, 24, 12, 12)
 
 [node name="MirrorDR" unique_id=604295282 instance=ExtResource("1_ajpte")]
 reflection_down = Array[int]([3])
-reflection_up = Array[int]([2])
-reflection_left = Array[int]([0])
 reflection_right = Array[int]([1])
 
 [node name="Sprite2D" parent="." index="0" unique_id=375172614]
-texture = SubResource("AtlasTexture_enl48")
-
-[node name="CollisionShape2D" parent="." index="1" unique_id=245277124]
-rotation = 0.7853982
+texture = SubResource("AtlasTexture_omwg2")

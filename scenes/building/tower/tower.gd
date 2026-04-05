@@ -71,6 +71,17 @@ static func pick_target(pos: Vector2) -> Node2D:
 	return closest
 
 
+func _set_sun_state(v: bool) -> void:
+	_under_sun = v
+	sun_polygon.visible = _under_sun
+
+
+
+func _set_light_state(v: bool) -> void:
+	_energry = v
+	sun_polygon.visible = _under_sun
+
+
 func shoot() -> void:
 	var target: Node2D = pick_target(global_position)
 	if target == null:
@@ -84,14 +95,19 @@ func shoot() -> void:
 	inst.set(&"target", target)
 
 
+
 func set_sun_state(v: bool) -> void:
-	_under_sun = v
-	sun_polygon.visible = _under_sun
+	if not is_node_ready():
+		ready.connect(_set_sun_state.bind(v), CONNECT_ONE_SHOT|CONNECT_REFERENCE_COUNTED)
+	else:
+		_set_sun_state(v)
 
 
 func set_light_state(v: bool) -> void:
-	_energry = v
-	sun_polygon.visible = _under_sun
+	if not is_node_ready():
+		ready.connect(_set_light_state.bind(v), CONNECT_ONE_SHOT|CONNECT_REFERENCE_COUNTED)
+	else:
+		_set_light_state(v)
 
 
 func damage(val: int) -> void:

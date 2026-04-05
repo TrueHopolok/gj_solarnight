@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dfk8wkgwchcyn"]
+
+[ext_resource type="PackedScene" uid="uid://cf3komskoiiuj" path="res://scenes/building/mirror/mirror.tscn" id="1_rqv3h"]
+[ext_resource type="Texture2D" uid="uid://bn7tw2cnm24vb" path="res://assets/sprites/mirror.png" id="2_3bwq8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omwg2"]
+atlas = ExtResource("2_3bwq8")
+region = Rect2(24, 0, 12, 12)
+
+[node name="MirrorUR" unique_id=604295282 instance=ExtResource("1_rqv3h")]
+reflection_up = Array[int]([3])
+reflection_right = Array[int]([0])
+
+[node name="Sprite2D" parent="." index="0" unique_id=375172614]
+texture = SubResource("AtlasTexture_omwg2")

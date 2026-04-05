@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://bt740y4ks0po"]
 
 [ext_resource type="PackedScene" uid="uid://cf3komskoiiuj" path="res://scenes/building/mirror/mirror.tscn" id="1_6t34d"]
-[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="2_wy1sr"]
+[ext_resource type="Texture2D" uid="uid://bn7tw2cnm24vb" path="res://assets/sprites/mirror.png" id="2_gn5we"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eq0th"]
-atlas = ExtResource("2_wy1sr")
-region = Rect2(60, 0, 12, 12)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_807cx"]
-radius = 4.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm18u"]
+atlas = ExtResource("2_gn5we")
+region = Rect2(12, 0, 12, 12)
 
 [node name="SplitterT" unique_id=604295282 instance=ExtResource("1_6t34d")]
 reflection_up = Array[int]([2, 3])
@@ -16,8 +13,4 @@ reflection_left = Array[int]([0])
 reflection_right = Array[int]([0])
 
 [node name="Sprite2D" parent="." index="0" unique_id=375172614]
-texture = SubResource("AtlasTexture_eq0th")
-
-[node name="CollisionShape2D" parent="." index="1" unique_id=245277124]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_807cx")
+texture = SubResource("AtlasTexture_xm18u")
