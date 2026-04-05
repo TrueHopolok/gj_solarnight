@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dufetp8uqm06p" path="res://scenes/building/sun/sun.gd" id="1_vlfx2"]
 [ext_resource type="Texture2D" uid="uid://qa22jxbku0j6" path="res://assets/sprites/lighthouse.png" id="2_vlfx2"]
+[ext_resource type="Texture2D" uid="uid://coaccivcvx5vi" path="res://assets/sprites/big_explosion.png" id="3_5201s"]
 [ext_resource type="AudioStream" uid="uid://drw1cuauj8hsf" path="res://audio/sfx/ui/sound_BUUUUUMMM.wav" id="3_hat3m"]
 [ext_resource type="AudioStream" uid="uid://dbwundn4yorrw" path="res://audio/sfx/gameplay/sound_turrets_destroyed.wav" id="4_5201s"]
 
@@ -12,6 +13,80 @@ region = Rect2(0, 0, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnubv"]
 atlas = ExtResource("2_vlfx2")
 region = Rect2(29, 5, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14pe3"]
+atlas = ExtResource("3_5201s")
+region = Rect2(0, 0, 175, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jkjj"]
+atlas = ExtResource("3_5201s")
+region = Rect2(175, 0, 175, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i22i0"]
+atlas = ExtResource("3_5201s")
+region = Rect2(350, 0, 175, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t0dc"]
+atlas = ExtResource("3_5201s")
+region = Rect2(525, 0, 175, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g74ui"]
+atlas = ExtResource("3_5201s")
+region = Rect2(700, 0, 175, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nssfc"]
+atlas = ExtResource("3_5201s")
+region = Rect2(875, 0, 175, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kj40"]
+atlas = ExtResource("3_5201s")
+region = Rect2(1050, 0, 175, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks2p2"]
+atlas = ExtResource("3_5201s")
+region = Rect2(1225, 0, 175, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5801j"]
+atlas = ExtResource("3_5201s")
+region = Rect2(1400, 0, 175, 149)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_awiov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14pe3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jkjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i22i0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t0dc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g74ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nssfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kj40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks2p2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5801j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14pe3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inxby"]
 size = Vector2(24, 24)
@@ -38,6 +113,9 @@ texture = SubResource("AtlasTexture_vlfx2")
 z_index = -1
 z_as_relative = false
 texture = SubResource("AtlasTexture_dnubv")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="." unique_id=362535584]
+sprite_frames = SubResource("SpriteFrames_awiov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602799174]
 shape = SubResource("RectangleShape2D_inxby")
