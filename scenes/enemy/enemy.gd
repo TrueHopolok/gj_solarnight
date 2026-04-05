@@ -20,12 +20,13 @@ signal died(materials_dropped: int)
 @onready var _sun: Node2D = get_tree().get_first_node_in_group('sun')
 @onready var _proj_scene: PackedScene = preload('res://scenes/enemy/enemy_projectile/enemy_projectile.tscn')
 @onready var _main_game_scene: Node2D = get_tree().get_first_node_in_group('main_game_scene')
+@onready var _sprite_2d: AnimatedSprite2D = $Sprite2D
 
 var _remaining_cooldown: float = 0.0
 
 
 func _input(event: InputEvent) -> void:
-	if OS.is_debug_build() && event.is_action_pressed(&'debug_killall'):
+	if OS.is_debug_build() and event.is_action_pressed(&'debug_killall'):
 		damage(_health)
 
 
@@ -33,8 +34,15 @@ func _ready() -> void:
 	if position.x < 0.0:
 		$Sprite2D.flip_h = true
 
+	_sprite_2d.animation_finished.connect(func () -> void:
+		if _sprite_2d.animation == "death":
+			queue_free()
+	)
 
 func _physics_process(delta: float) -> void:
+	if is_dead():
+		return
+
 	_remaining_cooldown = max(0.0, _remaining_cooldown - delta)
 	var target: Node2D = _find_target()
 	if target:
@@ -43,6 +51,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
+
 	velocity = position.direction_to(_sun.position) * _movement_speed
 	move_and_slide()
 	$AgroArea.rotation = (position - _sun.position).angle()
@@ -75,10 +84,9 @@ func _attack(target: Node2D) -> bool:
 func damage(dmg: int) -> void:
 	_health -= dmg
 	if _health <= 0:
-		$CollisionShape2D.set_deferred(&'disabled', true)
-		# TODO: show death
+		$CollisionShape2D.set_deferred(&"disabled", true)
+		_sprite_2d.play(&"death")
 		died.emit(_materials_dropped)
-		queue_free()
 
 
 func is_dead() -> bool:
