@@ -15,8 +15,6 @@ func _init() -> void:
 		return
 	best_score = file.get_32()
 	file.close()
-	current_score = 10
-	submit()
 
 
 ## update best score if necessary

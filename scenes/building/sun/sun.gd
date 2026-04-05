@@ -50,8 +50,7 @@ func damage(dmg: int) -> void:
 		$DestroyedSFX.play()
 		$BUUUMSFX.play()
 		# TODO: gameover animation
-		await $BUUUMSFX.finished
-		Transition.change_scene_path('res://ui/gameover_menu/gameover_menu.tscn')
+		get_tree().create_timer(2.0).timeout.connect(Transition.change_scene_path.bind('res://ui/gameover_menu/gameover_menu.tscn'))
 
 
 func is_dead() -> bool:

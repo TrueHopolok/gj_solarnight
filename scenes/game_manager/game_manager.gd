@@ -3,6 +3,7 @@ class_name GameManager
 extends Node
 
 @onready var _main_game_scene: Node2D = get_tree().get_first_node_in_group('main_game_scene')
+@onready var _sun: Node2D = get_tree().get_first_node_in_group('sun')
 
 var _time_after_spawn: float = 0.0
 
@@ -184,7 +185,9 @@ func materials_get() -> int:
 
 
 func materials_buy(cost: int) -> bool:
-	if (cost > _materials):
+	if (cost < 0 && !_sun.is_dead()):
+		Persistence.current_score -= cost
+	elif (cost > _materials):
 		return false
 	_materials -= cost
 	return true

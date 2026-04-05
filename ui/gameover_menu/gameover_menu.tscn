@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bnyd2oaoh74f3" path="res://ui/gameover_menu/button_restart.gd" id="2_akiq2"]
 [ext_resource type="Script" uid="uid://6ow22fqjctnb" path="res://ui/gameover_menu/score_label.gd" id="2_qqyla"]
 [ext_resource type="Script" uid="uid://bhlvakmnrbcv2" path="res://ui/gameover_menu/button_return.gd" id="3_kt1v6"]
+[ext_resource type="AudioStream" uid="uid://drw1cuauj8hsf" path="res://audio/sfx/ui/sound_BUUUUUMMM.wav" id="5_6wnpt"]
 
 [node name="GameoverMenu" type="CanvasLayer" unique_id=628126712]
 
@@ -50,6 +51,10 @@ script = ExtResource("2_akiq2")
 
 [node name="Label" parent="RestartButton" index="0" unique_id=960341710]
 text = "Play again"
+
+[node name="PressSFX" parent="RestartButton" index="1" unique_id=1860650791]
+process_mode = 3
+stream = ExtResource("5_6wnpt")
 
 [node name="ReturnButton" parent="." unique_id=444219693 instance=ExtResource("1_rbamj")]
 offset_left = 248.0

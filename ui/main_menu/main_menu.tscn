@@ -48,6 +48,7 @@ script = ExtResource("2_3c04x")
 text = "Play"
 
 [node name="PressSFX" parent="PlayButton" index="1" unique_id=1860650791]
+process_mode = 3
 stream = ExtResource("3_joh67")
 
 [node name="AudioSettings" parent="." unique_id=455712532 instance=ExtResource("6_joh67")]
