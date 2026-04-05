@@ -33,6 +33,7 @@ buses/default_bus_layout="uid://dlptv1a5o3dwc"
 Transition="*res://ui/transition/transition.tscn"
 SettingsCfg="*res://ui/settings/settings_cfg.gd"
 Persistence="*uid://ddiolhj30kuip"
+MousePointer="*uid://hx0bj3mqri0h"
 
 [debug]
 
