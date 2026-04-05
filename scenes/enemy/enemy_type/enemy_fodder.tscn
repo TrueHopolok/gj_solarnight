@@ -1,11 +1,77 @@
 [gd_scene format=3 uid="uid://c6m2t0msh8u8e"]
 
 [ext_resource type="PackedScene" uid="uid://qnbnsmdfgk34" path="res://scenes/enemy/enemy.tscn" id="1_us3ff"]
-[ext_resource type="Texture2D" uid="uid://h8xrhdrbvesi" path="res://assets/sprites/ships.png" id="2_2j1a5"]
+[ext_resource type="Texture2D" uid="uid://p86ejolc0je6" path="res://assets/sprites/fodder_death.png" id="2_5f83u"]
+[ext_resource type="Texture2D" uid="uid://hsgf2kmdjw38" path="res://assets/sprites/fodder_idle.png" id="3_jkx6x"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5f83u"]
-atlas = ExtResource("2_2j1a5")
-region = Rect2(8, 5, 14, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wor5"]
+atlas = ExtResource("2_5f83u")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqe86"]
+atlas = ExtResource("2_5f83u")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_camq0"]
+atlas = ExtResource("2_5f83u")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c4va"]
+atlas = ExtResource("2_5f83u")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x04j7"]
+atlas = ExtResource("2_5f83u")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi00o"]
+atlas = ExtResource("2_5f83u")
+region = Rect2(160, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbpyi"]
+atlas = ExtResource("3_jkx6x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_783n0"]
+atlas = ExtResource("3_jkx6x")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41gso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wor5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqe86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_camq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c4va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x04j7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi00o")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbpyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_783n0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2j1a5"]
 radius = 7.0
@@ -14,13 +80,19 @@ radius = 7.0
 size = Vector2(24.5, 16)
 
 [node name="Enemy" unique_id=840357590 instance=ExtResource("1_us3ff")]
+_health = 12
+_attack_damage = 2
+_movement_speed = 12.0
 
-[node name="Sprite2D" parent="." index="0" unique_id=505247766]
-texture = SubResource("AtlasTexture_5f83u")
+[node name="Sprite2D" parent="." index="0" unique_id=2079620814]
+sprite_frames = SubResource("SpriteFrames_41gso")
+animation = &"idle"
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1749457072]
+visible = false
 shape = SubResource("CircleShape2D_2j1a5")
 
 [node name="CollisionShape2D" parent="AgroArea" parent_id_path=PackedInt32Array(341088951) index="0" unique_id=1329865744]
+visible = false
 shape = SubResource("RectangleShape2D_us3ff")
 debug_color = Color(0.54497474, 0.08746185, 0, 0.27450982)

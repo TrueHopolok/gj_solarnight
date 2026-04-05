@@ -87,6 +87,7 @@ collision_mask = 0
 script = ExtResource("2_d30og")
 reload_time = 1.5
 projectile = ExtResource("2_nb2ud")
+initial_health = 40
 
 [node name="SunPolygon" type="Sprite2D" parent="." unique_id=919555537]
 modulate = Color(1, 1, 1, 0.8)

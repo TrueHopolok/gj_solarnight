@@ -109,7 +109,7 @@ func shoot() -> void:
 	if target == null:
 		return
 
-	_reload_left = reload_time
+	_reload_left = randf_range(reload_time * 0.95, reload_time * 1.05)
 
 	var inst := projectile.instantiate()
 	inst.set(&"global_transform", global_transform)

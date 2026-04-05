@@ -33,7 +33,7 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.4373444, 0.18196476, 0.16738698, 1)
 
-[node name="MainGameScene" type="Node2D" unique_id=521506140 groups=["main_game_scene"]]
+[node name="MainGameScene" type="Node2D" unique_id=521506140]
 script = ExtResource("1_7csvj")
 
 [node name="IntenseMusicPlayer" parent="." unique_id=745860557 instance=ExtResource("2_spbxy")]
@@ -60,6 +60,9 @@ metadata/_edit_lock_ = true
 z_index = -1
 script = ExtResource("4_0w8pv")
 metadata/_custom_type_script = "uid://ca785icsltr3n"
+
+[node name="Objects" type="Node2D" parent="." unique_id=1759718396 groups=["main_game_scene"]]
+y_sort_enabled = true
 
 [node name="Sun" parent="." unique_id=1057295584 instance=ExtResource("3_k1t50")]
 
