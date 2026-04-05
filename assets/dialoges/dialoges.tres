@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 [sub_resource type="Resource" id="Resource_qg7ps"]
 script = ExtResource("2_mjpo8")
 speaker = "Evil Wizard"
-text = "I stole the [color=orange][wave amp=20 freq=2]SUN[/wave][/color]!"
+text = "I stole the [color=orange][shake]SUN[/shake][/color]!"
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_pgein"]
@@ -32,7 +32,7 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 script = ExtResource("2_mjpo8")
 speaker = "Tutorial"
 text = "Use scrollwheel or press 'Q' to select the canon.
-Press LMB to place it on the field. Be aware, [wave freq=2][color=orange]canons must be powered by sun[/color]."
+Press LMB to place it on the field. Be aware, [wave freq=2][color=orange]canons must be powered by the Sun[/color]."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_vwykj"]
