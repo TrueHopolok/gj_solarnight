@@ -8,14 +8,16 @@ const DAMAGE: int = 4
 
 var target: Node2D = null
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 func _ready() -> void:
+	animation_player.animation_finished.connect(func (_anim: StringName) -> void:
+		queue_free())
 	execute.call_deferred()
 
 
 func execute() -> void:
-	queue_free()
-
 	const A_LOT: float = 700
 
 	var raycast_params := PhysicsRayQueryParameters2D.new()
@@ -32,27 +34,23 @@ func execute() -> void:
 	if not res.is_empty():
 		end = res.position
 
+	look_at(end)
 
-	var line2d := Line2D.new()
-	line2d.width = 6
-	line2d.points = [global_position, end]
-	line2d.default_color = Color.RED
-	get_parent().add_child(line2d)
+	var line2d := $Line2D as Line2D
+	line2d.points = [Vector2.ZERO, to_local(end)]
 
-	var t := line2d.create_tween()
-	t.tween_property(line2d, "modulate:a", 0.0, 0.5).from(1.0)
-	t.chain().tween_callback(line2d.queue_free)
-
-	var line_shape := SegmentShape2D.new()
-	line_shape.a = global_position
-	line_shape.b = end
+	var shape := RectangleShape2D.new()
+	shape.size = Vector2(end.distance_to(global_position), 6)
 
 	var shapecast_params := PhysicsShapeQueryParameters2D.new()
 	shapecast_params.collide_with_areas = true
 	shapecast_params.collide_with_bodies = true
 	shapecast_params.collision_mask = shapecast_mask
-	shapecast_params.shape = line_shape
-	shapecast_params.transform = Transform2D.IDENTITY
+	shapecast_params.shape = shape
+	shapecast_params.transform = Transform2D(
+		(global_position - end).angle(),
+		(end + global_position) * 0.5,
+	)
 
 	for v: Dictionary in  get_world_2d().direct_space_state.intersect_shape(shapecast_params):
 		var obj: Node = v.collider

@@ -1,8 +1,178 @@
 [gd_scene format=3 uid="uid://bc6u7fnvooyx1"]
 
 [ext_resource type="Script" uid="uid://cvvsxdhxojt8a" path="res://scenes/building/tower/laserbolt.gd" id="1_4pcts"]
+[ext_resource type="Texture2D" uid="uid://b3s0fr0y4j836" path="res://assets/sprites/laser.png" id="2_t60dq"]
+[ext_resource type="Texture2D" uid="uid://d6f7ox40y5o7" path="res://assets/sprites/laser_muzzle.png" id="3_1c24l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t60dq"]
+atlas = ExtResource("3_1c24l")
+region = Rect2(0, 0, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c24l"]
+atlas = ExtResource("3_1c24l")
+region = Rect2(16, 0, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oe24"]
+atlas = ExtResource("3_1c24l")
+region = Rect2(32, 0, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7cn4"]
+atlas = ExtResource("3_1c24l")
+region = Rect2(48, 0, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4ryc"]
+atlas = ExtResource("3_1c24l")
+region = Rect2(64, 0, 16, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8mfiv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t60dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c24l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oe24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7cn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4ryc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="Animation" id="Animation_1c24l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2D:width")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Line2D:default_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t60dq"]
+resource_name = "fire"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.10000001, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2D:width")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.0, 4.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Line2D:default_color")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.55),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1c24l"]
+_data = {
+&"RESET": SubResource("Animation_1c24l"),
+&"fire": SubResource("Animation_t60dq")
+}
 
 [node name="Laserbolt" type="Node2D" unique_id=901609561]
 script = ExtResource("1_4pcts")
 raycast_mask = 8
 shapecast_mask = 12
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1253340953]
+points = PackedVector2Array(0, 0, 28, 0)
+width = 4.0
+texture = ExtResource("2_t60dq")
+texture_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1619756738]
+position = Vector2(7, 0)
+sprite_frames = SubResource("SpriteFrames_8mfiv")
+speed_scale = 0.0
+offset = Vector2(0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1602834458]
+libraries/ = SubResource("AnimationLibrary_1c24l")
+autoplay = &"fire"
