@@ -31,9 +31,9 @@ stretch_mode = 6
 [node name="Title" type="RichTextLabel" parent="." unique_id=924643620]
 process_mode = 3
 offset_left = -192.0
-offset_top = 17.0
+offset_top = 24.0
 offset_right = 448.0
-offset_bottom = 77.0
+offset_bottom = 84.0
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[wave amp=20 freq=1][color=orange]SOLAR[/color]NIGHT"
@@ -42,18 +42,18 @@ vertical_alignment = 2
 
 [node name="BestScoreLabel" type="Label" parent="." unique_id=366243123]
 offset_left = 40.0
-offset_top = 136.0
+offset_top = 160.0
 offset_right = 184.0
-offset_bottom = 161.0
+offset_bottom = 185.0
 text = "Best score: %d"
 horizontal_alignment = 1
 script = ExtResource("2_6mijq")
 
 [node name="PlayButton" parent="." unique_id=1413801646 instance=ExtResource("1_mu8pm")]
 offset_left = 40.0
-offset_top = 104.0
+offset_top = 128.0
 offset_right = 184.0
-offset_bottom = 136.0
+offset_bottom = 160.0
 script = ExtResource("2_3c04x")
 
 [node name="Label" parent="PlayButton" index="0" unique_id=960341710]
