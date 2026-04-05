@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dyy30mlffvxph" path="res://ui/pause_menu/pause_menu.tscn" id="8_7v0l4"]
 [ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="9_b1vg4"]
 [ext_resource type="Script" uid="uid://qm0kcu3ig2tq" path="res://ui/pause_menu/button_to_pause.gd" id="9_do46k"]
-[ext_resource type="Script" uid="uid://clg3o7qogbi5h" path="res://scenes/main_game_scene/score_label.gd" id="10_2inbw"]
-[ext_resource type="Script" uid="uid://cgfptppkqywh2" path="res://scenes/main_game_scene/materials_label.gd" id="11_6hiqo"]
+[ext_resource type="Script" path="res://scenes/main_game_scene/score_label.gd" id="10_2inbw"]
+[ext_resource type="Script" path="res://scenes/main_game_scene/materials_label.gd" id="11_6hiqo"]
 [ext_resource type="AudioStream" uid="uid://cxq3ca5el6dja" path="res://audio/sfx/gameplay/sound_not_enough_materials.wav" id="12_dw0dr"]
 [ext_resource type="Script" uid="uid://bdq0qvdqct6el" path="res://scenes/main_game_scene/wave_label.gd" id="12_hnlf3"]
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="12_k87rj"]
@@ -45,6 +45,7 @@ zoom = Vector2(2, 2)
 z_index = -10
 z_as_relative = false
 texture = SubResource("ViewportTexture_2inbw")
+metadata/_edit_lock_ = true
 
 [node name="Builder" type="Node2D" parent="." unique_id=645637280]
 script = ExtResource("4_0w8pv")
@@ -109,6 +110,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
+focus_behavior_recursive = 1
 alignment = 1
 
 [node name="ButtonUnselect" type="Button" parent="UI/Hotbar" unique_id=314429090]
