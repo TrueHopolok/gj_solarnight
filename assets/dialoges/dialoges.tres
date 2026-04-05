@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_pgein"]
 script = ExtResource("2_mjpo8")
-speaker = "King"
+speaker = "The King"
 text = "Not so fast! I, the [color=gold]King[/color] of the entire world, will destroy your [color=orange]Sun-Powered beacon[/color] and return the [color=orange]Sun[/color] back to the sky!"
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_vwyhe"]
 script = ExtResource("2_mjpo8")
-speaker = "Tutorial"
+speaker = "[color=gray]Tutorial[/color]"
 text = "Use scrollwheel or press 'Q' to select the canon.
 Press LMB to place it on the field. Be aware, [wave freq=2][color=orange]canons must be powered by the Sun[/color]."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
@@ -40,9 +40,193 @@ script = ExtResource("1_pgein")
 dialog_pack = Array[ExtResource("2_mjpo8")]([SubResource("Resource_pl5cf"), SubResource("Resource_qg7ps"), SubResource("Resource_pgein"), SubResource("Resource_mjpo8"), SubResource("Resource_vwyhe")])
 metadata/_custom_type_script = "uid://bvu05un8hxew1"
 
+[sub_resource type="Resource" id="Resource_hv5yp"]
+script = ExtResource("2_mjpo8")
+speaker = "Evil wizard (you)"
+text = "I am [color=yellow]INVINCIBLE[/color]!
+And now, with the [color=orange]light[/color] of the beacon, I can [color=orange]lighten-up[/color] my towers directly!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_6y7ag"]
+script = ExtResource("2_mjpo8")
+speaker = "The King"
+text = "Damn you Wizard!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_ia5h2"]
+script = ExtResource("2_mjpo8")
+speaker = "[color=gray]Tutorial[/color]"
+text = "Press 'A' and 'D' or left and right arrows to turn your beacon's light.
+All towers under the light, will have [color=orange][wave freq=2]increased dps[/wave][/color]."
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_npu4j"]
+script = ExtResource("1_pgein")
+dialog_pack = Array[ExtResource("2_mjpo8")]([SubResource("Resource_hv5yp"), SubResource("Resource_6y7ag"), SubResource("Resource_ia5h2")])
+metadata/_custom_type_script = "uid://bvu05un8hxew1"
+
+[sub_resource type="Resource" id="Resource_6yuor"]
+script = ExtResource("2_mjpo8")
+speaker = "The King"
+text = "I will defeat you! The [color=firebrick][shake]Frigate[/shake][/color] is here!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_ffgh0"]
+script = ExtResource("2_mjpo8")
+speaker = "The King"
+text = "Not only that, but engineers have started to develop [color=gold]something[/color] that will not just defeat you, but put the [color=orange]Sun[/color] back as well."
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_twngu"]
+script = ExtResource("2_mjpo8")
+speaker = "Evil Wizard (you)"
+text = "Nah, this won't matter. No matter what you throw at me, I can redirect with my [color=skyblue]mirrors[/color] and spells!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_eumhh"]
+script = ExtResource("2_mjpo8")
+speaker = "Illusion Evil Wizard (you)"
+text = "That is why I am called \"[shake][color=skyblue]Illusionist[/color] - the most evil wizard of all time![/shake]\""
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_6pwd8"]
+script = ExtResource("2_mjpo8")
+speaker = "[color=gray]Tutorial[/color]"
+text = "Use numbers on your keyboard or scroll whell to select [color=skyblue]mirrors[/color] on your hotbar.
+[color=skyblue]Mirrors[/color] can redirect light. More expensive mirrors can split light into 2 beams."
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_cfisr"]
+script = ExtResource("1_pgein")
+dialog_pack = Array[ExtResource("2_mjpo8")]([SubResource("Resource_6yuor"), SubResource("Resource_ffgh0"), SubResource("Resource_twngu"), SubResource("Resource_eumhh"), SubResource("Resource_6pwd8")])
+metadata/_custom_type_script = "uid://bvu05un8hxew1"
+
+[sub_resource type="Resource" id="Resource_sbpyp"]
+script = ExtResource("2_mjpo8")
+speaker = "Evil Wizard (you)"
+text = "Yes, that's it! It was too easy!
+Now I will just build [color=orangered]Mortars[/color] that will destory the strongest of the ships!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_weocn"]
+script = ExtResource("2_mjpo8")
+speaker = "[color=gray]Tutorial[/color]"
+text = "Press 'E' or use scrollwheel to select a Mortar.
+Press LBM to place it."
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_idv6w"]
+script = ExtResource("2_mjpo8")
+speaker = "[color=gray]Tutorial[/color]"
+text = "Mortars shot manually.
+Press LMD on mortar when it is charged and press LMB where you want to hit.
+Press RMB to cancel. "
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_54pn3"]
+script = ExtResource("1_pgein")
+dialog_pack = Array[ExtResource("2_mjpo8")]([SubResource("Resource_sbpyp"), SubResource("Resource_weocn"), SubResource("Resource_idv6w")])
+metadata/_custom_type_script = "uid://bvu05un8hxew1"
+
+[sub_resource type="Resource" id="Resource_cjgfk"]
+script = ExtResource("2_mjpo8")
+speaker = "The King"
+text = "The development [color=gold]creation[/color] will take 10 more days.
+Give up now and we might consider sparing you life!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_5a0mn"]
+script = ExtResource("2_mjpo8")
+speaker = "Evil Wizard (you)"
+text = "All you say is \"soon\". Prove that in action!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_ed1o8"]
+script = ExtResource("1_pgein")
+dialog_pack = Array[ExtResource("2_mjpo8")]([SubResource("Resource_cjgfk"), SubResource("Resource_5a0mn")])
+metadata/_custom_type_script = "uid://bvu05un8hxew1"
+
+[sub_resource type="Resource" id="Resource_t857h"]
+script = ExtResource("2_mjpo8")
+speaker = "The King"
+text = "[color=lawngreen]Heros[/color] across the land, gathe togheter! Prepare the assult!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_52ypl"]
+script = ExtResource("2_mjpo8")
+speaker = "Evil Wizard (you)"
+text = "Bring it on!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_6ssh0"]
+script = ExtResource("1_pgein")
+dialog_pack = Array[ExtResource("2_mjpo8")]([SubResource("Resource_t857h"), SubResource("Resource_52ypl")])
+metadata/_custom_type_script = "uid://bvu05un8hxew1"
+
+[sub_resource type="Resource" id="Resource_h474v"]
+script = ExtResource("2_mjpo8")
+speaker = "The King"
+text = "You... bested the [color=lawngreen]Legendary Hero[/color]! You are not getting away now! On a 5th day from now, you will meet [color=gold]your doom[/color]!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_bx8a3"]
+script = ExtResource("2_mjpo8")
+speaker = "[color=gray]Tutorial[/color]"
+text = "Hero ships have shield that protect them and other ships!
+[color=orangered]Mortars[/color] can bypass shield damaging ship directly."
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_1vags"]
+script = ExtResource("1_pgein")
+dialog_pack = Array[ExtResource("2_mjpo8")]([SubResource("Resource_h474v"), SubResource("Resource_bx8a3")])
+metadata/_custom_type_script = "uid://bvu05un8hxew1"
+
+[sub_resource type="Resource" id="Resource_jjpc1"]
+script = ExtResource("2_mjpo8")
+speaker = "The King"
+text = "Prepare, thyself!
+The [color=gold]Invention[/color] is here!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_10osa"]
+script = ExtResource("1_pgein")
+dialog_pack = Array[ExtResource("2_mjpo8")]([SubResource("Resource_jjpc1")])
+metadata/_custom_type_script = "uid://bvu05un8hxew1"
+
+[sub_resource type="Resource" id="Resource_oba81"]
+script = ExtResource("2_mjpo8")
+speaker = "Evil Wizard (you)"
+text = "I bested your machine! It is magnificent, yet no match for me - \"[shake][color=royalblue]Illusionist[/color] - the most evil wizard in existance![/shake]\""
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_bacan"]
+script = ExtResource("2_mjpo8")
+speaker = "The King"
+text = "Yes indeed, yet you forgot, that I am the [color=gold]King of ENTIRE WORLD[/color]! Everyone will continue to fight you until the day you lose!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_ro77l"]
+script = ExtResource("2_mjpo8")
+speaker = "Evil Wizard (you)"
+text = "Ha ha ha, let them try!"
+metadata/_custom_type_script = "uid://xcsbj0dde8d2"
+
+[sub_resource type="Resource" id="Resource_1ip6a"]
+script = ExtResource("1_pgein")
+dialog_pack = Array[ExtResource("2_mjpo8")]([SubResource("Resource_oba81"), SubResource("Resource_bacan"), SubResource("Resource_ro77l")])
+metadata/_custom_type_script = "uid://bvu05un8hxew1"
+
 [resource]
 script = ExtResource("1_hkf0d")
 dialoges_per_wave = Dictionary[int, ExtResource("1_pgein")]({
-0: SubResource("Resource_vwykj")
+0: SubResource("Resource_vwykj"),
+1: SubResource("Resource_npu4j"),
+2: SubResource("Resource_cfisr"),
+3: SubResource("Resource_54pn3"),
+5: SubResource("Resource_ed1o8"),
+9: SubResource("Resource_6ssh0"),
+10: SubResource("Resource_1vags"),
+14: SubResource("Resource_10osa"),
+15: SubResource("Resource_1ip6a")
 })
 metadata/_custom_type_script = "uid://2mv272ku3nwu"
