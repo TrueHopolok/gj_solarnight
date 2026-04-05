@@ -17,12 +17,11 @@ size = Vector2(48, 16)
 
 [node name="Enemy" unique_id=840357590 instance=ExtResource("1_1y5xm")]
 script = ExtResource("2_wr53y")
-_health = null
-_attack_damage = null
-_attack_cooldown = null
-_movement_speed = null
-_materials_dropped = null
-_ignore_buildings = null
+_health = 8
+_attack_damage = 3
+_attack_cooldown = 2.0
+_movement_speed = 16.0
+_materials_dropped = 8
 
 [node name="Sprite2D" parent="." index="0" unique_id=505247766]
 position = Vector2(-3, -3)

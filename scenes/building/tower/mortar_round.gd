@@ -1,8 +1,8 @@
 extends Node2D
 
 
-const DAMAGE: int = 16
-const RADIUS: float = 30.0
+const DAMAGE: int = 8
+const RADIUS: float = 5.0
 const DELAY: float = 0.5
 
 @export_flags_2d_physics var collision_mask: int = 1

@@ -9,6 +9,12 @@ height = 32.0
 size = Vector2(80.5, 16)
 
 [node name="Enemy" unique_id=840357590 instance=ExtResource("1_7ar82")]
+_health = 16
+_attack_damage = 3
+_attack_cooldown = 0.75
+_movement_speed = 10.0
+_materials_dropped = 3
+week_to_lasers = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=505247766]
 position = Vector2(-2, -2)

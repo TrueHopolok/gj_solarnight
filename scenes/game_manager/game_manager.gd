@@ -24,74 +24,63 @@ func _physics_process(delta: float) -> void:
 
 const ENEMY_SPAWN_INTERVAL: float = 0.2
 
-const ENEMY_BOSS_MIN_COST: int = 20
-const ENEMY_COMBO_MIN_COST: int = 100
-const ENEMY_DUO_MIN_COST: int = 10
-
-const ENEMY_BOSS_STARTING_WAVE: int = 10
-const ENEMY_COMBO_STARTING_WAVE: int = 5
-const ENEMY_DUO_STARTING_WAVE: int = 5
-
 var _enemy_spawn_queue: Array[SpawnItem]
 
+const ENEMY_BLIMP_WAVE: int = 15
+const ENEMY_SHIELD_WAVE: int = 10
+
 var _enemy_shop: Array[EnemyItem] = [
-	## SOLO:
-
-	# Fodder (increased spawn priority)
-	EnemyItem.new(1, 2, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn')]),
-	EnemyItem.new(1, 2, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn')]),
+	## Fodder (increased spawn priority)
 	EnemyItem.new(1, 2, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn')]),
 	EnemyItem.new(1, 2, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn')]),
 	EnemyItem.new(1, 2, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn')]),
 
-	# Shooter (increased spawn priority)
-	EnemyItem.new(3, 5, [preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
-	EnemyItem.new(3, 5, [preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+	## Shooter (increased spawn priority)
+	EnemyItem.new(3, 4, [preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+	EnemyItem.new(3, 4, [preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
 
-	# Blimp
-	EnemyItem.new(5, 10, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]),
-
-	# Shield
-	EnemyItem.new(10, 15, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn')]),
-
-	## DUO:
 
 	# Fodder + Shooter (increased spawn priority)
-	EnemyItem.new(4, 6, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
-	EnemyItem.new(4, 6, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+	EnemyItem.new(5, 5, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+	EnemyItem.new(5, 5, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
 
-	# Blimp + Shooter
-	EnemyItem.new(7, 12, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+	## Shield
+	EnemyItem.new(ENEMY_SHIELD_WAVE, 20, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn')]),
 
 	# Shield + Shooter
-	EnemyItem.new(12, 17, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
-
-	# Shield + Blimp
-	EnemyItem.new(15, 20, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]),
-
-	## COMBO:
-
-	# Blimp + 2xShooter
-	EnemyItem.new(9, 13, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+	EnemyItem.new(12, 22, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
 
 	# Shield + 2xShooter
-	EnemyItem.new(14, 18, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+	EnemyItem.new(14, 23, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
 
-	# 2xShield + 2xBlimp
-	EnemyItem.new(20, 18, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn'), preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]),
+	## Blimp
+	EnemyItem.new(ENEMY_BLIMP_WAVE, 75, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]),
+
+	# Blimp + Shooter
+	EnemyItem.new(16, 77, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+
+	# Shield + Blimp
+	EnemyItem.new(18, 90, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]),
+
+	# Blimp + 2xShooter
+	EnemyItem.new(20, 78, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+
+	# 2xBlimp
+	EnemyItem.new(25, 130, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn'), preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]),
 ]
 
 
 func _enemy_spawn_pos() -> Vector2i:
 	var vec: Vector2i
-	match randi_range(0, 2):
+	match randi_range(0, 3):
 		0:
-			vec = Vector2i(randi_range(-40, -30), randi_range(-30, 390))
+			vec = Vector2i(200, randi_range(-90, 90))
 		1:
-			vec = Vector2i(randi_range(670, 680), randi_range(-30, 390))
+			vec = Vector2i(-200, randi_range(-90, 90))
 		2:
-			vec = Vector2i(randi_range(-30, 50), [randi_range(-40, -30), randi_range(390, 400)].pick_random())
-	vec -= Vector2i(320, 180)
+			vec = Vector2i(randi_range(140, 200), [-120, 120].pick_random())
+		3:
+			vec = Vector2i(-randi_range(140, 200), [-120, 120].pick_random())
 	return vec
 
 
@@ -104,7 +93,7 @@ func _enemy_pack_spawn(enemy_pack: Array[PackedScene]) -> void:
 
 
 func _enemy_solo_spawn(spawn: SpawnItem) -> void:
-	var enemy: Node2D = spawn.scene.instantiate() # TODO add enemy class_name
+	var enemy: Enemy = spawn.scene.instantiate()
 	enemy.global_position = spawn.pos
 	enemy.died.connect(
 		func(materials_dropped: int) -> void:
@@ -162,8 +151,13 @@ func wave_start() -> void:
 	print("STARTING WAVE: %d  |  sm=%d" % [_wave_number, shopping_materials])
 
 	_enemy_shop.shuffle()
-	if _wave_number % 5 == 0 && _wave_number >= ENEMY_BOSS_STARTING_WAVE:
-		print("this probably should be a boss wave, but we do not have a boss T_T")
+	var enemy_wave_shop: Array[EnemyItem] = _enemy_shop.duplicate()
+	match _wave_number:
+		ENEMY_BLIMP_WAVE:
+			enemy_wave_shop.push_front(EnemyItem.new(ENEMY_BLIMP_WAVE, 75, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]))
+		ENEMY_SHIELD_WAVE:
+			enemy_wave_shop.push_front(EnemyItem.new(ENEMY_SHIELD_WAVE, 20, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn')]))
+
 
 	while shopping_materials > 0:
 		var prev_shopping_materials: int = shopping_materials

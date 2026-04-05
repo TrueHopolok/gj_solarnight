@@ -107,5 +107,5 @@ texture = SubResource("AtlasTexture_hr2w5")
 [node name="PlacedSFX" parent="." index="5" unique_id=1344402789]
 stream = ExtResource("6_q1465")
 
-[node name="ShootingSfx" parent="." index="6" unique_id=366450851]
+[node name="ShootingSfx" parent="." index="7" unique_id=366450851]
 _audio_streams = Array[AudioStream]([ExtResource("7_vukiu"), ExtResource("8_nr3i4"), ExtResource("9_w8y8h"), ExtResource("10_o2s3r")])

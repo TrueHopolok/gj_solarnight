@@ -16,6 +16,8 @@ signal died(materials_dropped: int)
 @export var _materials_dropped: int = 2
 ## go straight for the sun
 @export var _ignore_buildings: bool = false
+## 2x dmg from lasers
+@export var week_to_lasers: bool = false
 
 @onready var _sun: Node2D = get_tree().get_first_node_in_group('sun')
 @onready var _proj_scene: PackedScene = preload('res://scenes/enemy/enemy_projectile/enemy_projectile.tscn')

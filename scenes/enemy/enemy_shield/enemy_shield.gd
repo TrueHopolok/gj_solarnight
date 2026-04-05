@@ -3,7 +3,7 @@ extends AnimatableBody2D
 
 
 ## 3 hp = 1 cannon
-var _health: int = 90
+var _health: int = 200
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
