@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dusg3wghvsm05"]
+
+[ext_resource type="Texture2D" uid="uid://cd1w1wx5bgoo1" path="res://assets/sprites/fire.png" id="1_dyhge"]
+[ext_resource type="Script" uid="uid://bntsfhowlahc0" path="res://scenes/building/tower/canon_muzzle.gd" id="2_j6sh0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6sh0"]
+atlas = ExtResource("1_dyhge")
+region = Rect2(0, 0, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7auj"]
+atlas = ExtResource("1_dyhge")
+region = Rect2(48, 0, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7brw"]
+atlas = ExtResource("1_dyhge")
+region = Rect2(96, 0, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6ifd"]
+atlas = ExtResource("1_dyhge")
+region = Rect2(144, 0, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t76t"]
+atlas = ExtResource("1_dyhge")
+region = Rect2(192, 0, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncyts"]
+atlas = ExtResource("1_dyhge")
+region = Rect2(240, 0, 48, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqqxr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6sh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7auj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7brw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6ifd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t76t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncyts")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="CanonMuzzle" type="AnimatedSprite2D" unique_id=1954634759]
+sprite_frames = SubResource("SpriteFrames_vqqxr")
+autoplay = "default"
+offset = Vector2(14, 2)
+script = ExtResource("2_j6sh0")

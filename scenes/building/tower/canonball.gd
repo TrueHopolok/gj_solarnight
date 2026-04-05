@@ -4,10 +4,18 @@ extends AnimatableBody2D
 const FAR_AWAY: float = 600
 const DAMAGE: int = 3
 const SPEED: float = 100.0
+const CANON_MUZZLE = preload("uid://dusg3wghvsm05")
 
 
 var last_dir: Vector2
 var target: Node2D = null
+
+
+func _ready() -> void:
+	var inst := CANON_MUZZLE.instantiate() as Node2D
+	get_parent().add_child(inst)
+	inst.global_transform = global_transform
+	inst.look_at(target.global_position)
 
 
 func _physics_process(delta: float) -> void:

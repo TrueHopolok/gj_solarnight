@@ -68,7 +68,6 @@ func _set_sun_state(v: bool) -> void:
 	sun_polygon.visible = _under_sun
 
 
-
 func _set_light_state(v: bool) -> void:
 	_energry = v
 	sun_polygon.visible = _under_sun
@@ -102,10 +101,9 @@ func shoot() -> void:
 	_reload_left = reload_time
 
 	var inst := projectile.instantiate()
-	get_parent().add_child(inst)
 	inst.set(&"global_transform", global_transform)
 	inst.set(&"target", target)
-
+	get_parent().add_child(inst)
 
 
 func set_sun_state(v: bool) -> void:
