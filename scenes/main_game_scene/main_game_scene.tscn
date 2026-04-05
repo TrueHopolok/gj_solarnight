@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://5yo5qwv1thla" path="res://scenes/ambient_player/ambient_player.tscn" id="3_jtc3g"]
 [ext_resource type="PackedScene" uid="uid://dco3bp4wnx0tl" path="res://scenes/building/sun/sun.tscn" id="3_k1t50"]
 [ext_resource type="Script" uid="uid://ca785icsltr3n" path="res://scenes/builder/builder.gd" id="4_0w8pv"]
+[ext_resource type="PackedScene" uid="uid://bnihue6n176cb" path="res://scenes/water_test/water_tile.tscn" id="5_2inbw"]
 [ext_resource type="PackedScene" uid="uid://dyy30mlffvxph" path="res://ui/pause_menu/pause_menu.tscn" id="8_7v0l4"]
 [ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="9_b1vg4"]
 [ext_resource type="Script" uid="uid://qm0kcu3ig2tq" path="res://ui/pause_menu/button_to_pause.gd" id="9_do46k"]
@@ -13,6 +14,9 @@
 [ext_resource type="Script" uid="uid://cgfptppkqywh2" path="res://scenes/main_game_scene/materials_label.gd" id="11_6hiqo"]
 [ext_resource type="AudioStream" uid="uid://cxq3ca5el6dja" path="res://audio/sfx/gameplay/sound_not_enough_materials.wav" id="12_dw0dr"]
 [ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="12_k87rj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2inbw"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw0dr"]
 atlas = ExtResource("12_k87rj")
@@ -27,7 +31,16 @@ script = ExtResource("1_7csvj")
 
 [node name="GameManager" parent="." unique_id=951158312 instance=ExtResource("2_k1t50")]
 
+[node name="SubViewport" type="SubViewport" parent="." unique_id=569631131]
+size = Vector2i(640, 360)
+
+[node name="WaterTile" parent="SubViewport" unique_id=1780255894 instance=ExtResource("5_2inbw")]
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2088516356]
+zoom = Vector2(2, 2)
+
+[node name="Water" type="Sprite2D" parent="." unique_id=626237760]
+texture = SubResource("ViewportTexture_2inbw")
 
 [node name="Builder" type="Node2D" parent="." unique_id=645637280]
 script = ExtResource("4_0w8pv")
