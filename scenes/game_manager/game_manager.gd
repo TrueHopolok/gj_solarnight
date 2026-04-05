@@ -146,6 +146,14 @@ var _wave_number: int = 0 # important to set as 0, so first wave would be 1
 var _wave_enemy_counter: int
 
 
+func wave_get() -> int:
+	return _wave_number
+
+
+func wave_active() -> bool:
+	return _wave_enemy_counter > 0
+
+
 func wave_start() -> void:
 	_wave_number += 1
 	_wave_enemy_counter = 0
