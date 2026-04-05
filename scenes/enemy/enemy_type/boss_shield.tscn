@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://dllydnupv1bl1"]
+
+[ext_resource type="PackedScene" uid="uid://qnbnsmdfgk34" path="res://scenes/enemy/enemy.tscn" id="1_y2g7t"]
+[ext_resource type="Script" uid="uid://cn810pkgho0wn" path="res://scenes/enemy/enemy_type/enemy_shield.gd" id="2_fq2pr"]
+[ext_resource type="Texture2D" uid="uid://4baccsgehycx" path="res://assets/sprites/shield_death.png" id="3_hdbqb"]
+[ext_resource type="Texture2D" uid="uid://61lu8o2isesk" path="res://assets/sprites/shield_idle.png" id="4_q1ca3"]
+[ext_resource type="PackedScene" uid="uid://82xcd2i4rd2o" path="res://scenes/enemy/enemy_shield/enemy_shield.tscn" id="5_v3fwt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbpo0"]
+atlas = ExtResource("3_hdbqb")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vmu4"]
+atlas = ExtResource("3_hdbqb")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_003st"]
+atlas = ExtResource("3_hdbqb")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkoe1"]
+atlas = ExtResource("3_hdbqb")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6eer"]
+atlas = ExtResource("3_hdbqb")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnta7"]
+atlas = ExtResource("3_hdbqb")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyfyk"]
+atlas = ExtResource("4_q1ca3")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wewpk"]
+atlas = ExtResource("4_q1ca3")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tbpo0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbpo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vmu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_003st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkoe1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6eer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnta7")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyfyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wewpk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4oy8"]
+height = 36.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ruxo"]
+size = Vector2(48, 16)
+
+[node name="Enemy" unique_id=840357590 instance=ExtResource("1_y2g7t")]
+script = ExtResource("2_fq2pr")
+_health = 40
+_attack_damage = 3
+_attack_cooldown = 2.0
+_movement_speed = 16.0
+_materials_dropped = 8
+
+[node name="Sprite2D" parent="." index="0" unique_id=2079620814]
+position = Vector2(-3, -3)
+sprite_frames = SubResource("SpriteFrames_tbpo0")
+animation = &"idle"
+
+[node name="Shield" parent="." index="1" unique_id=448864929 instance=ExtResource("5_v3fwt")]
+position = Vector2(-21, -8)
+sync_to_physics = false
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1749457072]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_f4oy8")
+debug_color = Color(0, 0.937906, 0.9821667, 0.27450982)
+
+[node name="CollisionShape2D" parent="AgroArea" parent_id_path=PackedInt32Array(341088951) index="0" unique_id=1329865744]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_3ruxo")
+
+[node name="ShieldPosL" type="Marker2D" parent="." index="4" unique_id=1294295083]
+position = Vector2(-21, -8)
+
+[node name="ShieldPosR" type="Marker2D" parent="." index="5" unique_id=1034722145]
+position = Vector2(21, -8)

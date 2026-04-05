@@ -105,8 +105,8 @@ func _enemy_solo_spawn(spawn: SpawnItem) -> void:
 			materials_add(materials_dropped)
 			_wave_enemy_counter -= 1
 			if _wave_enemy_counter == 0:
-				_dialog_next()
 				wave_ended.emit(_wave_number)
+				_dialog_next()
 	)
 	_main_game_scene.add_child(enemy)
 
@@ -137,7 +137,7 @@ signal wave_ended(wave_completed: int)
 const WAVE_MATERIALS: int = 5
 const WAVE_MINIMAL_MATERIALS: int = 10
 
-var _wave_number: int = 0 # important to set as 0, so first wave would be 1
+var _wave_number: int = 8 # important to set as 0, so first wave would be 1
 var _wave_enemy_counter: int
 
 
@@ -160,9 +160,11 @@ func wave_start() -> void:
 	enemy_wave_shop.shuffle()
 	match _wave_number:
 		ENEMY_BLIMP_WAVE:
-			enemy_wave_shop.push_front(EnemyItem.new(ENEMY_BLIMP_WAVE, 75, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]))
+			shopping_materials = 0
+			_enemy_pack_spawn([preload('res://scenes/enemy/enemy_type/boss_blimp.tscn')])
 		ENEMY_SHIELD_WAVE:
-			enemy_wave_shop.push_front(EnemyItem.new(ENEMY_SHIELD_WAVE, 20, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn')]))
+			shopping_materials = 0
+			_enemy_pack_spawn([preload('res://scenes/enemy/enemy_type/boss_shield.tscn')])
 
 
 	while shopping_materials > 0:
