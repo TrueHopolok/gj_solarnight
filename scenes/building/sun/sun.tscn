@@ -23,7 +23,9 @@ script = ExtResource("1_vlfx2")
 
 [node name="ProjectorVisual" type="Polygon2D" parent="." unique_id=806560964]
 unique_name_in_owner = true
-color = Color(0.7019608, 0.72156864, 0.050980393, 0.5647059)
+z_index = 7
+z_as_relative = false
+color = Color(0.90588236, 0.8392157, 0.41960785, 0.37254903)
 polygon = PackedVector2Array(43, -69, 0, 0, 97, -35)
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1954649595]
