@@ -51,3 +51,12 @@ bus = &"SFX"
 [node name="DestroyedSFX" type="AudioStreamPlayer" parent="." unique_id=863592873]
 stream = ExtResource("4_5201s")
 bus = &"SFX"
+
+[node name="FastestPulseTimer" type="Timer" parent="." unique_id=2068695512]
+wait_time = 0.5
+
+[node name="FastPulseTimer" type="Timer" parent="." unique_id=504103439]
+wait_time = 1.5
+
+[node name="SlowPulseTimer" type="Timer" parent="." unique_id=1293506300]
+wait_time = 4.0

@@ -3,6 +3,7 @@ extends Node2D
 
 
 const SUN_MULTIPLIER: float = 1.5
+const PULSE_TIME: float = 0.2
 
 @export var reload_time: float = 3.0
 @export var projectile: PackedScene
@@ -24,6 +25,15 @@ func _ready() -> void:
 
 	set_light_state(false)
 	set_sun_state(false)
+
+	$PulseTimer.timeout.connect(_pulse)
+
+
+func _pulse() -> void:
+	var tween: Tween = create_tween()
+	tween.tween_property(self, ^'modulate', Color(1, 0.3, 0.3), PULSE_TIME)
+	tween.tween_property(self, ^'modulate', Color(1, 1, 1), PULSE_TIME)
+	tween.play()
 
 
 func _physics_process(delta: float) -> void:
@@ -126,6 +136,8 @@ func damage(val: int) -> void:
 	_health -= val
 	if _health <= 0:
 		die()
+	elif float(_health) / float(initial_health) <= 0.2 && $PulseTimer.is_stopped():
+		$PulseTimer.start()
 
 
 func is_dead() -> bool:

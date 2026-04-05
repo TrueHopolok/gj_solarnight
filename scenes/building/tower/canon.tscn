@@ -117,3 +117,5 @@ bus = &"SFX"
 volume_db = -5.0
 bus = &"SFX"
 _audio_streams = Array[AudioStream]([ExtResource("7_rbbnv"), ExtResource("8_tvxpi"), ExtResource("9_idy5s")])
+
+[node name="PulseTimer" type="Timer" parent="." unique_id=377793815]

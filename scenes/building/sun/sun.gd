@@ -1,14 +1,15 @@
 extends StaticBody2D
 
-
+const PULSE_TIME: float = 0.2
 const PROJECTOR_ANGLE: float = 45.0
 const ROTATION_SPEED: float = TAU / 3.0
 
-@export var health: int = 100
+@export var initial_health: int = 100
 
 @onready var projector_visual: Polygon2D = %ProjectorVisual
 @onready var building_detector: Area2D = %BuildingDetector
 @onready var projector_shape: CollisionPolygon2D = %ProjectorShape
+@onready var health: int = initial_health
 
 var _dead: bool = false
 
@@ -33,11 +34,22 @@ func _ready() -> void:
 	projector_visual.polygon = poly
 	projector_shape.polygon = poly
 
+	$FastestPulseTimer.timeout.connect(_pulse)
+	$FastPulseTimer.timeout.connect(_pulse)
+	$SlowPulseTimer.timeout.connect(_pulse)
+
 
 func _physics_process(delta: float) -> void:
 	var inp := Input.get_axis("projector_ccw", "projector_cw")
 	building_detector.rotation += inp * ROTATION_SPEED * delta
 	projector_visual.global_rotation = building_detector.global_rotation
+
+
+func _pulse() -> void:
+	var tween: Tween = create_tween()
+	tween.tween_property(self, ^'modulate', Color(1, 0.3, 0.3), PULSE_TIME)
+	tween.tween_property(self, ^'modulate', Color(1, 1, 1), PULSE_TIME)
+	tween.play()
 
 
 func _set_sun_state(obj: Node, state: bool) -> void:
@@ -56,6 +68,24 @@ func damage(dmg: int) -> void:
 		$BUUUMSFX.play()
 		# TODO: gameover animation
 		get_tree().create_timer(2.0).timeout.connect(Transition.change_scene_path.bind('res://ui/gameover_menu/gameover_menu.tscn'))
+	elif float(health) / float(initial_health) <= 0.1:
+		if $FastestPulseTimer.is_stopped():
+			$SlowPulseTimer.stop()
+			$FastPulseTimer.stop()
+			$FastestPulseTimer.start()
+			_pulse()
+	elif float(health) / float(initial_health) <= 0.3:
+		if $FastPulseTimer.is_stopped():
+			$SlowPulseTimer.stop()
+			$FastPulseTimer.start()
+			$FastestPulseTimer.stop()
+			_pulse()
+	elif float(health) / float(initial_health) <= 0.5:
+		if $SlowPulseTimer.is_stopped():
+			$SlowPulseTimer.start()
+			$FastPulseTimer.stop()
+			$FastestPulseTimer.stop()
+			_pulse()
 
 
 func is_dead() -> bool:
