@@ -22,6 +22,8 @@ region = Rect2(56, 0, 12, 12)
 
 [sub_resource type="Resource" id="Resource_eem80"]
 script = ExtResource("1_7ewgr")
+title = "cannon"
+description = "high dps, single target"
 scene = ExtResource("9_pblee")
 price = 5
 preview = SubResource("AtlasTexture_pblee")
@@ -33,6 +35,8 @@ region = Rect2(57, 14, 10, 12)
 
 [sub_resource type="Resource" id="Resource_838gh"]
 script = ExtResource("1_7ewgr")
+title = "laser"
+description = "low dps, multi target"
 scene = ExtResource("10_fq1x2")
 price = 10
 preview = SubResource("AtlasTexture_fq1x2")
@@ -44,8 +48,10 @@ region = Rect2(56, 28, 12, 12)
 
 [sub_resource type="Resource" id="Resource_p64n2"]
 script = ExtResource("1_7ewgr")
+title = "mortar"
+description = "high dmg, manual fire"
 scene = ExtResource("11_c2mrs")
-price = 20
+price = 25
 preview = SubResource("AtlasTexture_c2mrs")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
@@ -55,7 +61,10 @@ region = Rect2(0, 0, 12, 12)
 
 [sub_resource type="Resource" id="Resource_wri32"]
 script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "regular"
 scene = ExtResource("5_1nmtp")
+price = 2
 preview = SubResource("AtlasTexture_0dh48")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
@@ -65,7 +74,10 @@ region = Rect2(24, 0, 12, 12)
 
 [sub_resource type="Resource" id="Resource_aa05n"]
 script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "regular"
 scene = ExtResource("6_1nmtp")
+price = 2
 preview = SubResource("AtlasTexture_sy30w")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
@@ -75,7 +87,10 @@ region = Rect2(0, 24, 12, 12)
 
 [sub_resource type="Resource" id="Resource_fq1x2"]
 script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "regular"
 scene = ExtResource("3_fioon")
+price = 2
 preview = SubResource("AtlasTexture_ifvt4")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
@@ -85,7 +100,10 @@ region = Rect2(24, 24, 12, 12)
 
 [sub_resource type="Resource" id="Resource_c2mrs"]
 script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "regular"
 scene = ExtResource("4_gvddr")
+price = 2
 preview = SubResource("AtlasTexture_6p4cn")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
@@ -95,7 +113,10 @@ region = Rect2(0, 12, 12, 12)
 
 [sub_resource type="Resource" id="Resource_uy7ey"]
 script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "splitter"
 scene = ExtResource("5_6p4cn")
+price = 4
 preview = SubResource("AtlasTexture_fdqv5")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
@@ -105,7 +126,10 @@ region = Rect2(12, 0, 12, 12)
 
 [sub_resource type="Resource" id="Resource_qsgfc"]
 script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "splitter"
 scene = ExtResource("8_1nmtp")
+price = 4
 preview = SubResource("AtlasTexture_i2fd4")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
@@ -115,7 +139,10 @@ region = Rect2(12, 24, 12, 12)
 
 [sub_resource type="Resource" id="Resource_theyt"]
 script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "splitter"
 scene = ExtResource("7_o41uc")
+price = 4
 preview = SubResource("AtlasTexture_qojc3")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
@@ -145,7 +172,10 @@ _bundled = {
 
 [sub_resource type="Resource" id="Resource_y6j0c"]
 script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "splitter"
 scene = SubResource("PackedScene_vbcbp")
+price = 4
 preview = SubResource("AtlasTexture_f7mqj")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 

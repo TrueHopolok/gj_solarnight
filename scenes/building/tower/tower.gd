@@ -135,7 +135,7 @@ func set_light_state(v: bool) -> void:
 func damage(val: int) -> void:
 	if is_dead():
 		return
-	
+
 	_health -= val
 	if not is_dead():
 		die()
