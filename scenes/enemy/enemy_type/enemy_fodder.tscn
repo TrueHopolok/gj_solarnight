@@ -89,10 +89,8 @@ sprite_frames = SubResource("SpriteFrames_41gso")
 animation = &"idle"
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1749457072]
-visible = false
 shape = SubResource("CircleShape2D_2j1a5")
 
 [node name="CollisionShape2D" parent="AgroArea" parent_id_path=PackedInt32Array(341088951) index="0" unique_id=1329865744]
-visible = false
 shape = SubResource("RectangleShape2D_us3ff")
 debug_color = Color(0.54497474, 0.08746185, 0, 0.27450982)

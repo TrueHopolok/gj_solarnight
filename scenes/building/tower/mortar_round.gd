@@ -2,7 +2,7 @@ extends Node2D
 
 
 const DAMAGE: int = 12
-const RADIUS: float = 10.0
+const RADIUS: float = 20.0
 const DELAY: float = 1.3
 
 @export_flags_2d_physics var collision_mask: int = 1
@@ -29,7 +29,7 @@ func _execute() -> void:
 	params.collide_with_bodies = true
 	params.collision_mask = collision_mask
 	params.shape = shape
-	params.transform = global_transform
+	params.transform = $Explosion.global_transform
 
 	var res := get_world_2d().direct_space_state.intersect_shape(params, 128)
 	for val: Dictionary in res:
