@@ -99,7 +99,7 @@ radius = 9.0
 height = 46.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_565ka"]
-size = Vector2(48.5, 16)
+size = Vector2(40, 16)
 
 [node name="Enemy" unique_id=840357590 instance=ExtResource("1_oic78")]
 _health = 1000
@@ -109,6 +109,7 @@ _materials_dropped = 20
 _ignore_buildings = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=2079620814]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ewiws")
 animation = &"idle"
 frame_progress = 0.3289085
@@ -116,9 +117,11 @@ offset = Vector2(0, 10)
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1749457072]
 rotation = -1.5707964
+scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_ibs0i")
 debug_color = Color(1, 1, 1, 0.27450982)
 
 [node name="CollisionShape2D" parent="AgroArea" parent_id_path=PackedInt32Array(341088951) index="0" unique_id=1329865744]
 position = Vector2(-15.75, 0)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_565ka")

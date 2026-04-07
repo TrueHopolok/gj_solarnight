@@ -27,6 +27,17 @@ func _ready() -> void:
 	set_sun_state(false)
 
 	$PulseTimer.timeout.connect(_pulse)
+	GameManager.get_instance().wave_ended.connect(
+	func(_wave_number: int) -> void:
+		_health = initial_health
+		if !$PulseTimer.paused:
+			$PulseTimer.stop()
+		_reload_left = 0
+	)
+	GameManager.get_instance().wave_started.connect(
+	func(_wave_number: int) -> void:
+		_reload_left = randf_range(0, 0.1)
+	)
 
 
 func _pulse() -> void:
