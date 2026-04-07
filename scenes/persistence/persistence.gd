@@ -3,6 +3,7 @@ extends Node
 
 var best_score: int = 0
 var current_score: int = 0
+var wave_reached: int = 0
 
 
 ## load score or set to default
