@@ -101,7 +101,7 @@ height = 46.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_565ka"]
 size = Vector2(40, 16)
 
-[node name="Enemy" unique_id=840357590 instance=ExtResource("1_oic78")]
+[node name="Enemy2" unique_id=840357590 instance=ExtResource("1_oic78")]
 _health = 1000
 _attack_cooldown = 0.2
 _movement_speed = 5.0
