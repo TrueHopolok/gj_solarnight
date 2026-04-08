@@ -1,7 +1,7 @@
 extends Node2D
 
 
-const DAMAGE: int = 1
+const DAMAGE: int = 6
 
 @export_flags_2d_physics var raycast_mask: int = 1
 @export_flags_2d_physics var shapecast_mask: int = 1
@@ -55,4 +55,4 @@ func execute() -> void:
 	for v: Dictionary in  get_world_2d().direct_space_state.intersect_shape(shapecast_params):
 		var obj: Node = v.collider
 		if obj.has_method("damage"):
-			obj.damage(DAMAGE * 4 if obj.get('week_to_lasers') && obj.week_to_lasers else DAMAGE)
+			obj.damage(DAMAGE * 2 if obj.get('week_to_lasers') && obj.week_to_lasers else DAMAGE)
