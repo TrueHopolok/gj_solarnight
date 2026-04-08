@@ -208,9 +208,11 @@ offset_top = 8.0
 offset_right = -128.0
 offset_bottom = 81.0
 grow_horizontal = 2
-mouse_filter = 2
 
 [node name="PauseMenu" parent="." unique_id=1351550630 instance=ExtResource("8_7v0l4")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=110899628]
+color = Color(0.6651851, 0.6651851, 0.6651851, 1)
 
 [editable path="PauseButton"]
 [editable path="UI/NextWave"]

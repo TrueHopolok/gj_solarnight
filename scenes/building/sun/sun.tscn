@@ -91,6 +91,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inxby"]
 size = Vector2(24, 24)
 
+[sub_resource type="Gradient" id="Gradient_5201s"]
+offsets = PackedFloat32Array(0.33552632, 0.7006579)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_14pe3"]
+gradient = SubResource("Gradient_5201s")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
 [node name="Sun" type="StaticBody2D" unique_id=1057295584 groups=["sun"]]
 z_index = -1
 z_as_relative = false
@@ -117,6 +128,8 @@ z_as_relative = false
 texture = SubResource("AtlasTexture_dnubv")
 
 [node name="Explosion" type="AnimatedSprite2D" parent="." unique_id=362535584]
+position = Vector2(9.536743e-07, -4.7683716e-07)
+scale = Vector2(0.7314286, 0.85906047)
 sprite_frames = SubResource("SpriteFrames_awiov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602799174]
@@ -130,6 +143,12 @@ collision_mask = 2
 [node name="ProjectorShape" type="CollisionPolygon2D" parent="BuildingDetector" unique_id=134624686]
 unique_name_in_owner = true
 polygon = PackedVector2Array(0, 0, 42, -71, 100, -37)
+
+[node name="PointLight2D" type="PointLight2D" parent="BuildingDetector" unique_id=1576496586]
+position = Vector2(-3.8146973e-06, 0)
+scale = Vector2(4, 4)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_14pe3")
 
 [node name="BUUUMSFX" type="AudioStreamPlayer" parent="." unique_id=652109227]
 stream = ExtResource("3_hat3m")
