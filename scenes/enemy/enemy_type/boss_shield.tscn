@@ -83,7 +83,7 @@ size = Vector2(48, 16)
 
 [node name="Enemy" unique_id=840357590 instance=ExtResource("1_y2g7t")]
 script = ExtResource("2_fq2pr")
-_health = 40
+_health = 48
 _attack_damage = 3
 _attack_cooldown = 2.0
 _movement_speed = 16.0
@@ -91,20 +91,24 @@ _materials_dropped = 8
 
 [node name="Sprite2D" parent="." index="0" unique_id=2079620814]
 position = Vector2(-3, -3)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_tbpo0")
 animation = &"idle"
 
 [node name="Shield" parent="." index="1" unique_id=448864929 instance=ExtResource("5_v3fwt")]
 position = Vector2(-21, -8)
+scale = Vector2(1.5, 1.5)
 sync_to_physics = false
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=1749457072]
 rotation = -1.5707964
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CapsuleShape2D_f4oy8")
 debug_color = Color(0, 0.937906, 0.9821667, 0.27450982)
 
 [node name="CollisionShape2D" parent="AgroArea" parent_id_path=PackedInt32Array(341088951) index="0" unique_id=1329865744]
 position = Vector2(-16, 0)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_3ruxo")
 
 [node name="ShieldPosL" type="Marker2D" parent="." index="4" unique_id=1294295083]
