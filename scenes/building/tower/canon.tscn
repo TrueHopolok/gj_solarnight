@@ -14,22 +14,6 @@
 atlas = ExtResource("3_nb2ud")
 region = Rect2(0, 42, 21, 21)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nb2ud"]
-atlas = ExtResource("3_nb2ud")
-region = Rect2(0, 0, 12, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_petq7"]
-atlas = ExtResource("3_nb2ud")
-region = Rect2(14, 0, 12, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1r43u"]
-atlas = ExtResource("3_nb2ud")
-region = Rect2(28, 0, 12, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_05qrf"]
-atlas = ExtResource("3_nb2ud")
-region = Rect2(42, 0, 12, 12)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_t1v4h"]
 atlas = ExtResource("3_nb2ud")
 region = Rect2(56, 0, 12, 12)
@@ -46,21 +30,25 @@ region = Rect2(84, 0, 12, 12)
 atlas = ExtResource("3_nb2ud")
 region = Rect2(98, 0, 12, 12)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb2ud"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_petq7"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(14, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r43u"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(28, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05qrf"]
+atlas = ExtResource("3_nb2ud")
+region = Rect2(42, 0, 12, 12)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_nb2ud"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nb2ud")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_petq7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1r43u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_05qrf")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t1v4h")
 }, {
@@ -72,6 +60,18 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tvxpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb2ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_petq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r43u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05qrf")
 }],
 "loop": false,
 "name": &"default",

@@ -84,11 +84,15 @@ func _attack(target: Node2D) -> bool:
 
 
 func damage(dmg: int) -> void:
+	if is_dead(): return
 	_health -= dmg
-	if _health <= 0:
-		$CollisionShape2D.set_deferred(&"disabled", true)
-		_sprite_2d.play(&"death")
-		died.emit(_materials_dropped)
+	if is_dead(): die()
+
+
+func die() -> void:
+	$CollisionShape2D.set_deferred(&"disabled", true)
+	_sprite_2d.play(&"death")
+	died.emit(_materials_dropped)
 
 
 func is_dead() -> bool:
