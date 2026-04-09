@@ -28,7 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_start_aiming()
 			get_viewport().set_input_as_handled()
 
-	elif event.is_action_pressed(&"mortar_cancel") and _is_targeting:
+	elif event.is_action_pressed(&"deselect") and _is_targeting:
 		_cancel_aiming()
 		get_viewport().set_input_as_handled()
 

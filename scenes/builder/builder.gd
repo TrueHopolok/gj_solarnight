@@ -29,8 +29,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		_try_place(get_local_mouse_position())
 	elif event.is_action_pressed(&"delete_building"):
-		get_viewport().set_input_as_handled()
-		_try_delete(get_local_mouse_position())
+		if _try_delete(get_local_mouse_position()):
+			get_viewport().set_input_as_handled()
 
 
 func _physics_process(_delta: float) -> void:
@@ -81,18 +81,19 @@ func _try_place(at: Vector2) -> void:
 	_calculate_light()
 
 
-func _try_delete(at: Vector2) -> void:
+func _try_delete(at: Vector2) -> bool:
 	var inst := _get_scene_at(_world_to_map(at))
 
 	if inst == null:
-		return
+		return false
 
 	if not inst.is_in_group(&"player_built"):
-		return
+		return false
 
 	GameManager.get_instance().materials_add((inst.get_meta(&"builder_price", 0) as int + 1) / 2)
 	inst.get_parent().remove_child(inst)
 	inst.queue_free()
+	return true
 
 
 func _get_scene_at(coord: Vector2i) -> Node:
