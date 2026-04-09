@@ -30,6 +30,15 @@ func change_scene_path(path: String) -> void:
 	await fade_out()
 
 
+func change_scene_instance(scene: Node) -> void:
+	await fade_in()
+	get_tree().root.add_child(scene)
+	get_tree().current_scene.queue_free()
+	get_tree().current_scene = scene
+	get_tree().paused = false
+	await fade_out()
+
+
 func reload_scene() -> void:
 	await fade_in()
 	get_tree().reload_current_scene()
