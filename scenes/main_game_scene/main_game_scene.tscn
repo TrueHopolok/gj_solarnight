@@ -212,7 +212,7 @@ grow_horizontal = 2
 [node name="PauseMenu" parent="." unique_id=1351550630 instance=ExtResource("8_7v0l4")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=110899628]
-color = Color(0.6651851, 0.6651851, 0.6651851, 1)
+color = Color(0.627451, 0.627451, 0.627451, 1)
 
 [editable path="PauseButton"]
 [editable path="UI/NextWave"]

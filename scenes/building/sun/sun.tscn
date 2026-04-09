@@ -92,14 +92,31 @@ animations = [{
 size = Vector2(24, 24)
 
 [sub_resource type="Gradient" id="Gradient_5201s"]
-offsets = PackedFloat32Array(0.33552632, 0.7006579)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.2236842, 0.61513156)
+colors = PackedColorArray(1, 1, 1, 0.3, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_14pe3"]
 gradient = SubResource("Gradient_5201s")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_14pe3"]
+offsets = PackedFloat32Array(0, 0.33552632, 0.7006579)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0.6, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i22i0"]
+gradient = SubResource("Gradient_14pe3")
+fill = 1
+fill_from = Vector2(1, 1)
 fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0jkjj"]
+gradient = SubResource("Gradient_14pe3")
+fill = 1
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 1)
 metadata/_snap_enabled = true
 
 [node name="Sun" type="StaticBody2D" unique_id=1057295584 groups=["sun"]]
@@ -135,6 +152,12 @@ sprite_frames = SubResource("SpriteFrames_awiov")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602799174]
 shape = SubResource("RectangleShape2D_inxby")
 
+[node name="LightAround" type="PointLight2D" parent="." unique_id=1576496586]
+scale = Vector2(0.49999997, 0.5)
+color = Color(0.95686275, 0.9137255, 0.60784316, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_14pe3")
+
 [node name="BuildingDetector" type="Area2D" parent="." unique_id=522392678]
 unique_name_in_owner = true
 collision_layer = 0
@@ -144,11 +167,19 @@ collision_mask = 2
 unique_name_in_owner = true
 polygon = PackedVector2Array(0, 0, 42, -71, 100, -37)
 
-[node name="PointLight2D" type="PointLight2D" parent="BuildingDetector" unique_id=1576496586]
-position = Vector2(-3.8146973e-06, 0)
-scale = Vector2(4, 4)
+[node name="LightConeLeft" type="PointLight2D" parent="BuildingDetector" unique_id=1368599779]
+position = Vector2(111.99999, -96)
+scale = Vector2(4.499999, 3)
+color = Color(0.95686275, 0.9137255, 0.60784316, 1)
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_14pe3")
+texture = SubResource("GradientTexture2D_i22i0")
+
+[node name="LightConeRight" type="PointLight2D" parent="BuildingDetector" unique_id=1757505037]
+position = Vector2(111.999985, 96)
+scale = Vector2(4.4999995, 3)
+color = Color(0.95686275, 0.9137255, 0.60784316, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_0jkjj")
 
 [node name="BUUUMSFX" type="AudioStreamPlayer" parent="." unique_id=652109227]
 stream = ExtResource("3_hat3m")
