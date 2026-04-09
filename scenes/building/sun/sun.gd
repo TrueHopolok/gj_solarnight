@@ -101,4 +101,6 @@ func is_dead() -> bool:
 
 
 func _change_to_gameover() -> void:
-	Transition.change_scene_path('res://ui/gameover_menu/gameover_menu.tscn')
+	var gameover: Node = load('res://ui/gameover_menu/gameover_menu.tscn').instantiate()
+	gameover.get_node("ScoreLabel").wave_reached = GameManager.get_instance().wave_get()
+	Transition.change_scene_instance(gameover)

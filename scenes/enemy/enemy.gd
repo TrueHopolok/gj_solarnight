@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 signal died(materials_dropped: int)
 
+const PULSE_TIME: float = 0.2
+
 ## 3 hp = 1 cannon
 @export var _health: int = 5
 ## dmg/attack -> 10 / dmg = time for mirror
@@ -59,6 +61,13 @@ func _physics_process(delta: float) -> void:
 	$AgroArea.rotation = (position - _sun.position).angle()
 
 
+func _pulse() -> void:
+	var tween: Tween = create_tween()
+	tween.tween_property(self, ^'modulate', Color(1, 0.3, 0.3), PULSE_TIME)
+	tween.tween_property(self, ^'modulate', Color(1, 1, 1), PULSE_TIME)
+	tween.play()
+
+
 func _find_target() -> Node2D:
 	var closest_body: Node2D = null
 	var closest_dist: float = INF
@@ -86,6 +95,7 @@ func _attack(target: Node2D) -> bool:
 func damage(dmg: int) -> void:
 	if is_dead(): return
 	_health -= dmg
+	_pulse()
 	if is_dead(): die()
 
 

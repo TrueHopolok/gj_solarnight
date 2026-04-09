@@ -48,6 +48,7 @@ func _on_tween_finished() -> void:
 
 		State.FADE_OUT:
 			_state = State.INACTIVE
+			hide()
 
 
 func _on_button() -> void:
@@ -74,6 +75,7 @@ func play_dialog(lines: Array[DialogLine]) -> void:
 	_current_seq.reverse()
 	face.texture = _get_speaker_face(_current_seq.back().speaker)
 
+	show()
 	_fade_in()
 
 
@@ -91,7 +93,7 @@ func _show_line(line: DialogLine) -> void:
 
 	var t := create_tween()
 	t.tween_property(content, "visible_ratio", 1.0, dur)
-	t.chain().tween_callback(next.set.bind("disabled", false))
+	next.disabled = false
 	_last_tween = t
 
 	_state = State.SPEAKING

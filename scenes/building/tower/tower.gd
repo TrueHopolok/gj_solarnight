@@ -146,6 +146,7 @@ func set_light_state(v: bool) -> void:
 func damage(dmg: int) -> void:
 	if is_dead(): return
 	_health -= dmg
+  _pulse()
 	if is_dead(): die()
 	elif float(_health) / float(initial_health) <= 0.2 && $PulseTimer.is_stopped():
 		$PulseTimer.start()
