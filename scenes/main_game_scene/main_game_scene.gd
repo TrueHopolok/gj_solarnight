@@ -10,18 +10,13 @@ var event_to_idx: Dictionary[StringName, int] = {
 	&"select_laser": 1,
 	&"select_mortar": 2,
 
-	&"select_mirror_tl": 3,
-	&"select_mirror_tr": 4,
-	&"select_mirror_dl": 5,
-	&"select_mirror_dr": 6,
-
-	&"select_splitter_l": 7,
-	&"select_splitter_t": 8,
-	&"select_splitter_b": 9,
-	&"select_splitter_r": 10,
+	&"select_splitter_l": 3,
+	&"select_splitter_t": 4,
+	&"select_splitter_b": 5,
+	&"select_splitter_r": 6,
 }
 
-const HOTKEYS: String = "QWE12345678"
+const HOTKEYS: String = "QWE1234"
 
 var idx_to_button: Dictionary[int, Button] = {}
 
