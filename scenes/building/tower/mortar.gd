@@ -8,6 +8,7 @@ signal started_aiming
 
 @onready var ready_marker: Sprite2D = $Ready
 @onready var aim_sprite: Sprite2D = $Aim
+@onready var trajectory: Node2D = $Trajectory
 
 var _mouse_inside: bool = false
 var _is_targeting: bool = false
@@ -42,6 +43,7 @@ func _physics_process(delta: float) -> void:
 
 	ready_marker.visible = _energry and _reload_left <= 0
 
+	trajectory.progress = clampf(remap(_reload_left, 0, reload_time, 1, 0), 0, 1)
 	if _is_targeting:
 		aim_sprite.modulate = _get_color()
 		aim_sprite.global_position = get_global_mouse_position()
@@ -67,6 +69,7 @@ func _start_aiming() -> void:
 	queue_redraw()
 	_is_targeting = true
 	aim_sprite.show()
+	trajectory.show()
 
 	started_aiming.emit()
 
@@ -103,3 +106,4 @@ func cancel_aiming() -> void:
 	queue_redraw()
 	_is_targeting = false
 	aim_sprite.hide()
+	trajectory.hide()
