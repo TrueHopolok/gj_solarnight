@@ -1,0 +1,185 @@
+[gd_resource type="Resource" script_class="BuildList" format=3 uid="uid://d32aym1ox3gnq"]
+
+[ext_resource type="Script" uid="uid://ddlsqsg032paw" path="res://scenes/builder/buildable.gd" id="1_7ewgr"]
+[ext_resource type="Texture2D" uid="uid://bn7tw2cnm24vb" path="res://assets/sprites/mirror.png" id="2_o41uc"]
+[ext_resource type="PackedScene" uid="uid://dym5qbfu5h0e4" path="res://scenes/building/mirror/mirror_dl.tscn" id="3_fioon"]
+[ext_resource type="PackedScene" uid="uid://c00c3vtmev4dv" path="res://scenes/building/mirror/mirror_dr.tscn" id="4_gvddr"]
+[ext_resource type="PackedScene" uid="uid://bjvvacaa02e0m" path="res://scenes/building/mirror/mirror_ul.tscn" id="5_1nmtp"]
+[ext_resource type="Script" uid="uid://d1bjkejhlbrs1" path="res://scenes/builder/build_list.gd" id="5_5e1dn"]
+[ext_resource type="PackedScene" uid="uid://bhx3tkm8c6n24" path="res://scenes/building/mirror/splitter_l.tscn" id="5_6p4cn"]
+[ext_resource type="PackedScene" uid="uid://dfk8wkgwchcyn" path="res://scenes/building/mirror/mirror_ur.tscn" id="6_1nmtp"]
+[ext_resource type="PackedScene" uid="uid://dmgorvreasa72" path="res://scenes/building/mirror/splitter_b.tscn" id="7_o41uc"]
+[ext_resource type="PackedScene" uid="uid://bt740y4ks0po" path="res://scenes/building/mirror/splitter_t.tscn" id="8_1nmtp"]
+[ext_resource type="PackedScene" uid="uid://cf3komskoiiuj" path="res://scenes/building/mirror/mirror.tscn" id="8_pblee"]
+[ext_resource type="PackedScene" uid="uid://ddv7ul50cfopu" path="res://scenes/building/tower/canon.tscn" id="9_pblee"]
+[ext_resource type="PackedScene" uid="uid://b5q0rxrnelrcs" path="res://scenes/building/tower/laser.tscn" id="10_fq1x2"]
+[ext_resource type="Texture2D" uid="uid://c5g8ktreclx0q" path="res://assets/sprites/guns.png" id="11_1nmtp"]
+[ext_resource type="PackedScene" uid="uid://qfyraiudtjlh" path="res://scenes/building/tower/mortar.tscn" id="11_c2mrs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pblee"]
+atlas = ExtResource("11_1nmtp")
+region = Rect2(56, 0, 12, 12)
+
+[sub_resource type="Resource" id="Resource_eem80"]
+script = ExtResource("1_7ewgr")
+title = "cannon"
+description = "high dps, single target"
+scene = ExtResource("9_pblee")
+price = 8
+preview = SubResource("AtlasTexture_pblee")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq1x2"]
+atlas = ExtResource("11_1nmtp")
+region = Rect2(57, 14, 10, 12)
+
+[sub_resource type="Resource" id="Resource_838gh"]
+script = ExtResource("1_7ewgr")
+title = "laser"
+description = "low dps, multi target"
+scene = ExtResource("10_fq1x2")
+price = 15
+preview = SubResource("AtlasTexture_fq1x2")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2mrs"]
+atlas = ExtResource("11_1nmtp")
+region = Rect2(56, 28, 12, 12)
+
+[sub_resource type="Resource" id="Resource_p64n2"]
+script = ExtResource("1_7ewgr")
+title = "mortar"
+description = "high dmg, manual fire"
+scene = ExtResource("11_c2mrs")
+price = 40
+preview = SubResource("AtlasTexture_c2mrs")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dh48"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="Resource" id="Resource_wri32"]
+script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "regular"
+scene = ExtResource("5_1nmtp")
+price = 3
+preview = SubResource("AtlasTexture_0dh48")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy30w"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="Resource" id="Resource_aa05n"]
+script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "regular"
+scene = ExtResource("6_1nmtp")
+price = 3
+preview = SubResource("AtlasTexture_sy30w")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifvt4"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(0, 24, 12, 12)
+
+[sub_resource type="Resource" id="Resource_fq1x2"]
+script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "regular"
+scene = ExtResource("3_fioon")
+price = 3
+preview = SubResource("AtlasTexture_ifvt4")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p4cn"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(24, 24, 12, 12)
+
+[sub_resource type="Resource" id="Resource_c2mrs"]
+script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "regular"
+scene = ExtResource("4_gvddr")
+price = 3
+preview = SubResource("AtlasTexture_6p4cn")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdqv5"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(0, 12, 12, 12)
+
+[sub_resource type="Resource" id="Resource_uy7ey"]
+script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "splitter"
+scene = ExtResource("5_6p4cn")
+price = 6
+preview = SubResource("AtlasTexture_fdqv5")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2fd4"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="Resource" id="Resource_qsgfc"]
+script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "splitter"
+scene = ExtResource("8_1nmtp")
+price = 6
+preview = SubResource("AtlasTexture_i2fd4")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qojc3"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(12, 24, 12, 12)
+
+[sub_resource type="Resource" id="Resource_theyt"]
+script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "splitter"
+scene = ExtResource("7_o41uc")
+price = 6
+preview = SubResource("AtlasTexture_qojc3")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7mqj"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(24, 12, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n7us"]
+atlas = ExtResource("2_o41uc")
+region = Rect2(24, 12, 12, 12)
+
+[sub_resource type="PackedScene" id="PackedScene_vbcbp"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array()],
+"names": PackedStringArray("SplitterR", "reflection_down", "reflection_up", "reflection_right", "Sprite2D", "texture"),
+"node_count": 2,
+"node_ids": PackedInt32Array(604295282, 375172614),
+"node_paths": [NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 3, 1, 1, 2, 2, 3, 3, 0, 1073741824, -1, 2147483647, 262148, -1, 1, 5, 4, 0),
+"variants": [ExtResource("8_pblee"), Array[int]([3]), Array[int]([3]), Array[int]([0, 1]), SubResource("AtlasTexture_1n7us")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_y6j0c"]
+script = ExtResource("1_7ewgr")
+title = "mirror"
+description = "splitter"
+scene = SubResource("PackedScene_vbcbp")
+price = 6
+preview = SubResource("AtlasTexture_f7mqj")
+metadata/_custom_type_script = "uid://ddlsqsg032paw"
+
+[resource]
+script = ExtResource("5_5e1dn")
+items = Array[ExtResource("1_7ewgr")]([SubResource("Resource_eem80"), SubResource("Resource_838gh"), SubResource("Resource_p64n2"), SubResource("Resource_wri32"), SubResource("Resource_aa05n"), SubResource("Resource_fq1x2"), SubResource("Resource_c2mrs"), SubResource("Resource_uy7ey"), SubResource("Resource_qsgfc"), SubResource("Resource_theyt"), SubResource("Resource_y6j0c")])
+metadata/_custom_type_script = "uid://d1bjkejhlbrs1"

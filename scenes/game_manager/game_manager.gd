@@ -153,7 +153,6 @@ func wave_active() -> bool:
 func wave_start() -> void:
 	_wave_number += 1
 	_wave_enemy_counter = 0
-	Persistence.wave_reached = _wave_number
 	wave_started.emit(_wave_number)
 
 	var shopping_materials: int = max(WAVE_MINIMAL_MATERIALS, _wave_number * WAVE_MATERIALS)
