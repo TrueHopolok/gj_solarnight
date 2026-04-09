@@ -95,6 +95,7 @@ fire_manually = true
 sprite_frames = SubResource("SpriteFrames_hr2w5")
 
 [node name="Aim" type="Sprite2D" parent="." index="2" unique_id=1095914969]
+process_priority = 1
 visible = false
 z_index = 5
 z_as_relative = false

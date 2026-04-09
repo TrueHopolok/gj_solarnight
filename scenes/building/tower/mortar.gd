@@ -22,14 +22,12 @@ func _mouse_exit() -> void:
 	_mouse_inside = false
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if _is_targeting and event.is_action_pressed(&"mortar_target"):
 		shoot()
 		get_viewport().set_input_as_handled()
 
-
-func _unhandled_input(event: InputEvent) -> void:
-	if not _is_targeting and _mouse_inside and event.is_action_pressed(&"mortar_target"):
+	elif not _is_targeting and _mouse_inside and event.is_action_pressed(&"mortar_target") and _noone_else_is_aiming():
 		_start_aiming()
 		get_viewport().set_input_as_handled()
 
@@ -43,14 +41,8 @@ func _physics_process(delta: float) -> void:
 
 	ready_marker.visible = _energry and _reload_left <= 0
 
-	trajectory.progress = clampf(remap(_reload_left, 0, reload_time, 1, 0), 0, 1)
 	if _is_targeting:
-		aim_sprite.modulate = _get_color()
-		aim_sprite.global_position = get_global_mouse_position()
-
-		var a := snappedf(global_position.direction_to(get_global_mouse_position()).angle(), TAU / 8)
-		ready_marker.position = Vector2.from_angle(a)
-		queue_redraw()
+		_update_aiming_visuals()
 
 
 func _draw() -> void:
@@ -62,6 +54,16 @@ func _draw() -> void:
 		draw_dashed_line(mid, target, color_reload, 1)
 
 
+func _update_aiming_visuals() -> void:
+	trajectory.progress = clampf(remap(_reload_left, 0, reload_time, 1, 0), 0, 1)
+	aim_sprite.modulate = _get_color()
+	aim_sprite.global_position = get_global_mouse_position()
+
+	var a := snappedf(global_position.direction_to(get_global_mouse_position()).angle(), TAU / 8)
+	ready_marker.position = Vector2.from_angle(a)
+	queue_redraw()
+
+
 func _start_aiming() -> void:
 	if _is_targeting:
 		return
@@ -70,7 +72,9 @@ func _start_aiming() -> void:
 	_is_targeting = true
 	aim_sprite.show()
 	trajectory.show()
+	process_priority = 0
 
+	_update_aiming_visuals()
 	started_aiming.emit()
 
 
@@ -79,6 +83,13 @@ func _get_color() -> Color:
 	if _reload_left > 0:
 		return color_reload
 	return color_ready
+
+
+func _noone_else_is_aiming() -> bool:
+	for node: Node in get_tree().get_nodes_in_group(&"mortar"):
+		if node != self and node._is_targeting:
+			return false
+	return true
 
 
 func shoot() -> void:
@@ -107,3 +118,4 @@ func cancel_aiming() -> void:
 	_is_targeting = false
 	aim_sprite.hide()
 	trajectory.hide()
+	process_priority = 1
