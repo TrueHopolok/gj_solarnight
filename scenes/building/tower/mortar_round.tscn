@@ -129,6 +129,16 @@ animations = [{
 "speed": 25.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_wtxn1"]
+offsets = PackedFloat32Array(0, 0.33881578)
+colors = PackedColorArray(1, 1, 1, 0.6, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_it2mm"]
+gradient = SubResource("Gradient_wtxn1")
+fill = 1
+fill_from = Vector2(0.48290598, 0.47008547)
+fill_to = Vector2(0, 0)
+
 [node name="MortarRound" type="Node2D" unique_id=640226538]
 z_index = 2
 script = ExtResource("1_fwk4h")
@@ -143,3 +153,9 @@ frame_progress = 1.0
 sprite_frames = SubResource("SpriteFrames_6jyd4")
 frame = 9
 frame_progress = 1.0
+
+[node name="PointLight2D" type="PointLight2D" parent="Explosion" unique_id=1984828836]
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(0.5, 0.5)
+color = Color(0.95702064, 0.9138015, 0.6080301, 0.8)
+texture = SubResource("GradientTexture2D_it2mm")

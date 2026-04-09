@@ -14,7 +14,7 @@ var _target_volume_linear: float
 
 func _physics_process(delta: float) -> void:
 	var dist: float = MAX_DISTANCE_SQUARED
-	for enemy: Enemy in get_tree().get_nodes_in_group('enemy'):
+	for enemy: Node2D in get_tree().get_nodes_in_group('enemy'):
 		var new_dist: float = _sun.position.distance_squared_to(enemy.position)
 		dist = max(min(dist, new_dist), MIN_DISTANCE_SQUARED)
 	_target_volume_linear = remap(dist, MAX_DISTANCE_SQUARED, MIN_DISTANCE_SQUARED, 0.0, 1.0)

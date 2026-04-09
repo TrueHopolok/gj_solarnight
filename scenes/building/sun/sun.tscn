@@ -155,7 +155,6 @@ shape = SubResource("RectangleShape2D_inxby")
 [node name="LightAround" type="PointLight2D" parent="." unique_id=1576496586]
 scale = Vector2(0.49999997, 0.5)
 color = Color(0.95686275, 0.9137255, 0.60784316, 1)
-shadow_enabled = true
 texture = SubResource("GradientTexture2D_14pe3")
 
 [node name="BuildingDetector" type="Area2D" parent="." unique_id=522392678]
@@ -171,14 +170,12 @@ polygon = PackedVector2Array(0, 0, 42, -71, 100, -37)
 position = Vector2(111.99999, -96)
 scale = Vector2(4.499999, 3)
 color = Color(0.95686275, 0.9137255, 0.60784316, 1)
-shadow_enabled = true
 texture = SubResource("GradientTexture2D_i22i0")
 
 [node name="LightConeRight" type="PointLight2D" parent="BuildingDetector" unique_id=1757505037]
 position = Vector2(111.999985, 96)
 scale = Vector2(4.4999995, 3)
 color = Color(0.95686275, 0.9137255, 0.60784316, 1)
-shadow_enabled = true
 texture = SubResource("GradientTexture2D_0jkjj")
 
 [node name="BUUUMSFX" type="AudioStreamPlayer" parent="." unique_id=652109227]

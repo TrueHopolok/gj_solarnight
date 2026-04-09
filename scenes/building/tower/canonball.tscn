@@ -42,6 +42,16 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_75dkc"]
+offsets = PackedFloat32Array(0.1875, 0.48026314)
+colors = PackedColorArray(1, 1, 1, 0.6, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1blpo"]
+gradient = SubResource("Gradient_75dkc")
+fill = 1
+fill_from = Vector2(0.4957265, 0.491453)
+fill_to = Vector2(0, 0)
+
 [node name="Canonball" type="AnimatableBody2D" unique_id=843264937]
 collision_layer = 16
 collision_mask = 12
@@ -54,3 +64,9 @@ shape = SubResource("CircleShape2D_8upw4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=754079927]
 sprite_frames = SubResource("SpriteFrames_ani0y")
 autoplay = "default"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=506180168]
+position = Vector2(-9.536743e-07, -9.536743e-07)
+scale = Vector2(0.49999994, 0.49999994)
+color = Color(0.95686275, 0.9137255, 0.60784316, 1)
+texture = SubResource("GradientTexture2D_1blpo")

@@ -4,6 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://b3s0fr0y4j836" path="res://assets/sprites/laser.png" id="2_t60dq"]
 [ext_resource type="Texture2D" uid="uid://d6f7ox40y5o7" path="res://assets/sprites/laser_muzzle.png" id="3_1c24l"]
 
+[sub_resource type="Gradient" id="Gradient_t60dq"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0.6, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1c24l"]
+gradient = SubResource("Gradient_t60dq")
+fill_from = Vector2(0.5, 0.4)
+fill_to = Vector2(0.5, 0.6)
+metadata/_snap_enabled = true
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_t60dq"]
 atlas = ExtResource("3_1c24l")
 region = Rect2(0, 0, 16, 34)
@@ -166,6 +176,12 @@ points = PackedVector2Array(0, 0, 28, 0)
 width = 4.0
 texture = ExtResource("2_t60dq")
 texture_mode = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="Line2D" unique_id=1501463938]
+position = Vector2(320, -1.9073486e-06)
+scale = Vector2(10, 0.25000003)
+color = Color(0.95686275, 0.9137255, 0.60784316, 1)
+texture = SubResource("GradientTexture2D_1c24l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1619756738]
 position = Vector2(7, 0)
