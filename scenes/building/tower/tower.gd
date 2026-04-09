@@ -101,7 +101,7 @@ func _track_target() -> void:
 	if target == null:
 		return
 
-	_look_at(-target.global_position)
+	_look_at(target.global_position)
 
 
 func _look_at(global_pos: Vector2) -> void:
@@ -143,10 +143,10 @@ func set_light_state(v: bool) -> void:
 		_set_light_state(v)
 
 
-func damage(val: int) -> void:
+func damage(dmg: int) -> void:
 	if is_dead(): return
-	_health -= val
-	_pulse()
+	_health -= dmg
+  _pulse()
 	if is_dead(): die()
 	elif float(_health) / float(initial_health) <= 0.2 && $PulseTimer.is_stopped():
 		$PulseTimer.start()
