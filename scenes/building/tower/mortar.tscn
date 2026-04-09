@@ -80,7 +80,7 @@ region = Rect2(84, 1, 23, 23)
 atlas = ExtResource("4_8gs13")
 region = Rect2(32, 46, 6, 6)
 
-[node name="Mortar" unique_id=1512153694 instance=ExtResource("1_n4wkq")]
+[node name="Mortar" unique_id=1512153694 groups=["mortar"] instance=ExtResource("1_n4wkq")]
 z_index = 1
 input_pickable = true
 script = ExtResource("2_a2cks")

@@ -74,6 +74,7 @@ enemy=""
 light_sensitive="Something that reacts to light beam, should have set_light_state(bool) method"
 player_built=""
 music_manager=""
+mortar=""
 
 [gui]
 

@@ -1,6 +1,8 @@
 extends Tower
 
 
+signal started_aiming
+
 @export var color_reload := Color.ORANGE_RED
 @export var color_ready := Color.LIME
 
@@ -29,7 +31,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 
 	elif event.is_action_pressed(&"deselect") and _is_targeting:
-		_cancel_aiming()
+		cancel_aiming()
 		get_viewport().set_input_as_handled()
 
 
@@ -57,15 +59,15 @@ func _draw() -> void:
 
 
 func _start_aiming() -> void:
+	if _is_targeting:
+		return
+
 	queue_redraw()
 	_is_targeting = true
 	aim_sprite.show()
 
+	started_aiming.emit()
 
-func _cancel_aiming() -> void:
-	queue_redraw()
-	_is_targeting = false
-	aim_sprite.hide()
 
 
 func _get_color() -> Color:
@@ -84,9 +86,18 @@ func shoot() -> void:
 	inst.target_pos = get_global_mouse_position()
 	inst.global_position = global_position
 	$ShootingSfx.play_sfx()
-	_cancel_aiming()
+	cancel_aiming()
 
 
 func _track_target() -> void:
 	if _is_targeting:
 		_look_at(get_global_mouse_position())
+
+
+func cancel_aiming() -> void:
+	if not _is_targeting:
+		return
+
+	queue_redraw()
+	_is_targeting = false
+	aim_sprite.hide()

@@ -229,6 +229,8 @@ func select_building(idx: int) -> void:
 	assert(idx == -1 or (0 <= idx and idx < build_list.items.size()),
 		"select building: index %s with len %s" % [idx, build_list.items.size()])
 
+	stop_aiming_mortar()
+
 	if idx == _selected_index:
 		return
 
@@ -261,3 +263,8 @@ func select_prev() -> void:
 
 func get_selected() -> int:
 	return _selected_index
+
+
+func stop_aiming_mortar() -> void:
+	for node: Node in get_tree().get_nodes_in_group(&"mortar"):
+		node.cancel_aiming()
