@@ -10,4 +10,4 @@ func _process(_delta: float) -> void:
 		text = "Nothing selected"
 		return
 	var cur: Buildable = _builder.build_list.items[idx]
-	text = "%s - %s, %d cost" % [cur.title, cur.description, cur.price]
+	text = "%s - %s, costs %d" % [cur.title, cur.description, cur.price]

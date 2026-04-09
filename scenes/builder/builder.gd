@@ -2,6 +2,9 @@ class_name Builder
 extends Node2D
 
 
+signal selected_building(idx: int)
+
+
 const Direction = Mirror.Direction
 
 const TILE_SIZE := Vector2.ONE * 12
@@ -77,6 +80,9 @@ func _try_place(at: Vector2) -> void:
 
 	if inst.is_in_group(&"light_sensitive") or inst.has_method(&"redirect_light"):
 		inst.tree_exited.connect(_calculate_light, CONNECT_ONE_SHOT)
+	
+	if inst.is_in_group(&"mortar"):
+		inst.started_aiming.connect(_select_building_mortars_unaffected.bind(-1))
 
 	_calculate_light()
 
@@ -225,14 +231,15 @@ func _extract_rids(nodes: Array[CollisionObject2D]) -> Array[RID]:
 	return res
 
 
-func select_building(idx: int) -> void:
+func _select_building_mortars_unaffected(idx: int) -> void:
 	assert(idx == -1 or (0 <= idx and idx < build_list.items.size()),
 		"select building: index %s with len %s" % [idx, build_list.items.size()])
 
-	stop_aiming_mortar()
-
 	if idx == _selected_index:
 		return
+
+	_selected_index = idx
+	selected_building.emit(_selected_index)
 
 	if not is_instance_valid(_preview_instance):
 		_preview_instance = Sprite2D.new()
@@ -241,8 +248,15 @@ func select_building(idx: int) -> void:
 
 	_preview_instance.visible = idx >= 0
 	_preview_instance.texture = null if idx == -1 else build_list.items[idx].preview
-	_selected_index = idx
 	_preview_instance.position = _round_to_cell_center(get_local_mouse_position())
+
+
+func select_building(idx: int) -> void:
+	assert(idx == -1 or (0 <= idx and idx < build_list.items.size()),
+		"select building: index %s with len %s" % [idx, build_list.items.size()])
+
+	stop_aiming_mortar()
+	_select_building_mortars_unaffected(idx)
 
 
 func deselect_building() -> void:

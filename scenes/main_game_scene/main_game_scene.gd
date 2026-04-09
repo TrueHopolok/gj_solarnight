@@ -43,7 +43,6 @@ func _ready() -> void:
 		var callable := builder.select_building.bind(i)
 		button.pressed.connect(func () -> void:
 			callable.call()
-			_update_selector()
 		)
 		idx_to_button[i] = button
 		i += 1
@@ -51,28 +50,27 @@ func _ready() -> void:
 	idx_to_button[-1] = button_unselect
 
 	button_unselect.pressed.connect(builder.deselect_building)
-	_update_selector()
+	_update_selector.call_deferred()
 
 	%Sun.died.connect(builder.hide)
+
+	builder.selected_building.connect(func(_building: int) -> void: _update_selector())
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"select_next"):
 		get_viewport().set_input_as_handled()
 		builder.select_next()
-		_update_selector()
 		return
 	elif event.is_action_pressed(&"select_prev"):
 		get_viewport().set_input_as_handled()
 		builder.select_prev()
-		_update_selector()
 		return
 
 	for event_name: StringName in event_to_idx:
 		if event.is_action_pressed(event_name):
 			get_viewport().set_input_as_handled()
 			builder.select_building(event_to_idx[event_name])
-			_update_selector()
 			return
 
 

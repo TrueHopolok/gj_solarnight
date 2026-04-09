@@ -21,14 +21,16 @@ func _mouse_exit() -> void:
 	_mouse_inside = false
 
 
+func _input(event: InputEvent) -> void:
+	if _is_targeting and event.is_action_pressed(&"mortar_target"):
+		shoot()
+		get_viewport().set_input_as_handled()
+
+
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"mortar_target"):
-		if _is_targeting:
-			shoot()
-			get_viewport().set_input_as_handled()
-		elif _mouse_inside:
-			_start_aiming()
-			get_viewport().set_input_as_handled()
+	if not _is_targeting and _mouse_inside and event.is_action_pressed(&"mortar_target"):
+		_start_aiming()
+		get_viewport().set_input_as_handled()
 
 	elif event.is_action_pressed(&"deselect") and _is_targeting:
 		cancel_aiming()
