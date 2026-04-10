@@ -1,11 +1,14 @@
 extends Tower
 
 
+signal started_aiming
+
 @export var color_reload := Color.ORANGE_RED
 @export var color_ready := Color.LIME
 
 @onready var ready_marker: Sprite2D = $Ready
 @onready var aim_sprite: Sprite2D = $Aim
+@onready var trajectory: Node2D = $Trajectory
 
 var _mouse_inside: bool = false
 var _is_targeting: bool = false
@@ -20,16 +23,16 @@ func _mouse_exit() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"mortar_target"):
-		if _is_targeting:
-			shoot()
-			get_viewport().set_input_as_handled()
-		elif _mouse_inside:
-			_start_aiming()
-			get_viewport().set_input_as_handled()
+	if _is_targeting and event.is_action_pressed(&"mortar_target"):
+		shoot()
+		get_viewport().set_input_as_handled()
 
-	elif event.is_action_pressed(&"mortar_cancel") and _is_targeting:
-		_cancel_aiming()
+	elif not _is_targeting and _mouse_inside and event.is_action_pressed(&"mortar_target") and _noone_else_is_aiming():
+		_start_aiming()
+		get_viewport().set_input_as_handled()
+
+	elif event.is_action_pressed(&"deselect") and _is_targeting:
+		cancel_aiming()
 		get_viewport().set_input_as_handled()
 
 
@@ -39,12 +42,7 @@ func _physics_process(delta: float) -> void:
 	ready_marker.visible = _energry and _reload_left <= 0
 
 	if _is_targeting:
-		aim_sprite.modulate = _get_color()
-		aim_sprite.global_position = get_global_mouse_position()
-
-		var a := snappedf(global_position.direction_to(get_global_mouse_position()).angle(), TAU / 8)
-		ready_marker.position = Vector2.from_angle(a)
-		queue_redraw()
+		_update_aiming_visuals()
 
 
 func _draw() -> void:
@@ -56,22 +54,42 @@ func _draw() -> void:
 		draw_dashed_line(mid, target, color_reload, 1)
 
 
+func _update_aiming_visuals() -> void:
+	trajectory.progress = clampf(remap(_reload_left, 0, reload_time, 1, 0), 0, 1)
+	aim_sprite.modulate = _get_color()
+	aim_sprite.global_position = get_global_mouse_position()
+
+	var a := snappedf(global_position.direction_to(get_global_mouse_position()).angle(), TAU / 8)
+	ready_marker.position = Vector2.from_angle(a)
+	queue_redraw()
+
+
 func _start_aiming() -> void:
+	if _is_targeting:
+		return
+
 	queue_redraw()
 	_is_targeting = true
 	aim_sprite.show()
+	trajectory.show()
+	process_priority = 0
 
+	_update_aiming_visuals()
+	started_aiming.emit()
 
-func _cancel_aiming() -> void:
-	queue_redraw()
-	_is_targeting = false
-	aim_sprite.hide()
 
 
 func _get_color() -> Color:
 	if _reload_left > 0:
 		return color_reload
 	return color_ready
+
+
+func _noone_else_is_aiming() -> bool:
+	for node: Node in get_tree().get_nodes_in_group(&"mortar"):
+		if node != self and node._is_targeting:
+			return false
+	return true
 
 
 func shoot() -> void:
@@ -84,9 +102,20 @@ func shoot() -> void:
 	inst.target_pos = get_global_mouse_position()
 	inst.global_position = global_position
 	$ShootingSfx.play_sfx()
-	_cancel_aiming()
+	cancel_aiming()
 
 
 func _track_target() -> void:
 	if _is_targeting:
 		_look_at(get_global_mouse_position())
+
+
+func cancel_aiming() -> void:
+	if not _is_targeting:
+		return
+
+	queue_redraw()
+	_is_targeting = false
+	aim_sprite.hide()
+	trajectory.hide()
+	process_priority = 1

@@ -38,8 +38,7 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 [sub_resource type="Resource" id="Resource_rmcqy"]
 script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
-text = "To unselect current building press 'Space'.
-To sell building click on the building with 'RMB'."
+text = "You can always sell building using RMB. To deselect current building press 'Space'."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_vwykj"]
@@ -100,7 +99,7 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
 text = "Use numbers on your keyboard or scroll wheel to select [color=skyblue]mirrors[/color] on your hotbar.
-[color=skyblue]Mirrors[/color] can redirect light. More expensive mirrors can split light into 2 beams."
+[color=skyblue]Mirrors[/color] can redirect light and split light beams in two."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_cfisr"]
@@ -125,9 +124,9 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 [sub_resource type="Resource" id="Resource_idv6w"]
 script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
-text = "Mortars shot manually.
+text = "Mortars shoot manually.
 Press LMB on mortar when it is charged and press LMB where you want to hit.
-Press RMB to cancel aiming."
+Press RMB or Space to cancel aiming."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_54pn3"]
@@ -179,8 +178,8 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 [sub_resource type="Resource" id="Resource_bx8a3"]
 script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
-text = "Hero ships have shield that protect them and other ships!
-[color=orangered]Mortars[/color] can bypass shield damaging ship directly."
+text = "Hero ships have shield that protect them and others!
+[color=orangered]Mortars[/color] can bypass shield, damaging ship directly."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_1vags"]
