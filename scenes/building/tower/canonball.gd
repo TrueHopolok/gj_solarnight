@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 
 	if is_instance_valid(target) and not target.is_dead():
 		last_dir = global_position.direction_to(target.global_position)
-	elif last_dir.is_zero_approx() or target.is_dead():
+	elif last_dir.is_zero_approx():
 		queue_free()
 		return
 

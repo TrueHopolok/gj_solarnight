@@ -87,7 +87,7 @@ input_pickable = true
 script = ExtResource("2_a2cks")
 color_reload = Color(0.99607843, 0.42352942, 0.2901961, 1)
 color_ready = Color(0.9411765, 0.8862745, 0.65882355, 1)
-reload_time = 12.0
+reload_time = 15.0
 projectile = ExtResource("3_ufnnf")
 fire_manually = true
 

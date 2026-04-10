@@ -96,7 +96,7 @@ func _try_delete(at: Vector2) -> bool:
 	if not inst.is_in_group(&"player_built"):
 		return false
 
-	GameManager.get_instance().materials_add((inst.get_meta(&"builder_price", 0) as int + 1) / 2)
+	GameManager.get_instance().materials_add((inst.get_meta(&"builder_price", 0) as int))
 	inst.get_parent().remove_child(inst)
 	inst.queue_free()
 	return true
