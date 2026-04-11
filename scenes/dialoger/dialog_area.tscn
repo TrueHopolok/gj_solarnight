@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dmuybgrmw47ak"]
 
 [ext_resource type="Script" uid="uid://xtfhg08vfl4x" path="res://scenes/dialoger/dialog_area.gd" id="1_47a61"]
-[ext_resource type="Texture2D" uid="uid://csqyn1qqojlue" path="res://assets/sprites/faces.png" id="2_1amv2"]
+[ext_resource type="Texture2D" uid="uid://dk33hbin4iplw" path="res://assets/sprites/faces.png" id="2_1amv2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7cdo"]
 atlas = ExtResource("2_1amv2")
@@ -11,6 +11,10 @@ region = Rect2(0, 0, 22, 22)
 atlas = ExtResource("2_1amv2")
 region = Rect2(22, 0, 22, 22)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1amv2"]
+atlas = ExtResource("2_1amv2")
+region = Rect2(44, 0, 22, 22)
+
 [node name="DialogArea" type="PanelContainer" unique_id=78673157]
 offset_left = 17.0
 offset_top = 14.0
@@ -19,6 +23,7 @@ offset_bottom = 44.0
 script = ExtResource("1_47a61")
 king_face = SubResource("AtlasTexture_i7cdo")
 wizard_face = SubResource("AtlasTexture_u4s5l")
+nerd_face = SubResource("AtlasTexture_1amv2")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1216711579]
 layout_mode = 2
