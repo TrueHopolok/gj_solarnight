@@ -52,5 +52,7 @@ script = ExtResource("1_tkpb4")
 shape = SubResource("CircleShape2D_8upw4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=754079927]
+z_index = 5
+z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_ani0y")
 autoplay = "default"
