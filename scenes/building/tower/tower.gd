@@ -159,5 +159,8 @@ func is_dead() -> bool:
 func die() -> void:
 	$CollisionShape2D.call_deferred(&'set_disabled', true)
 	$DestroyedSFX.play()
-	# TODO: add death animation
 	$DestroyedSFX.finished.connect(queue_free)
+	$BOOM.show()
+	$BOOM.play(&'default')
+	$BOOM.animation_finished.connect($BOOM.hide)
+	$Sprite.hide()

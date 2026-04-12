@@ -13,6 +13,7 @@ const CHARS_PER_SECOND: float = 70.0
 
 @export var king_face: Texture
 @export var wizard_face: Texture
+@export var nerd_face: Texture
 
 var _current_seq: Array[DialogLine] = []
 var _state := State.INACTIVE
@@ -138,4 +139,6 @@ func _fade_out() -> void:
 func _get_speaker_face(s: String) -> Texture:
 	if s.to_lower().contains("king"):
 		return king_face
+	elif s.to_lower().contains("tutorial"):
+		return nerd_face
 	return wizard_face

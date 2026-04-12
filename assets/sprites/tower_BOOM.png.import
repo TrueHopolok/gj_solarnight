@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk33hbin4iplw"
-path="res://.godot/imported/faces.png-cf253847f6c5d83c1e40d45c380b046c.ctex"
+uid="uid://u4a2d1gd7ici"
+path="res://.godot/imported/tower_BOOM.png-232e11d42d5956f1a68faea3126f9a19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/faces.png"
-dest_files=["res://.godot/imported/faces.png-cf253847f6c5d83c1e40d45c380b046c.ctex"]
+source_file="res://assets/sprites/tower_BOOM.png"
+dest_files=["res://.godot/imported/tower_BOOM.png-232e11d42d5956f1a68faea3126f9a19.ctex"]
 
 [params]
 
