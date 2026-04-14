@@ -22,6 +22,12 @@ func _physics_process(delta: float) -> void:
 		$IntenseMusicPlayer.volume_linear = min($IntenseMusicPlayer.volume_linear + VOLUME_GROWTH_PER_SEC * delta, _target_volume_linear)
 	elif $IntenseMusicPlayer.volume_linear > _target_volume_linear:
 		$IntenseMusicPlayer.volume_linear = max($IntenseMusicPlayer.volume_linear - VOLUME_GROWTH_PER_SEC * delta, _target_volume_linear)
+	if OS.get_name() == "Web":
+		if get_tree().paused:
+			$MainMusicPlayer.volume_db = -10
+			$IntenseMusicPlayer.volume_db -= 10
+		else:
+			$MainMusicPlayer.volume_db = 0
 
 
 func _process(_delta: float) -> void:

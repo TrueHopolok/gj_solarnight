@@ -13,6 +13,7 @@ const CHARS_PER_SECOND: float = 70.0
 
 @export var king_face: Texture
 @export var wizard_face: Texture
+@export var nerd_face: Texture
 
 var _current_seq: Array[DialogLine] = []
 var _state := State.INACTIVE
@@ -48,6 +49,7 @@ func _on_tween_finished() -> void:
 
 		State.FADE_OUT:
 			_state = State.INACTIVE
+			hide()
 
 
 func _on_button() -> void:
@@ -74,6 +76,7 @@ func play_dialog(lines: Array[DialogLine]) -> void:
 	_current_seq.reverse()
 	face.texture = _get_speaker_face(_current_seq.back().speaker)
 
+	show()
 	_fade_in()
 
 
@@ -91,7 +94,7 @@ func _show_line(line: DialogLine) -> void:
 
 	var t := create_tween()
 	t.tween_property(content, "visible_ratio", 1.0, dur)
-	t.chain().tween_callback(next.set.bind("disabled", false))
+	next.disabled = false
 	_last_tween = t
 
 	_state = State.SPEAKING
@@ -136,4 +139,6 @@ func _fade_out() -> void:
 func _get_speaker_face(s: String) -> Texture:
 	if s.to_lower().contains("king"):
 		return king_face
+	elif s.to_lower().contains("tutorial"):
+		return nerd_face
 	return wizard_face

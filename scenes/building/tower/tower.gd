@@ -27,6 +27,17 @@ func _ready() -> void:
 	set_sun_state(false)
 
 	$PulseTimer.timeout.connect(_pulse)
+	GameManager.get_instance().wave_ended.connect(
+	func(_wave_number: int) -> void:
+		_health = initial_health
+		if !$PulseTimer.paused:
+			$PulseTimer.stop()
+		_reload_left = 0
+	)
+	GameManager.get_instance().wave_started.connect(
+	func(_wave_number: int) -> void:
+		_reload_left = randf_range(0, 0.1)
+	)
 
 
 func _pulse() -> void:
@@ -90,7 +101,7 @@ func _track_target() -> void:
 	if target == null:
 		return
 
-	_look_at(-target.global_position)
+	_look_at(target.global_position)
 
 
 func _look_at(global_pos: Vector2) -> void:
@@ -132,12 +143,11 @@ func set_light_state(v: bool) -> void:
 		_set_light_state(v)
 
 
-func damage(val: int) -> void:
-	if is_dead():
-		return
-	_health -= val
-	if is_dead():
-		die()
+func damage(dmg: int) -> void:
+	if is_dead(): return
+	_health -= dmg
+	_pulse()
+	if is_dead(): die()
 	elif float(_health) / float(initial_health) <= 0.2 && $PulseTimer.is_stopped():
 		$PulseTimer.start()
 
@@ -149,5 +159,8 @@ func is_dead() -> bool:
 func die() -> void:
 	$CollisionShape2D.call_deferred(&'set_disabled', true)
 	$DestroyedSFX.play()
-	# TODO: add death animation
 	$DestroyedSFX.finished.connect(queue_free)
+	$BOOM.show()
+	$BOOM.play(&'default')
+	$BOOM.animation_finished.connect($BOOM.hide)
+	$Sprite.hide()

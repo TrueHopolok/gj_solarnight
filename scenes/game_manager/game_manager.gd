@@ -50,13 +50,13 @@ var _enemy_shop: Array[EnemyItem] = [
 	EnemyItem.new(5, 5, [preload('res://scenes/enemy/enemy_type/enemy_fodder.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
 
 	## Shield
-	EnemyItem.new(ENEMY_SHIELD_WAVE, 20, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn')]),
+	EnemyItem.new(ENEMY_SHIELD_WAVE, 30, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn')]),
 
 	# Shield + Shooter
-	EnemyItem.new(12, 22, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+	EnemyItem.new(12, 32, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
 
 	# Shield + 2xShooter
-	EnemyItem.new(14, 23, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
+	EnemyItem.new(14, 33, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
 
 	## Blimp
 	EnemyItem.new(ENEMY_BLIMP_WAVE, 75, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]),
@@ -65,7 +65,7 @@ var _enemy_shop: Array[EnemyItem] = [
 	EnemyItem.new(16, 77, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
 
 	# Shield + Blimp
-	EnemyItem.new(18, 90, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]),
+	EnemyItem.new(18, 100, [preload('res://scenes/enemy/enemy_type/enemy_shield.tscn'), preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn')]),
 
 	# Blimp + 2xShooter
 	EnemyItem.new(20, 78, [preload('res://scenes/enemy/enemy_type/enemy_blimp.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn'), preload('res://scenes/enemy/enemy_type/enemy_shooter.tscn')]),
@@ -132,9 +132,11 @@ class EnemyItem:
 ####################
 ### WAVE MANAGER ###
 
+signal wave_started(wave_started: int)
 signal wave_ended(wave_completed: int)
 
-const WAVE_MATERIALS: int = 5
+const WAVE_MATERIALS_EARLY: int = 5
+const WAVE_MATERIALS_LATER: int = 10
 const WAVE_MINIMAL_MATERIALS: int = 10
 
 var _wave_number: int = 0 # important to set as 0, so first wave would be 1
@@ -152,8 +154,13 @@ func wave_active() -> bool:
 func wave_start() -> void:
 	_wave_number += 1
 	_wave_enemy_counter = 0
+	wave_started.emit(_wave_number)
 
-	var shopping_materials: int = max(WAVE_MINIMAL_MATERIALS, _wave_number * WAVE_MATERIALS)
+	var shopping_materials: int
+	if _wave_number <= ENEMY_BLIMP_WAVE:
+		shopping_materials = max(WAVE_MINIMAL_MATERIALS, _wave_number * WAVE_MATERIALS_EARLY)
+	else:
+		shopping_materials = _wave_number * WAVE_MATERIALS_LATER - ENEMY_BLIMP_WAVE * WAVE_MATERIALS_EARLY
 	print("STARTING WAVE: %d  |  sm=%d" % [_wave_number, shopping_materials])
 
 	var enemy_wave_shop: Array[EnemyItem] = _enemy_shop.duplicate()
