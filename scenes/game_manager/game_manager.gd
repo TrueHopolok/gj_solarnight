@@ -135,7 +135,8 @@ class EnemyItem:
 signal wave_started(wave_started: int)
 signal wave_ended(wave_completed: int)
 
-const WAVE_MATERIALS: int = 5
+const WAVE_MATERIALS_EARLY: int = 5
+const WAVE_MATERIALS_LATER: int = 10
 const WAVE_MINIMAL_MATERIALS: int = 10
 
 var _wave_number: int = 0 # important to set as 0, so first wave would be 1
@@ -155,7 +156,11 @@ func wave_start() -> void:
 	_wave_enemy_counter = 0
 	wave_started.emit(_wave_number)
 
-	var shopping_materials: int = max(WAVE_MINIMAL_MATERIALS, _wave_number * WAVE_MATERIALS)
+	var shopping_materials: int
+	if _wave_number <= ENEMY_BLIMP_WAVE:
+		shopping_materials = max(WAVE_MINIMAL_MATERIALS, _wave_number * WAVE_MATERIALS_EARLY)
+	else:
+		shopping_materials = _wave_number * WAVE_MATERIALS_LATER - ENEMY_BLIMP_WAVE * WAVE_MATERIALS_EARLY
 	print("STARTING WAVE: %d  |  sm=%d" % [_wave_number, shopping_materials])
 
 	var enemy_wave_shop: Array[EnemyItem] = _enemy_shop.duplicate()

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cgicckc6q6ysf"]
 
 [ext_resource type="Script" uid="uid://bmj0fk04ljg6s" path="res://scenes/main_game_scene/main_game_scene.gd" id="1_7csvj"]
+[ext_resource type="Script" uid="uid://c3lpaec8bis6w" path="res://scenes/main_game_scene/wave_notificiations.gd" id="2_eow6e"]
 [ext_resource type="PackedScene" uid="uid://cpvo88ktvlqb4" path="res://scenes/game_manager/game_manager.tscn" id="2_k1t50"]
 [ext_resource type="PackedScene" uid="uid://bkl55wj7p4u1a" path="res://scenes/intense_music_player/intense_music_player.tscn" id="2_spbxy"]
 [ext_resource type="PackedScene" uid="uid://5yo5qwv1thla" path="res://scenes/ambient_player/ambient_player.tscn" id="3_jtc3g"]
@@ -39,6 +40,15 @@ border_color = Color(0.4373444, 0.18196476, 0.16738698, 1)
 
 [node name="MainGameScene" type="Node2D" unique_id=521506140]
 script = ExtResource("1_7csvj")
+
+[node name="WaveNotificiations" type="Node" parent="." unique_id=1053424518]
+script = ExtResource("2_eow6e")
+
+[node name="WaveStartSFX" type="AudioStreamPlayer" parent="WaveNotificiations" unique_id=811474654]
+bus = &"SFX"
+
+[node name="WaveEndSFX" type="AudioStreamPlayer" parent="WaveNotificiations" unique_id=1468167545]
+bus = &"SFX"
 
 [node name="IntenseMusicPlayer" parent="." unique_id=745860557 instance=ExtResource("2_spbxy")]
 
