@@ -21,7 +21,7 @@ script = ExtResource("1_7ewgr")
 title = "cannon"
 description = "high dps, single target"
 scene = ExtResource("9_pblee")
-price = 8
+price = 10
 preview = SubResource("AtlasTexture_pblee")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
@@ -34,7 +34,7 @@ script = ExtResource("1_7ewgr")
 title = "laser"
 description = "low dps, multi target"
 scene = ExtResource("10_fq1x2")
-price = 15
+price = 20
 preview = SubResource("AtlasTexture_fq1x2")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
@@ -47,7 +47,7 @@ script = ExtResource("1_7ewgr")
 title = "mortar"
 description = "high dmg, manual fire"
 scene = ExtResource("11_c2mrs")
-price = 40
+price = 60
 preview = SubResource("AtlasTexture_c2mrs")
 metadata/_custom_type_script = "uid://ddlsqsg032paw"
 
