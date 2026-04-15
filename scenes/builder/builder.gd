@@ -30,7 +30,11 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"place_building") and _selected_index != -1:
 		get_viewport().set_input_as_handled()
-		_try_place(get_local_mouse_position())
+		if _selected_index == -2:
+			if _try_delete(get_local_mouse_position()):
+				get_viewport().set_input_as_handled()
+		else:
+			_try_place(get_local_mouse_position())
 	elif event.is_action_pressed(&"delete_building"):
 		if _try_delete(get_local_mouse_position()):
 			get_viewport().set_input_as_handled()
@@ -232,7 +236,7 @@ func _extract_rids(nodes: Array[CollisionObject2D]) -> Array[RID]:
 
 
 func _select_building_mortars_unaffected(idx: int) -> void:
-	assert(idx == -1 or (0 <= idx and idx < build_list.items.size()),
+	assert(idx == -1 or idx == -2 or (0 <= idx and idx < build_list.items.size()),
 		"select building: index %s with len %s" % [idx, build_list.items.size()])
 
 	if idx == _selected_index:
@@ -252,7 +256,7 @@ func _select_building_mortars_unaffected(idx: int) -> void:
 
 
 func select_building(idx: int) -> void:
-	assert(idx == -1 or (0 <= idx and idx < build_list.items.size()),
+	assert(idx == -1 or idx == -2 or (0 <= idx and idx < build_list.items.size()),
 		"select building: index %s with len %s" % [idx, build_list.items.size()])
 
 	stop_aiming_mortar()
@@ -282,3 +286,10 @@ func get_selected() -> int:
 func stop_aiming_mortar() -> void:
 	for node: Node in get_tree().get_nodes_in_group(&"mortar"):
 		node.cancel_aiming()
+
+
+func toggle_sell_mode() -> void:
+	if _selected_index == -2:
+		select_building(-1)
+	else:
+		select_building(-2)

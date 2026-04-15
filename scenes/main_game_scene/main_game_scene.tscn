@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgicckc6q6ysf"]
 
 [ext_resource type="Script" uid="uid://bmj0fk04ljg6s" path="res://scenes/main_game_scene/main_game_scene.gd" id="1_7csvj"]
-[ext_resource type="Script" path="res://scenes/main_game_scene/wave_notificiations.gd" id="2_eow6e"]
+[ext_resource type="Script" uid="uid://c3lpaec8bis6w" path="res://scenes/main_game_scene/wave_notificiations.gd" id="2_eow6e"]
 [ext_resource type="PackedScene" uid="uid://cpvo88ktvlqb4" path="res://scenes/game_manager/game_manager.tscn" id="2_k1t50"]
 [ext_resource type="PackedScene" uid="uid://bkl55wj7p4u1a" path="res://scenes/intense_music_player/intense_music_player.tscn" id="2_spbxy"]
 [ext_resource type="PackedScene" uid="uid://5yo5qwv1thla" path="res://scenes/ambient_player/ambient_player.tscn" id="3_jtc3g"]
@@ -19,18 +19,22 @@
 [ext_resource type="Script" uid="uid://cgfptppkqywh2" path="res://scenes/main_game_scene/materials_label.gd" id="11_6hiqo"]
 [ext_resource type="AudioStream" uid="uid://cxq3ca5el6dja" path="res://audio/sfx/gameplay/sound_not_enough_materials.wav" id="12_dw0dr"]
 [ext_resource type="Script" uid="uid://bdq0qvdqct6el" path="res://scenes/main_game_scene/wave_label.gd" id="12_hnlf3"]
-[ext_resource type="Texture2D" uid="uid://373jjfq7kqxb" path="res://assets/temperary/tileset.png" id="12_k87rj"]
 [ext_resource type="Script" uid="uid://c74mokkbt2eu0" path="res://scenes/main_game_scene/next_wave.gd" id="14_8hmrp"]
 [ext_resource type="Script" uid="uid://ckmiyklnfr6lr" path="res://scenes/main_game_scene/hotbar_label.gd" id="15_gq030"]
 [ext_resource type="PackedScene" uid="uid://dmuybgrmw47ak" path="res://scenes/dialoger/dialog_area.tscn" id="16_pp6md"]
 [ext_resource type="Texture2D" uid="uid://dbgrxx1a542m7" path="res://assets/sprites/sundials.png" id="17_ty5rg"]
+[ext_resource type="Texture2D" uid="uid://crhcvlfxvp7oo" path="res://assets/sprites/deselected.png" id="21_yaru0"]
+[ext_resource type="Texture2D" uid="uid://qa22jxbku0j6" path="res://assets/sprites/lighthouse.png" id="22_iyb1l"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2inbw"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dw0dr"]
-atlas = ExtResource("12_k87rj")
-region = Rect2(73, 0, 11, 12)
+[sub_resource type="CircleShape2D" id="CircleShape2D_yaru0"]
+radius = 14.79
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdm0p"]
+atlas = ExtResource("22_iyb1l")
+region = Rect2(30, 6, 12, 12)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnlf3"]
 draw_center = false
@@ -165,17 +169,34 @@ offset_left = 21.0
 offset_top = 333.0
 offset_right = 97.0
 offset_bottom = 357.0
+alignment = 1
 
-[node name="Label" type="Label" parent="UI/SunDial" unique_id=1742085785]
+[node name="Label" type="Label" parent="UI/SunDial" unique_id=1742085785 groups=["keyboard_hint"]]
 modulate = Color(0.9411765, 0.8392157, 0.6392157, 1)
 layout_mode = 2
 text = "A"
 
-[node name="TextureRect" type="TextureRect" parent="UI/SunDial" unique_id=1229688984]
+[node name="SunDial" type="TextureRect" parent="UI/SunDial" unique_id=1547786558]
+custom_minimum_size = Vector2(16.995, 0)
 layout_mode = 2
 texture = ExtResource("17_ty5rg")
+stretch_mode = 3
 
-[node name="Label2" type="Label" parent="UI/SunDial" unique_id=1093471999]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="UI/SunDial" unique_id=394200117]
+position = Vector2(18, 12)
+shape = SubResource("CircleShape2D_yaru0")
+passby_press = true
+action = "projector_ccw"
+visibility_mode = 1
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="UI/SunDial" unique_id=304322757]
+position = Vector2(58, 12)
+shape = SubResource("CircleShape2D_yaru0")
+passby_press = true
+action = "projector_cw"
+visibility_mode = 1
+
+[node name="Label2" type="Label" parent="UI/SunDial" unique_id=1093471999 groups=["keyboard_hint"]]
 modulate = Color(0.9411765, 0.8392157, 0.6392157, 1)
 layout_mode = 2
 text = "D"
@@ -192,22 +213,25 @@ size_flags_horizontal = 3
 focus_behavior_recursive = 1
 alignment = 1
 
-[node name="Node" type="Node" parent="UI/Hotbar" unique_id=256703975]
-
-[node name="ButtonUnselect" type="Button" parent="UI/Hotbar/Node" unique_id=314429090]
+[node name="ButtonUnselect" type="Button" parent="UI/Hotbar" unique_id=314429090]
 unique_name_in_owner = true
-offset_left = 310.0
-offset_top = 374.0
-offset_right = 329.0
-offset_bottom = 394.0
-icon = SubResource("AtlasTexture_dw0dr")
+layout_mode = 2
+text = "Space"
+icon = ExtResource("21_yaru0")
+
+[node name="ButtonSell" type="Button" parent="UI/Hotbar" unique_id=1373377177 groups=["touch_hint"]]
+unique_name_in_owner = true
+layout_mode = 2
+icon = SubResource("AtlasTexture_rdm0p")
+
+[node name="Node" type="Node" parent="UI/Hotbar" unique_id=256703975]
 
 [node name="Selector" type="Panel" parent="UI/Hotbar/Node" unique_id=1987699257]
 unique_name_in_owner = true
-offset_left = 300.0
-offset_top = 375.0
-offset_right = 322.0
-offset_bottom = 396.0
+offset_left = 298.0
+offset_top = 339.0
+offset_right = 320.0
+offset_bottom = 360.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hnlf3")
 
 [node name="NextWave" parent="UI" unique_id=164179275 instance=ExtResource("9_b1vg4")]

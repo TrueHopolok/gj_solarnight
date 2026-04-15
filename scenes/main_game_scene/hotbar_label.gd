@@ -9,5 +9,8 @@ func _process(_delta: float) -> void:
 	if idx == -1:
 		text = "Nothing selected"
 		return
+	elif idx == -2:
+		text = "Destroy building"
+		return
 	var cur: Buildable = _builder.build_list.items[idx]
 	text = "%s - %s, costs %d" % [cur.title, cur.description, cur.price]

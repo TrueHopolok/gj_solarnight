@@ -23,17 +23,21 @@ var idx_to_button: Dictionary[int, Button] = {}
 @onready var hotbar: HBoxContainer = %Hotbar
 @onready var builder: Builder = $Builder
 @onready var button_unselect: Button = %ButtonUnselect
+@onready var button_sell: Button = %ButtonSell
 @onready var selector: Control = %Selector
 
 
 func _ready() -> void:
 	Persistence.current_score = 0
+	
+	var is_touch := SettingsCfg.is_touchscreen()
 
 	var i: int = 0
 	for item: Buildable in buildables.items:
 		var button := Button.new()
 		hotbar.add_child(button)
-		button.text = HOTKEYS[i]
+		if not is_touch:
+			button.text = HOTKEYS[i]
 		button.icon = item.preview
 		var callable := builder.select_building.bind(i)
 		button.pressed.connect(func () -> void:
@@ -42,14 +46,25 @@ func _ready() -> void:
 		idx_to_button[i] = button
 		i += 1
 
+	if is_touch:
+		button_unselect.text = ""
+		
 	idx_to_button[-1] = button_unselect
+	idx_to_button[-2] = button_sell
 
 	button_unselect.pressed.connect(builder.deselect_building)
+	button_sell.pressed.connect(builder.toggle_sell_mode)
 	_update_selector.call_deferred()
 
 	%Sun.died.connect(builder.hide)
 
 	builder.selected_building.connect(func(_building: int) -> void: _update_selector())
+	
+	if SettingsCfg.is_touchscreen():
+		get_tree().call_group(&"keyboard_hint", "hide")
+	else:
+		get_tree().call_group(&"touch_hint", "hide")
+		
 
 
 func _unhandled_input(event: InputEvent) -> void:

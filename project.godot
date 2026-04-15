@@ -75,6 +75,8 @@ light_sensitive="Something that reacts to light beam, should have set_light_stat
 player_built=""
 music_manager=""
 mortar=""
+keyboard_hint=""
+touch_hint=""
 
 [gui]
 
@@ -193,3 +195,4 @@ debug_infitematerials={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
