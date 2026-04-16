@@ -86,7 +86,11 @@ func _show_line(line: DialogLine) -> void:
 		_last_tween = null
 
 	speaker.text = line.speaker
-	content.text = line.text
+	
+	if SettingsCfg.is_touchscreen() and not line.touchscreen_override_text.is_empty():
+		content.text = line.touchscreen_override_text
+	else:
+		content.text = line.text
 	content.visible_ratio = 0
 	face.texture = _get_speaker_face(line.speaker)
 

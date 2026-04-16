@@ -33,12 +33,14 @@ script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
 text = "Use scrollwheel or press 'Q' to select the canon.
 Press LMB to place it on the field. Be aware, [wave freq=2][color=orange]all cannons must be powered by the Sun[/color]."
+touchscreen_override_text = "Select the canon from the hotbar, then touch the field to place it. Be aware, [wave freq=2][color=orange]all cannons must be powered by the Sun[/color]."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_rmcqy"]
 script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
 text = "You can always sell building using RMB. To deselect current building press 'Space'."
+touchscreen_override_text = "You can always sell building using the destroy tool from the hotbar."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_vwykj"]
@@ -63,6 +65,8 @@ metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
 text = "Press 'A' and 'D' or left and right arrows to turn your beacon's light.
+All towers under the light, will have [color=orange][wave freq=2]increased shooting rate[/wave][/color]."
+touchscreen_override_text = "Touch the sundial arrows at the bottom left to turn your beacon's light.
 All towers under the light, will have [color=orange][wave freq=2]increased shooting rate[/wave][/color]."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
@@ -100,6 +104,7 @@ script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
 text = "Use numbers on your keyboard or scroll wheel to select [color=skyblue]mirrors[/color] on your hotbar.
 [color=skyblue]Mirrors[/color] can redirect light and split light beams in two."
+touchscreen_override_text = "Select [color=skyblue]mirrors[/color] from your hotbar and place it into a beam of light. [color=skyblue]Mirrors[/color] can redirect light and split light beams in two."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_cfisr"]
@@ -119,6 +124,7 @@ script = ExtResource("2_mjpo8")
 speaker = "[color=gray]Tutorial[/color]"
 text = "Press 'E' or use scrollwheel to select a Mortar.
 Press LMB to place it."
+touchscreen_override_text = "Select and place a mortar."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_idv6w"]
@@ -127,6 +133,7 @@ speaker = "[color=gray]Tutorial[/color]"
 text = "Mortars shoot manually.
 Press LMB on mortar when it is charged and press LMB where you want to hit.
 Press RMB or Space to cancel aiming."
+touchscreen_override_text = "Mortars shoot manually. Touch it to aim and touch again to shoot. Selecting any building cancels aiming."
 metadata/_custom_type_script = "uid://xcsbj0dde8d2"
 
 [sub_resource type="Resource" id="Resource_54pn3"]
