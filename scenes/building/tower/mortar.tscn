@@ -9,6 +9,14 @@
 [ext_resource type="AudioStream" uid="uid://i5t2im7qib4c" path="res://audio/sfx/sound_mortar_allInOne.wav" id="7_wr2se"]
 [ext_resource type="Script" uid="uid://ddl42moiy77yo" path="res://scenes/building/tower/mortar_trajectory.gd" id="8_3jbk7"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufnnf"]
+atlas = ExtResource("3_1arh1")
+region = Rect2(84, 1, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr2w5"]
+atlas = ExtResource("4_8gs13")
+region = Rect2(32, 46, 6, 6)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_q1465"]
 atlas = ExtResource("4_8gs13")
 region = Rect2(0, 28, 12, 12)
@@ -73,14 +81,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ufnnf"]
-atlas = ExtResource("3_1arh1")
-region = Rect2(84, 1, 23, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hr2w5"]
-atlas = ExtResource("4_8gs13")
-region = Rect2(32, 46, 6, 6)
-
 [node name="Mortar" unique_id=1512153694 groups=["mortar"] instance=ExtResource("1_n4wkq")]
 z_index = 1
 input_pickable = true
@@ -90,9 +90,6 @@ color_ready = Color(0.9411765, 0.8862745, 0.65882355, 1)
 reload_time = 15.0
 projectile = ExtResource("3_ufnnf")
 fire_manually = true
-
-[node name="Sprite" parent="." index="1" unique_id=1941252386]
-sprite_frames = SubResource("SpriteFrames_hr2w5")
 
 [node name="Aim" type="Sprite2D" parent="." index="2" unique_id=1095914969]
 process_priority = 1
@@ -112,10 +109,14 @@ color_ready = Color(0.9411765, 0.8862745, 0.65882355, 1)
 [node name="Ready" type="Sprite2D" parent="." index="4" unique_id=1650793715]
 visible = false
 modulate = Color(0.51119727, 0.51119727, 0.5111972, 0.48235294)
+z_index = 1
 texture = SubResource("AtlasTexture_hr2w5")
 
-[node name="PlacedSFX" parent="." index="6" unique_id=1344402789]
+[node name="Sprite" parent="." index="5" unique_id=1941252386]
+sprite_frames = SubResource("SpriteFrames_hr2w5")
+
+[node name="PlacedSFX" parent="." index="7" unique_id=1344402789]
 stream = ExtResource("6_q1465")
 
-[node name="ShootingSfx" parent="." index="8" unique_id=366450851]
+[node name="ShootingSfx" parent="." index="9" unique_id=366450851]
 _audio_streams = Array[AudioStream]([ExtResource("7_wr2se")])
